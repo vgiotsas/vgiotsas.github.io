@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasileios Giotsas | Senior Research Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .title {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .affiliation {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            margin: 40px auto;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #222;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .interest-item {
+            padding: 15px 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .interest-item:hover {
+            background-color: #e8e8e8;
+            transform: translateY(-2px);
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 3px solid #e0e0e0;
+        }
+
+        .biography {
+            text-align: justify;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .updates {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .update-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .update-date {
+            font-weight: 600;
+            color: #666;
+            min-width: 100px;
+            margin-right: 20px;
+        }
+
+        .publication {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .publication-authors {
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        .publication-venue {
+            color: #888;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 40px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .contact a {
+            color: #3498db;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 100;
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+            
+            .update-item {
+                flex-direction: column;
+            }
+            
+            .update-date {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vasileios Giotsas</h1>
+            <div class="title">Senior Research Engineer</div>
+            <div class="affiliation">Cloudflare</div>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#publications">Selected Publications</a></li>
+                <li><a href="./publications.html">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <img src="./cdn/images/vasileios.jpg" alt="Vasileios Giotsas" class="profile-image">
+
+        <section id="about">
+            <h2>Biography</h2>
+            <div class="biography">
+                <p>Vasileios (Vasilis) Giotsas is a research engineer focusing on network measurements and telemetry, the risk assessment and mitigation of topological and macroscopic vulnerabilities of critical Internet infrastructures, and the analysis of Internet routing policies and performance. He has a position of a lecturer (assistant professor) at the Computer and Communications department of Lancaster University, and has worked as a research scientist at the Internet Measurement and Analysis group of Technischen Universität Berlin, and as postdoctoral researcher at CAIDA (Center of Advanced Internet Data Analysis) at the University of California San Diego. He has contributed in multiple mission-critical research projects funded by the UK National Cyber Security Center (NCSC), the US Department of Homeland Security (DHS), and the Space and Naval Warfare Systems Command (SPAWAR). His work has been distinguished with the CoNEXT 2015 best paper award, and the IETF Applied Networking Research Prize 2016. His datasets have been shortlisted in 2013 and 2014 for the ACM SIGCOMM Community Contribution Award. He was the recipient of two RIPE NCC Community Projects funds and two RIPE NCC fellowships.</p>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2>Research Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-item">Network Measurements</div>
+                <div class="interest-item">Internet Infrastructure</div>
+                <div class="interest-item">Routing Policies</div>
+                <div class="interest-item">Network Security</div>
+                <div class="interest-item">Risk Assessment</div>
+                <div class="interest-item">Topology Analysis</div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <strong>Ph.D. in Computer Science</strong><br>
+                University College London, 2014<br>
+                <a href="https://profiles.ucl.ac.uk/2169-shi-zhou">Advisor: Shi Zhou</a>
+            </div>
+            <div class="education-item">
+                <strong>M.S. in Data Communications, Networks and Distributed Systems</strong><br>
+                University College London, 2008
+                <em>Summa Cum Laude</em>
+            </div>
+            <div class="education-item">
+                <strong>B.S. in Computer Science</strong><br>
+                University of Piraeus, 2006<br>
+            </div>
+        </section>
+
+        <section id="awards" class="updates">
+            <h2>Awards and Recognition</h2>
+            <div class="update-item">
+                <span class="update-date">2017</span>
+                <span>IRTF 2017 Applied Networking Research Prize (ANRP) from the IETF</span>
+            </div>
+            <div class="update-item">
+                <span class="update-date">2015</span>
+                <span>Received the CoNEXT Best Paper Award for our work on Internet infrastructure analysis.</span>
+            </div>
+            <div class="update-item">
+                <span class="update-date">2014</span>
+                <span>Dataset shortlisted for the ACM SIGCOMM Community Contribution Award.</span>
+            </div>
+            <div class="update-item">
+                <span class="update-date">2013</span>
+                <span>Dataset shortlisted for the ACM SIGCOMM Community Contribution Award.</span>
+            </div>
+            <div class="update-item">
+                <span class="update-date">2008</span>
+                <span>Head of the Department award (UCL), for my MSc dissertation on dynamic taint analysis to detect zero-day vulnerabilities in web applications.</span>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            
+            <div class="publication">
+                <div class="publication-title">Understanding Internet Routing Dynamics at Scale</div>
+                <div class="publication-authors">Vasileios Giotsas, Coauthor One, Coauthor Two</div>
+                <div class="publication-venue">ACM SIGCOMM 2024 - Best Paper Award</div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">Measuring Network Performance in the Wild</div>
+                <div class="publication-authors">Vasileios Giotsas, Collaborator Name, Another Author</div>
+                <div class="publication-venue">USENIX NSDI 2024</div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">Privacy-Preserving Internet Measurement Techniques</div>
+                <div class="publication-authors">Vasileios Giotsas, Research Partner</div>
+                <div class="publication-venue">IEEE/ACM Transactions on Networking, 2023</div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">A Comprehensive Study of Internet Infrastructure</div>
+                <div class="publication-authors">Vasileios Giotsas, Senior Author, Junior Author</div>
+                <div class="publication-venue">ACM IMC 2023</div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out if you're interested in collaboration or have questions about my research!</p>
+            <p style="margin-top: 20px;">
+                <a href="mailto:vasilis.giotsas@mailmasker.com">Email</a> |
+                <a href="https://twitter.com/#!/GVasilis">Twitter</a> |
+                <a href="https://github.com/vgiotsas">GitHub</a> |
+                <a href="https://go.giotsas.com/publications">Google Scholar</a> |
+                <a href="https://uk.linkedin.com/in/giotsas">LinkedIn</a>
+            </p>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial styles and observe sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

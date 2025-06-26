@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Vasileios Giotsas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .error-code {
+            font-size: 8em;
+            font-weight: 700;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .error-title {
+            font-size: 2em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .error-message {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .error-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: #666;
+        }
+
+        .btn-secondary:hover {
+            background-color: #555;
+        }
+
+        .search-container {
+            margin-top: 40px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1em;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .decoration {
+            position: fixed;
+            color: #f0f0f0;
+            font-size: 20em;
+            font-weight: 700;
+            opacity: 0.1;
+            z-index: -1;
+            user-select: none;
+        }
+
+        .decoration-1 {
+            top: 10%;
+            left: -5%;
+            transform: rotate(-15deg);
+        }
+
+        .decoration-2 {
+            bottom: 10%;
+            right: -5%;
+            transform: rotate(15deg);
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6em;
+            }
+            
+            .error-title {
+                font-size: 1.5em;
+            }
+            
+            .error-message {
+                font-size: 1em;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+            
+            .decoration {
+                font-size: 10em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">
+                Oops! The page you're looking for seems to have wandered off into the vast expanse of the Internet. 
+                It might have been moved, deleted, or perhaps it never existed in the first place.
+            </p>
+            
+            <div class="error-links">
+                <a href="index.html" class="btn">Go to Homepage</a>
+                <a href="publications.html" class="btn btn-secondary">View Publications</a>
+            </div>
+
+            <div class="search-container">
+                <form action="https://www.google.com/search" method="get" target="_blank">
+                    <input type="hidden" name="sitesearch" value="giotsas.com">
+                    <input type="text" name="q" class="search-box" placeholder="Search this site...">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="decoration decoration-1">404</div>
+    <div class="decoration decoration-2">404</div>
+
+    <script>
+        // Animate the 404 code on page load
+        window.addEventListener('load', () => {
+            const errorCode = document.querySelector('.error-code');
+            errorCode.style.opacity = '0';
+            errorCode.style.transform = 'scale(0.5)';
+            
+            setTimeout(() => {
+                errorCode.style.transition = 'all 0.5s ease';
+                errorCode.style.opacity = '1';
+                errorCode.style.transform = 'scale(1)';
+            }, 100);
+        });
+
+        // Handle search form
+        const searchForm = document.querySelector('form');
+        searchForm.addEventListener('submit', (e) => {
+            const searchInput = document.querySelector('.search-box');
+            if (!searchInput.value.trim()) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+    </script>
+</body>
+</html>
