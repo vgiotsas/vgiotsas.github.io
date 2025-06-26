@@ -1,3 +1,1 @@
 # giotsas-com
-The official Giotsas.com 2.0 page is comming soon...
-**DO NOT FORK UNTIL RELEASE**
