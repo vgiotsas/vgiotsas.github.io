@@ -26,7 +26,7 @@
 
         header {
             text-align: center;
-            padding: 60px 0 50px;
+            padding: 60px 0 40px;
             border-bottom: 1px solid #e0e0e0;
             margin-bottom: 50px;
             position: relative;
@@ -49,7 +49,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
+            background: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.75));
             z-index: 1;
         }
 
@@ -60,43 +60,25 @@
 
         h1 {
             font-size: 2.5em;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 10px;
-            color: #111;
-            text-shadow: 0 2px 4px rgba(255,255,255,0.8);
+            color: #000;
+            text-shadow: 0 2px 4px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.9);
         }
 
         .title {
             font-size: 1.3em;
-            color: #444;
+            color: #222;
             margin-bottom: 5px;
-            font-weight: 500;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.8);
         }
 
         .affiliation {
             font-size: 1.1em;
-            color: #444;
-            font-weight: 500;
-        }
-
-        .cv-button {
-            display: inline-flex;
-            align-items: center;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.2);
-        }
-
-        .cv-button:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            color: #222;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.8);
         }
 
         .profile-image {
@@ -230,7 +212,7 @@
             top: 0;
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 15px 0;
+            padding: 15px 20px;
             border-bottom: 1px solid #e0e0e0;
             z-index: 100;
             margin-bottom: 30px;
@@ -239,8 +221,10 @@
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             list-style: none;
+            flex-wrap: wrap;
+            line-height: 1.8;
         }
 
         .nav-links a {
@@ -252,6 +236,13 @@
 
         .nav-links a:hover {
             color: #3498db;
+        }
+
+        .nav-links a[target="_blank"]::after {
+            content: " ↗";
+            font-size: 0.7em;
+            vertical-align: super;
+            opacity: 0.7;
         }
 
         .go-up-button {
@@ -314,8 +305,10 @@
             }
             
             .nav-links {
-                gap: 15px;
-                font-size: 0.9em;
+                gap: 10px;
+                font-size: 0.85em;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .update-item {
@@ -326,16 +319,12 @@
                 margin-bottom: 5px;
             }
             
+            
             .go-up-button {
                 bottom: 20px;
                 right: 20px;
                 width: 45px;
                 height: 45px;
-            }
-            
-            .cv-button {
-                font-size: 0.95em;
-                padding: 8px 16px;
             }
         }
     </style>
@@ -349,12 +338,6 @@
                 <h1>Vasileios Giotsas</h1>
                 <div class="title">Senior Research Engineer</div>
                 <div class="affiliation">Cloudflare</div>
-                <a href="./cdn/pdf/Academic_Curriculum_Vitae.pdf" class="cv-button" target="_blank">
-                    <svg style="width: 16px; height: 16px; margin-right: 6px; vertical-align: middle;" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M12,19L8,15H10.5V12H13.5V15H16L12,19Z"/>
-                    </svg>
-                    Academic CV (2024)
-                </a>
             </div>
         </header>
 
@@ -366,6 +349,7 @@
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#videos">Videos</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="./cdn/pdf/Academic_Curriculum_Vitae.pdf" target="_blank">Academic CV (2024)</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
