@@ -1,22 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="name" content="Vasileios Giotsas | Senior Research Engineer">
     <meta name="generator" content="Claude Opus 4">
-    <meta name="description" content="I am a research engineer focusing on network measurements and telemetry, the risk assessment and mitigation of topological and macroscopic vulnerabilities of critical Internet infrastructures, and the analysis of Internet routing policies and performance in Cloudflare." />
+    <meta name="description" content="I am a research engineer working on network measurements and telemetry, risk assessment and mitigation of Internet infrastructure vulnerabilities, and analysis of Internet routing policies and performance." />
     <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://giotsas.com/" />
 <meta property="og:title" content="Vasileios Giotsas | Senior Research Engineer" />
-<meta property="og:description" content="I am a research engineer focusing on network measurements and telemetry, the risk assessment and mitigation of topological and macroscopic vulnerabilities of critical Internet infrastructures, and the analysis of Internet routing policies and performance in Cloudflare." />
+<meta property="og:description" content="I am a research engineer working on network measurements and telemetry, risk assessment and mitigation of Internet infrastructure vulnerabilities, and analysis of Internet routing policies and performance." />
 <meta property="og:image" content="./cdn/images/field.jpg" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content="https://giotsas.com/" />
 <meta property="twitter:title" content="Vasileios Giotsas | Senior Research Engineer" />
-<meta property="twitter:description" content="I am a research engineer focusing on network measurements and telemetry, the risk assessment and mitigation of topological and macroscopic vulnerabilities of critical Internet infrastructures, and the analysis of Internet routing policies and performance in Cloudflare." />
+<meta property="twitter:description" content="I am a research engineer working on network measurements and telemetry, risk assessment and mitigation of Internet infrastructure vulnerabilities, and analysis of Internet routing policies and performance." />
 <meta property="twitter:image" content="./cdn/images/field.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vasileios Giotsas | Senior Research Engineer</title>
@@ -183,7 +184,7 @@
             padding: 20px;
             background-color: #fafafa;
             border-radius: 8px;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid #1a73e8;
         }
 
         .publication-title {
@@ -212,14 +213,14 @@
         }
 
         .contact a {
-            color: #3498db;
+            color: #1a73e8;
             text-decoration: none;
             margin: 0 10px;
             transition: color 0.3s ease;
         }
 
         .contact a:hover {
-            color: #2980b9;
+            color: #1557b0;
             text-decoration: underline;
         }
 
@@ -250,8 +251,8 @@
             transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: #3498db;
+        .nav-links a:hover, .nav-links a.active {
+            color: #1a73e8;
         }
 
         .nav-links a[target="_blank"]::after {
@@ -267,7 +268,7 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #1a73e8;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -276,15 +277,15 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
             z-index: 1000;
             border: none;
         }
 
         .go-up-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.6);
+            background-color: #1557b0;
         }
 
         .go-up-button.visible {
@@ -311,6 +312,80 @@
             }
         }
 
+        .pycon-banner {
+            background: linear-gradient(135deg, #306998 0%, #FFD43B 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .pycon-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pycon-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .pycon-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: white;
+        }
+
+        .pycon-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .directions-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .directions-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .banner-close {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .banner-close:hover {
+            opacity: 1;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
@@ -335,17 +410,53 @@
                 margin-bottom: 5px;
             }
             
-            
             .go-up-button {
                 bottom: 20px;
                 right: 20px;
                 width: 45px;
                 height: 45px;
             }
+
+            .pycon-banner-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .pycon-logo {
+                height: 30px;
+            }
+
+            .pycon-text {
+                font-size: 1em;
+            }
+
+            .directions-btn {
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- PyCon Banner - Only shows from today to August 31, 2025 -->
+    <div class="pycon-banner" id="pyconBanner">
+        <div class="pycon-banner-content">
+            <img src="./cdn/images/pycon-logo.svg" alt="PyCon Greece" class="pycon-logo" id="pyconLogo">
+            <div class="pycon-text">I will speak at PyCon Greece on August 29</div>
+            <div class="pycon-location">
+                <span>📍</span>
+                <span>Technopolis of Municipality of Athens</span>
+            </div>
+            <a href="https://maps.google.com/?q=Technopolis+Athens+Greece" target="_blank" class="directions-btn">
+                Get Directions!
+            </a>
+            <button onclick="downloadCalendar()" class="directions-btn" style="background-color: rgba(255, 255, 255, 0.15); margin-left: 10px;">
+                Get Notified 📅
+            </button>
+        </div>
+        <button class="banner-close" onclick="closeBanner()" aria-label="Close banner">&times;</button>
+    </div>
+
     <div class="container">
         <header>
             <img src="./cdn/images/field.jpg" alt="Field in Lancaster" class="header-background">
@@ -359,23 +470,24 @@
 
         <nav class="nav">
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#awards">Awards</a></li>
-                <li><a href="#videos">Videos</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="videos.html">Videos</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="./cdn/pdf/Academic_Curriculum_Vitae.pdf" target="_blank">CV</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
 
         <img src="./cdn/images/vasileios.jpg" alt="Vasileios Giotsas" class="profile-image">
 
         <section id="about">
-            <h2>Biography</h2>
+            <h2>About</h2>
             <div class="biography">
-                <p>Vasileios (Vasilis) Giotsas is a research engineer focusing on network measurements and telemetry, the risk assessment and mitigation of topological and macroscopic vulnerabilities of critical Internet infrastructures, and the analysis of Internet routing policies and performance. He has a position of a lecturer (assistant professor) at the Computer and Communications department of Lancaster University, and has worked as a research scientist at the Internet Measurement and Analysis group of Technischen Universität Berlin, and as postdoctoral researcher at CAIDA (Center of Advanced Internet Data Analysis) at the University of California San Diego. He has contributed in multiple mission-critical research projects funded by the UK National Cyber Security Center (NCSC), the US Department of Homeland Security (DHS), and the Space and Naval Warfare Systems Command (SPAWAR). His work has been distinguished with the CoNEXT 2015 best paper award, and the IETF Applied Networking Research Prize 2016. His datasets have been shortlisted in 2013 and 2014 for the ACM SIGCOMM Community Contribution Award. He was the recipient of two RIPE NCC Community Projects funds and two RIPE NCC fellowships.</p>
+                <p>Vasileios (Vasilis) Giotsas is a research engineer working on network measurements and telemetry, risk assessment and mitigation of Internet infrastructure vulnerabilities, and analysis of Internet routing policies and performance. He's a lecturer (assistant professor) at the Computer and Communications department of Lancaster University, and has worked as a research scientist at the Internet Measurement and Analysis group of TU Berlin, and as a postdoc researcher at CAIDA (Center of Advanced Internet Data Analysis) at UC San Diego. He has worked on multiple research projects funded by the UK National Cyber Security Center (NCSC), the US Department of Homeland Security (DHS), and the Space and Naval Warfare Systems Command (SPAWAR). His work has been recognized with the CoNEXT 2015 best paper award, and the IETF Applied Networking Research Prize 2016. His datasets have been shortlisted in 2013 and 2014 for the ACM SIGCOMM Community Contribution Award. He received two RIPE NCC Community Projects funds and two RIPE NCC fellowships.</p>
             </div>
         </section>
 
@@ -413,11 +525,11 @@
             <h2>Awards and Recognition</h2>
             <div class="update-item">
                 <span class="update-date">2016</span>
-                <span>Awarded the IETF Applied Networking Research Prize for outstanding research contributions.</span>
+                <span>IETF Applied Networking Research Prize for outstanding research contributions.</span>
             </div>
             <div class="update-item">
                 <span class="update-date">2015</span>
-                <span>Received the CoNEXT Best Paper Award for our work on Internet infrastructure analysis.</span>
+                <span>CoNEXT Best Paper Award for our work on Internet infrastructure analysis.</span>
             </div>
             <div class="update-item">
                 <span class="update-date">2014</span>
@@ -490,7 +602,23 @@
                 <div class="publication-venue">arXiv preprint 2021</div>
             </div>
             <div style="text-align: center; margin-top: 30px;">
-                <a href="publications.html" style="color: #3498db; text-decoration: none; font-weight: 600; font-size: 1.1em;">View All Publications →</a>
+                <a href="publications.html" style="color: #1a73e8; text-decoration: none; font-weight: 600; font-size: 1.1em;">View All Publications →</a>
+            </div>
+        </section>
+
+        <section id="map" style="margin-bottom: 40px;">
+            <h2>Location Map</h2>
+            <div style="text-align: center; background-color: #f8f9fa; padding: 20px; border-radius: 10px;" id="mapContent">
+                <img src="./cdn/images/tech-map.png" alt="Technopolis Athens Map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" id="eventMap">
+                <p style="margin-top: 15px; color: #666; font-size: 0.9em;" id="mapCaption">
+                    Technopolis of Municipality of Athens - PyCon Greece venue location
+                </p>
+                <a href="https://maps.google.com/?q=Technopolis+Athens+Greece" target="_blank" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background-color: #1a73e8; color: white; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#1557b0'" onmouseout="this.style.backgroundColor='#1a73e8'">
+                    Get Directions 🗺️
+                </a>
+                <div id="noEvents" style="display: none; color: #888; font-size: 1.1em; padding: 20px;">
+                    No events. Please check later.
+                </div>
             </div>
         </section>
 
@@ -506,7 +634,7 @@
             </p>
         </section>
     </div>
-        </div>
+
     <button class="go-up-button" id="goUpButton" aria-label="Go to top">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
@@ -514,6 +642,104 @@
     </button>
 
     <script>
+        // PyCon Banner Logic - Only show from today until August 31, 2025
+        function checkBannerVisibility() {
+            const today = new Date();
+            const endDate = new Date('2025-08-31');
+            const banner = document.getElementById('pyconBanner');
+            
+            if (today <= endDate && !localStorage.getItem('pycon-banner-closed')) {
+                banner.style.display = 'block';
+                // Update logo for mobile
+                updateLogoForMobile();
+            } else {
+                banner.style.display = 'none';
+            }
+        }
+
+        // Map section logic - Only show map during event period
+        function checkMapVisibility() {
+            const today = new Date();
+            const endDate = new Date('2025-08-31');
+            const eventMap = document.getElementById('eventMap');
+            const mapCaption = document.getElementById('mapCaption');
+            const noEvents = document.getElementById('noEvents');
+            
+            if (today <= endDate) {
+                eventMap.style.display = 'block';
+                mapCaption.style.display = 'block';
+                noEvents.style.display = 'none';
+            } else {
+                eventMap.style.display = 'none';
+                mapCaption.style.display = 'none';
+                noEvents.style.display = 'block';
+            }
+        }
+
+        function updateLogoForMobile() {
+            const logo = document.getElementById('pyconLogo');
+            if (window.innerWidth <= 768) {
+                logo.src = './cdn/images/pycon.svg';
+            } else {
+                logo.src = './cdn/images/pycon-logo.svg';
+            }
+        }
+
+        function closeBanner() {
+            document.getElementById('pyconBanner').style.display = 'none';
+            localStorage.setItem('pycon-banner-closed', 'true');
+        }
+
+        // Download calendar file function
+        function downloadCalendar() {
+            const calendarContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Vasileios Giotsas//PyCon Greece//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART:20250829T100000Z
+DTEND:20250829T120000Z
+DTSTAMP:20250824T000000Z
+UID:pycon-greece-vasilis-talk@giotsas.com
+CREATED:20250824T000000Z
+DESCRIPTION:Vasileios Giotsas will be speaking at PyCon Greece 2025. Join us for an insightful presentation on network measurements and Internet infrastructure.
+LAST-MODIFIED:20250824T000000Z
+LOCATION:Technopolis\\, Municipality of Athens\\, Greece
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Vasileios Giotsas at PyCon Greece 2025
+TRANSP:OPAQUE
+URL:https://pycon.gr
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PyCon Greece talk by Vasileios Giotsas starts in 1 hour
+TRIGGER:-PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PyCon Greece talk by Vasileios Giotsas starts in 24 hours
+TRIGGER:-PT24H
+END:VALARM
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([calendarContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'pycon-greece-giotsas.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Check banner visibility on load
+        checkBannerVisibility();
+        checkMapVisibility();
+
+        // Update logo on resize
+        window.addEventListener('resize', updateLogoForMobile);
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
