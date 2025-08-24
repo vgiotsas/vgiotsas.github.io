@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="name" content="About - Vasileios Giotsas | Senior Research Engineer">
+    <meta name="generator" content="Claude Opus 4">
+    <meta name="description" content="Learn more about Vasileios Giotsas, Senior Research Engineer at Cloudflare, focusing on network measurements and Internet infrastructure analysis." />
+    <!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://giotsas.com/about.html" />
+<meta property="og:title" content="About - Vasileios Giotsas | Senior Research Engineer" />
+<meta property="og:description" content="Learn more about Vasileios Giotsas, Senior Research Engineer at Cloudflare, focusing on network measurements and Internet infrastructure analysis." />
+<meta property="og:image" content="./cdn/images/field.jpg" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://giotsas.com/about.html" />
+<meta property="twitter:title" content="About - Vasileios Giotsas | Senior Research Engineer" />
+<meta property="twitter:description" content="Learn more about Vasileios Giotsas, Senior Research Engineer at Cloudflare, focusing on network measurements and Internet infrastructure analysis." />
+<meta property="twitter:image" content="./cdn/images/field.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Vasileios Giotsas | Senior Research Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 100;
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+            flex-wrap: wrap;
+            line-height: 1.8;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #3498db;
+        }
+
+        .nav-links a[target="_blank"]::after {
+            content: " ↗";
+            font-size: 0.7em;
+            vertical-align: super;
+            opacity: 0.7;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 10px;
+            margin: 20px auto 40px;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .biography {
+            text-align: justify;
+            line-height: 1.8;
+            color: #444;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+
+        .biography p {
+            margin-bottom: 20px;
+        }
+
+        .quick-facts {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .quick-facts h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #222;
+            font-weight: 600;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .fact-item {
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .fact-label {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .fact-value {
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .journey-section {
+            margin-bottom: 40px;
+        }
+
+        .journey-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #222;
+            font-weight: 600;
+        }
+
+        .journey-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 8px;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .journey-title {
+            font-weight: 600;
+            color: #222;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .journey-org {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .journey-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .go-up-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            z-index: 1000;
+            border: none;
+        }
+
+        .go-up-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .go-up-button.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .go-up-button svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .nav-links {
+                gap: 10px;
+                font-size: 0.85em;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .go-up-button {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>About Vasileios Giotsas</h1>
+            <div class="subtitle">Senior Research Engineer at Cloudflare</div>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="./cdn/pdf/Academic_Curriculum_Vitae.pdf" target="_blank">CV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <img src="./cdn/images/vasileios.jpg" alt="Vasileios Giotsas" class="profile-image">
+
+            <div class="biography">
+                <p>Vasileios (Vasilis) Giotsas is a research engineer focusing on network measurements and telemetry, the risk assessment and mitigation of topological and macroscopic vulnerabilities of critical Internet infrastructures, and the analysis of Internet routing policies and performance.</p>
+                
+                <p>He has a position of a lecturer (assistant professor) at the Computer and Communications department of Lancaster University, and has worked as a research scientist at the Internet Measurement and Analysis group of Technischen Universität Berlin, and as postdoctoral researcher at CAIDA (Center of Advanced Internet Data Analysis) at the University of California San Diego.</p>
+                
+                <p>He has contributed in multiple mission-critical research projects funded by the UK National Cyber Security Center (NCSC), the US Department of Homeland Security (DHS), and the Space and Naval Warfare Systems Command (SPAWAR). His work has been distinguished with the CoNEXT 2015 best paper award, and the IETF Applied Networking Research Prize 2016. His datasets have been shortlisted in 2013 and 2014 for the ACM SIGCOMM Community Contribution Award. He was the recipient of two RIPE NCC Community Projects funds and two RIPE NCC fellowships.</p>
+            </div>
+
+            <div class="quick-facts">
+                <h2>Quick Facts</h2>
+                <div class="facts-grid">
+                    <div class="fact-item">
+                        <div class="fact-label">Current Position</div>
+                        <div class="fact-value">Senior Research Engineer</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Organization</div>
+                        <div class="fact-value">Cloudflare</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Academic Affiliation</div>
+                        <div class="fact-value">Lancaster University</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Specialization</div>
+                        <div class="fact-value">Internet Infrastructure & Network Measurements</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="journey-section">
+                <h2>Professional Journey</h2>
+                
+                <div class="journey-item">
+                    <div class="journey-title">Senior Research Engineer</div>
+                    <div class="journey-org">Cloudflare</div>
+                    <div class="journey-description">
+                        Currently focusing on network measurements and telemetry, Internet routing policies and performance analysis, and risk assessment of critical Internet infrastructures.
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-title">Lecturer (Assistant Professor)</div>
+                    <div class="journey-org">Lancaster University - Computer and Communications Department</div>
+                    <div class="journey-description">
+                        Teaching and conducting research in network measurements, Internet infrastructure analysis, and routing policy evaluation.
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-title">Research Scientist</div>
+                    <div class="journey-org">Technischen Universität Berlin - Internet Measurement and Analysis Group</div>
+                    <div class="journey-description">
+                        Conducted advanced research in Internet measurements and analysis, contributing to understanding of large-scale network behaviors and vulnerabilities.
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-title">Postdoctoral Researcher</div>
+                    <div class="journey-org">CAIDA, University of California San Diego</div>
+                    <div class="journey-description">
+                        Worked at the Center of Advanced Internet Data Analysis on cutting-edge Internet measurement research, data analysis methodologies, and infrastructure mapping.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="go-up-button" id="goUpButton" aria-label="Go to top">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Go up button functionality
+        const goUpButton = document.getElementById('goUpButton');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                goUpButton.classList.add('visible');
+            } else {
+                goUpButton.classList.remove('visible');
+            }
+        });
+
+        goUpButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial styles and observe sections
+        document.querySelectorAll('.biography, .quick-facts, .journey-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="name" content="Research - Vasileios Giotsas | Senior Research Engineer">
+    <meta name="generator" content="Claude Opus 4">
+    <meta name="description" content="Research interests and work of Vasileios Giotsas in network measurements, Internet infrastructure, and routing policies." />
+    <!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://giotsas.com/research.html" />
+<meta property="og:title" content="Research - Vasileios Giotsas | Senior Research Engineer" />
+<meta property="og:description" content="Research interests and work of Vasileios Giotsas in network measurements, Internet infrastructure, and routing policies." />
+<meta property="og:image" content="./cdn/images/field.jpg" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://giotsas.com/research.html" />
+<meta property="twitter:title" content="Research - Vasileios Giotsas | Senior Research Engineer" />
+<meta property="twitter:description" content="Research interests and work of Vasileios Giotsas in network measurements, Internet infrastructure, and routing policies." />
+<meta property="twitter:image" content="./cdn/images/field.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Vasileios Giotsas | Senior Research Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 100;
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+            flex-wrap: wrap;
+            line-height: 1.8;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #3498db;
+        }
+
+        .nav-links a[target="_blank"]::after {
+            content: " ↗";
+            font-size: 0.7em;
+            vertical-align: super;
+            opacity: 0.7;
+        }
+
+        .research-overview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .research-overview h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .research-overview p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .interests-section {
+            margin-bottom: 50px;
+        }
+
+        .interests-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #222;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .interest-card {
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            text-align: left;
+            transition: all 0.3s ease;
+            border-left: 5px solid #3498db;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interest-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2ecc71, #e74c3c, #f39c12);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+
+        .interest-card:hover::before {
+            opacity: 1;
+        }
+
+        .interest-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .interest-description {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .projects-section {
+            margin-bottom: 50px;
+        }
+
+        .projects-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #222;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .project-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #fafafa;
+            border-radius: 12px;
+            border-left: 4px solid #e74c3c;
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: #222;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .project-funding {
+            color: #e74c3c;
+            font-weight: 500;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .collaboration-section {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .collaboration-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #222;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .collaboration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .collaboration-item {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .collaboration-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .collaboration-name {
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 5px;
+        }
+
+        .collaboration-org {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .go-up-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            z-index: 1000;
+            border: none;
+        }
+
+        .go-up-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .go-up-button.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .go-up-button svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .nav-links {
+                gap: 10px;
+                font-size: 0.85em;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .collaboration-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .go-up-button {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Research</h1>
+            <div class="subtitle">Network Measurements & Internet Infrastructure Analysis</div>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="./cdn/pdf/Academic_Curriculum_Vitae.pdf" target="_blank">CV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="research-overview">
+            <h2>What I Work On</h2>
+            <p>My research is about understanding how the Internet works and making it more secure and reliable. I study network measurements, analyze routing policies, and look at potential vulnerabilities in Internet infrastructure. I work with data analysis and systems security to tackle real problems in Internet operations.</p>
+        </div>
+
+        <div class="interests-section">
+            <h2>Research Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-title">Network Measurements</div>
+                    <div class="interest-description">
+                        I develop new ways to measure and monitor Internet networks. This includes building tools to understand network topology, performance, and behavior. I focus on methods that can scale to monitor large networks and detect unusual patterns.
+                    </div>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-title">Internet Infrastructure</div>
+                    <div class="interest-description">
+                        I study critical Internet infrastructure like Internet Exchange Points (IXPs), Content Delivery Networks (CDNs), and how different networks connect to each other. My work helps map and understand the global Internet ecosystem.
+                    </div>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-title">Routing Policies</div>
+                    <div class="interest-description">
+                        Investigation of BGP routing policies, inter-domain relationships, and routing security. Analysis of routing anomalies, policy violations, and their impact on Internet stability and performance.
+                    </div>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-title">Network Telemetry</div>
+                    <div class="interest-description">
+                        Advanced telemetry systems for real-time network monitoring and analysis. Development of efficient data collection and processing pipelines for large-scale network visibility and operational insights.
+                    </div>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-title">Risk Assessment</div>
+                    <div class="interest-description">
+                        Systematic evaluation of vulnerabilities in network infrastructures. Development of methodologies for identifying and quantifying risks to critical Internet services and communication pathways.
+                    </div>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-title">Topology Analysis</div>
+                    <div class="interest-description">
+                        Mathematical and computational analysis of network topologies. Research on graph-theoretic properties of Internet infrastructure and their implications for resilience, efficiency, and evolution.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-section">
+            <h2>Key Research Projects</h2>
+            
+            <div class="project-item">
+                <div class="project-title">Critical Internet Infrastructure Vulnerability Assessment</div>
+                <div class="project-funding">Funded by UK National Cyber Security Center (NCSC)</div>
+                <div class="project-description">
+                    Mission-critical research project focusing on identifying and mitigating topological and macroscopic vulnerabilities in essential Internet infrastructures. Development of comprehensive risk assessment frameworks and mitigation strategies.
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Internet Routing Security and Policy Analysis</div>
+                <div class="project-funding">Funded by US Department of Homeland Security (DHS)</div>
+                <div class="project-description">
+                    Large-scale analysis of BGP routing policies and security implications. Investigation of routing anomalies, policy violations, and development of detection mechanisms for malicious routing activities.
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Advanced Network Measurement Systems</div>
+                <div class="project-funding">Funded by Space and Naval Warfare Systems Command (SPAWAR)</div>
+                <div class="project-description">
+                    Development of next-generation network measurement tools and methodologies for military and civilian applications. Focus on real-time monitoring, anomaly detection, and performance optimization.
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">BGPStream Framework Development</div>
+                <div class="project-funding">RIPE NCC Community Projects Fund</div>
+                <div class="project-description">
+                    Creation of a comprehensive software framework for live and historical BGP data analysis. Development of tools and libraries that enable researchers and operators to analyze Internet routing data at scale.
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Internet Exchange Point Analysis</div>
+                <div class="project-funding">RIPE NCC Fellowship Program</div>
+                <div class="project-description">
+                    Comprehensive study of Internet Exchange Points and their role in global Internet connectivity. Development of methodologies for discovering and analyzing IXP peering relationships and their impact on Internet performance.
+                </div>
+            </div>
+        </div>
+
+        <div class="collaboration-section">
+            <h2>Research Collaborations</h2>
+            <p style="text-align: center; margin-bottom: 25px; color: #555;">
+                Active collaborations with leading institutions and research groups worldwide
+            </p>
+            <div class="collaboration-grid">
+                <div class="collaboration-item">
+                    <div class="collaboration-name">CAIDA</div>
+                    <div class="collaboration-org">UC San Diego</div>
+                </div>
+                <div class="collaboration-item">
+                    <div class="collaboration-name">Internet Measurement Group</div>
+                    <div class="collaboration-org">TU Berlin</div>
+                </div>
+                <div class="collaboration-item">
+                    <div class="collaboration-name">Lancaster University</div>
+                    <div class="collaboration-org">Computer & Communications</div>
+                </div>
+                <div class="collaboration-item">
+                    <div class="collaboration-name">RIPE NCC</div>
+                    <div class="collaboration-org">Research & Analysis</div>
+                </div>
+                <div class="collaboration-item">
+                    <div class="collaboration-name">Cloudflare Research</div>
+                    <div class="collaboration-org">Industry Partnership</div>
+                </div>
+                <div class="collaboration-item">
+                    <div class="collaboration-name">NCSC</div>
+                    <div class="collaboration-org">UK Government</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="go-up-button" id="goUpButton" aria-label="Go to top">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Go up button functionality
+        const goUpButton = document.getElementById('goUpButton');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                goUpButton.classList.add('visible');
+            } else {
+                goUpButton.classList.remove('visible');
+            }
+        });
+
+        goUpButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial styles and observe sections
+        document.querySelectorAll('.research-overview, .interests-section, .projects-section, .collaboration-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
