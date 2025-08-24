@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="name" content="Videos - Vasileios Giotsas | Senior Research Engineer">
+    <meta name="generator" content="Claude Opus 4">
+    <meta name="description" content="Research presentations, talks, and video content by Vasileios Giotsas on network measurements and Internet infrastructure." />
+    <!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://giotsas.com/videos.html" />
+<meta property="og:title" content="Videos - Vasileios Giotsas | Senior Research Engineer" />
+<meta property="og:description" content="Research presentations, talks, and video content by Vasileios Giotsas on network measurements and Internet infrastructure." />
+<meta property="og:image" content="./cdn/images/field.jpg" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://giotsas.com/videos.html" />
+<meta property="twitter:title" content="Videos - Vasileios Giotsas | Senior Research Engineer" />
+<meta property="twitter:description" content="Research presentations, talks, and video content by Vasileios Giotsas on network measurements and Internet infrastructure." />
+<meta property="twitter:image" content="./cdn/images/field.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Vasileios Giotsas | Senior Research Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 100;
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+            flex-wrap: wrap;
+            line-height: 1.8;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #1a73e8;
+        }
+
+        .nav-links a[target="_blank"]::after {
+            content: " ↗";
+            font-size: 0.7em;
+            vertical-align: super;
+            opacity: 0.7;
+        }
+
+        .video-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .main-video {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .main-video h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .video-player {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 8px;
+        }
+
+        .video-player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .video-info {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        .current-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .current-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .playlist {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .playlist h3 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .video-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background-color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .video-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .video-item.active {
+            border-color: #1a73e8;
+            background-color: #e3f2fd;
+        }
+
+        .video-thumbnail {
+            width: 80px;
+            height: 60px;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            margin-right: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-details {
+            flex-grow: 1;
+        }
+
+        .video-title {
+            font-weight: 600;
+            font-size: 0.95em;
+            color: #333;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .video-duration {
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        .play-icon {
+            width: 20px;
+            height: 20px;
+            fill: #1a73e8;
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+
+        .go-up-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #1a73e8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
+            z-index: 1000;
+            border: none;
+        }
+
+        .go-up-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.6);
+            background-color: #1557b0;
+        }
+
+        .go-up-button.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .go-up-button svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        @media (max-width: 968px) {
+            .video-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .nav-links {
+                gap: 10px;
+                font-size: 0.85em;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .video-thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+            
+            .video-title {
+                font-size: 0.9em;
+            }
+            
+            .go-up-button {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Talks & Presentations</h1>
+            <div class="subtitle">Research Videos & Conference Talks</div>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="videos.html" class="active">Videos</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="./cdn/pdf/Academic_Curriculum_Vitae.pdf" target="_blank">CV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="video-section">
+            <div class="main-video">
+                <h2>
+                    <svg style="width: 1.2em; height: 1.2em; fill: #ff0000;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/>
+                    </svg>
+                    Now Playing
+                </h2>
+                <div class="video-player">
+                    <iframe 
+                        id="mainVideo"
+                        src="https://www.youtube.com/embed/videoseries?list=PL7_XjTCtHWvN-psk7CqMisGQFIPEyA067" 
+                        title="Research Presentations Playlist" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <div class="current-title" id="currentTitle">Research Presentations Playlist</div>
+                    <div class="current-description" id="currentDescription">Collection of research talks and presentations on network measurements, Internet infrastructure, and routing policy analysis.</div>
+                </div>
+            </div>
+
+            <div class="playlist">
+                <h3>Video Collection</h3>
+                <div class="video-list">
+                    <div class="video-item active" data-video-id="videoseries?list=PL7_XjTCtHWvN-psk7CqMisGQFIPEyA067" data-title="Complete Playlist" data-description="Full collection of research talks and presentations on network measurements, Internet infrastructure, and routing policy analysis.">
+                        <div class="video-thumbnail">
+                            <svg style="width: 100%; height: 100%; fill: #1a73e8;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-10.6-3.47l1.63 1.63c.39.39 1.02.39 1.41 0l3.54-3.54c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L13 12.17l-.89-.89c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l.7.84zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"/>
+                            </svg>
+                        </div>
+                        <div class="video-details">
+                            <div class="video-title">Complete Playlist</div>
+                            <div class="video-duration">21 videos</div>
+                        </div>
+                        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+
+                    <div class="video-item" data-video-id="Al_FvF4irMY" data-title="A first look at the Misuse and Abuse of the IPv4 Transfer Market" data-description="Research on IPv4 transfer market analysis and identifying potential misuse patterns.">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/Al_FvF4irMY/mqdefault.jpg" alt="Video thumbnail">
+                        </div>
+                        <div class="video-details">
+                            <div class="video-title">A first look at the Misuse and Abuse of the IPv4 Transfer Market</div>
+                            <div class="video-duration">25 min</div>
+                        </div>
+                        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+
+                    <div class="video-item" data-video-id="olXdd5LN7EM" data-title="A World View of IP Spoofing in L4 Volumetric DoS Attacks and a Call to Enable BCP38" data-description="Global analysis of IP spoofing in Layer 4 volumetric DDoS attacks and discussion of BCP38 implementation.">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/olXdd5LN7EM/mqdefault.jpg" alt="Video thumbnail">
+                        </div>
+                        <div class="video-details">
+                            <div class="video-title">A World View of IP Spoofing in L4 Volumetric DoS Attacks and a Call to Enable BCP38</div>
+                            <div class="video-duration">30 min</div>
+                        </div>
+                        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+
+                    <div class="video-item" data-video-id="U_qOSWRe3pQ" data-title="ACM SIGCOMM'17 - Detecting Peering Infrastructure Outages in the Wild" data-description="Conference presentation on methods for detecting peering infrastructure outages across Internet networks.">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/U_qOSWRe3pQ/mqdefault.jpg" alt="Video thumbnail">
+                        </div>
+                        <div class="video-details">
+                            <div class="video-title">ACM SIGCOMM'17 - Detecting Peering Infrastructure Outages in the Wild</div>
+                            <div class="video-duration">28 min</div>
+                        </div>
+                        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+
+                    <div class="video-item" data-video-id="wJ94HUQJEog" data-title="What's in the Dataset? Unboxing the APNIC User Populations | RIPE 89 Meeting" data-description="Analysis of APNIC user population datasets and insights from network measurement data.">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/wJ94HUQJEog/mqdefault.jpg" alt="Video thumbnail">
+                        </div>
+                        <div class="video-details">
+                            <div class="video-title">What's in the Dataset? Unboxing the APNIC User Populations | RIPE 89 Meeting</div>
+                            <div class="video-duration">22 min</div>
+                        </div>
+                        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+
+                    <div class="video-item" data-video-id="h5hUpRH2VdY" data-title="An Internet-wide view of CG-NAT and Large-scale IP Sharing | Cloudflare Research | LACNIC 43" data-description="Research on Carrier-Grade NAT deployment patterns and large-scale IP address sharing across the Internet.">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/h5hUpRH2VdY/mqdefault.jpg" alt="Video thumbnail">
+                        </div>
+                        <div class="video-details">
+                            <div class="video-title">An Internet-wide view of CG-NAT and Large-scale IP Sharing | Cloudflare Research | LACNIC 43</div>
+                            <div class="video-duration">35 min</div>
+                        </div>
+                        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+
+                    <div class="video-item" data-video-id="Lsar7hQcuK4" data-title="PAM 2016 - NAT Revelio: Detecting NAT444 in the ISP" data-description="Conference presentation on detecting NAT444 deployment in Internet Service Provider networks.">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/Lsar7hQcuK4/mqdefault.jpg" alt="Video thumbnail">
+                        </div>
+                        <div class="video-details">
+                            <div class="video-title">PAM 2016 - NAT Revelio: Detecting NAT444 in the ISP</div>
+                            <div class="video-duration">24 min</div>
+                        </div>
+                        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+
+                    <div class="video-item" data-video-id="RxRxuaNbIHY" data-title="Decoupling IP from web services and sockets for robust addressing agility at CDN-scale" data-description="Research on IP address management and addressing strategies for large-scale Content Delivery Networks.">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/RxRxuaNbIHY/mqdefault.jpg" alt="Video thumbnail">
+                        </div>
+                        <div class="video-details">
+                            <div class="video-title">Decoupling IP from web services and sockets for robust addressing agility at CDN-scale</div>
+                            <div class="video-duration">26 min</div>
+                        </div>
+                        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+
+                    <div class="video-item" data-video-id="P7aFSi9sPdU" data-title="Stable and Practical AS Relationship Inference with ProbLink - NSDI'19" data-description="NSDI conference presentation on autonomous system relationship inference methodology using ProbLink.">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/P7aFSi9sPdU/mqdefault.jpg" alt="Video thumbnail">
+                        </div>
+                        <div class="video-details">
+                            <div class="video-title">Stable and Practical AS Relationship Inference with ProbLink - NSDI'19</div>
+                            <div class="video-duration">32 min</div>
+                        </div>
+                        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+
+                    <div class="video-item" data-video-id="rosFDZnQSRk" data-title="Cloud Provider Connectivity in the Flat Internet - IMC'20" data-description="Internet Measurement Conference presentation on cloud provider network connectivity patterns and analysis.">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/rosFDZnQSRk/mqdefault.jpg" alt="Video thumbnail">
+                        </div>
+                        <div class="video-details">
+                            <div class="video-title">Cloud Provider Connectivity in the Flat Internet - IMC'20</div>
+                            <div class="video-duration">29 min</div>
+                        </div>
+                        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background-color: #e3f2fd; border-radius: 8px; text-align: center;">
+                    <p style="color: #1565c0; font-size: 0.9em; margin: 0;">
+                        <strong>📺 View All:</strong> 21 research talks and presentations
+                    </p>
+                    <a href="https://www.youtube.com/playlist?list=PL7_XjTCtHWvN-psk7CqMisGQFIPEyA067" target="_blank" style="display: inline-block; margin-top: 10px; color: #1a73e8; text-decoration: none; font-weight: 600;">
+                        Complete Playlist on YouTube →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="go-up-button" id="goUpButton" aria-label="Go to top">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </button>
+
+    <script>
+        // Video playlist functionality
+        const videoItems = document.querySelectorAll('.video-item');
+        const mainVideo = document.getElementById('mainVideo');
+        const currentTitle = document.getElementById('currentTitle');
+        const currentDescription = document.getElementById('currentDescription');
+
+        videoItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active class from all items
+                videoItems.forEach(videoItem => {
+                    videoItem.classList.remove('active');
+                });
+
+                // Add active class to clicked item
+                item.classList.add('active');
+
+                // Get video data
+                const videoId = item.getAttribute('data-video-id');
+                const title = item.getAttribute('data-title');
+                const description = item.getAttribute('data-description');
+
+                // Update main video
+                if (videoId.includes('videoseries')) {
+                    mainVideo.src = `https://www.youtube.com/embed/${videoId}`;
+                } else {
+                    mainVideo.src = `https://www.youtube.com/embed/${videoId}`;
+                }
+                currentTitle.textContent = title;
+                currentDescription.textContent = description;
+            });
+        });
+
+        // Go up button functionality
+        const goUpButton = document.getElementById('goUpButton');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                goUpButton.classList.add('visible');
+            } else {
+                goUpButton.classList.remove('visible');
+            }
+        });
+
+        goUpButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
