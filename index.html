@@ -1,803 +1,186 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="name" content="Vasileios Giotsas | Senior Research Engineer">
-    <meta name="generator" content="Claude Opus 4">
-    <meta name="description" content="I am a research engineer working on network measurements and telemetry, risk assessment and mitigation of Internet infrastructure vulnerabilities, and analysis of Internet routing policies and performance." />
-    <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://giotsas.com/" />
-<meta property="og:title" content="Vasileios Giotsas | Senior Research Engineer" />
-<meta property="og:description" content="I am a research engineer working on network measurements and telemetry, risk assessment and mitigation of Internet infrastructure vulnerabilities, and analysis of Internet routing policies and performance." />
-<meta property="og:image" content="./cdn/images/field.jpg" />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://giotsas.com/" />
-<meta property="twitter:title" content="Vasileios Giotsas | Senior Research Engineer" />
-<meta property="twitter:description" content="I am a research engineer working on network measurements and telemetry, risk assessment and mitigation of Internet infrastructure vulnerabilities, and analysis of Internet routing policies and performance." />
-<meta property="twitter:image" content="./cdn/images/field.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasileios Giotsas | Senior Research Engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 0 40px;
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 50px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.75));
-            z-index: 1;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #000;
-            text-shadow: 0 2px 4px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.9);
-        }
-
-        .title {
-            font-size: 1.3em;
-            color: #222;
-            margin-bottom: 5px;
-            font-weight: 600;
-            text-shadow: 0 1px 3px rgba(255,255,255,0.8);
-        }
-
-        .affiliation {
-            font-size: 1.1em;
-            color: #222;
-            font-weight: 600;
-            text-shadow: 0 1px 3px rgba(255,255,255,0.8);
-        }
-
-        .profile-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 10px;
-            margin: 40px auto;
-            display: block;
-            object-fit: cover;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        section {
-            margin-bottom: 60px;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            color: #222;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-
-        h3 {
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .interests-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .interest-item {
-            padding: 15px 20px;
-            background-color: #f8f8f8;
-            border-radius: 8px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .interest-item:hover {
-            background-color: #e8e8e8;
-            transform: translateY(-2px);
-        }
-
-        .education-item {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            border-left: 3px solid #e0e0e0;
-        }
-
-        .biography {
-            text-align: justify;
-            line-height: 1.8;
-            color: #444;
-        }
-
-        .updates {
-            background-color: #f9f9f9;
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        .update-item {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: baseline;
-        }
-
-        .update-date {
-            font-weight: 600;
-            color: #666;
-            min-width: 100px;
-            margin-right: 20px;
-        }
-
-        .publication {
-            margin-bottom: 25px;
-            padding: 20px;
-            background-color: #fafafa;
-            border-radius: 8px;
-            border-left: 4px solid #1a73e8;
-        }
-
-        .publication-title {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #222;
-        }
-
-        .publication-authors {
-            color: #666;
-            margin-bottom: 5px;
-            font-size: 0.95em;
-        }
-
-        .publication-venue {
-            color: #888;
-            font-style: italic;
-            font-size: 0.9em;
-        }
-
-        .contact {
-            text-align: center;
-            padding: 40px;
-            background-color: #f5f5f5;
-            border-radius: 10px;
-        }
-
-        .contact a {
-            color: #1a73e8;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .contact a:hover {
-            color: #1557b0;
-            text-decoration: underline;
-        }
-
-        .nav {
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 20px;
-            border-bottom: 1px solid #e0e0e0;
-            z-index: 100;
-            margin-bottom: 30px;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            list-style: none;
-            flex-wrap: wrap;
-            line-height: 1.8;
-        }
-
-        .nav-links a {
-            color: #666;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: #1a73e8;
-        }
-
-        .nav-links a[target="_blank"]::after {
-            content: " ↗";
-            font-size: 0.7em;
-            vertical-align: super;
-            opacity: 0.7;
-        }
-
-        .go-up-button {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #1a73e8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
-            z-index: 1000;
-            border: none;
-        }
-
-        .go-up-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.6);
-            background-color: #1557b0;
-        }
-
-        .go-up-button.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .go-up-button svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-5px);
-            }
-            60% {
-                transform: translateY(-3px);
-            }
-        }
-
-        .pycon-banner {
-            background: linear-gradient(135deg, #306998 0%, #FFD43B 100%);
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-            position: relative;
-            margin-bottom: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .pycon-banner-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .pycon-logo {
-            height: 40px;
-            width: auto;
-        }
-
-        .pycon-text {
-            font-weight: 600;
-            font-size: 1.1em;
-            color: white;
-        }
-
-        .pycon-location {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-        }
-
-        .directions-btn {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px 16px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
-        }
-
-        .directions-btn:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-1px);
-        }
-
-        .banner-close {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .banner-close:hover {
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            
-            .container {
-                padding: 15px;
-            }
-            
-            .nav-links {
-                gap: 10px;
-                font-size: 0.85em;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .update-item {
-                flex-direction: column;
-            }
-            
-            .update-date {
-                margin-bottom: 5px;
-            }
-            
-            .go-up-button {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-
-            .pycon-banner-content {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .pycon-logo {
-                height: 30px;
-            }
-
-            .pycon-text {
-                font-size: 1em;
-            }
-
-            .directions-btn {
-                font-size: 0.85em;
-                padding: 6px 12px;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vasilis Giotsas</title>
+<meta name="description" content="Vasilis Giotsas, research engineer at Cloudflare. Internet measurement, routing security and machine learning on network data.">
+<link rel="canonical" href="https://v.giotsas.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vasilis Giotsas">
+<meta property="og:description" content="Vasilis Giotsas, research engineer at Cloudflare. Internet measurement, routing security and machine learning on network data.">
+<meta property="og:url" content="https://v.giotsas.com/">
+<meta property="og:image" content="https://v.giotsas.com/cdn/images/vasilis-london.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0F1A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23C8F06A'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%230B0F1A'%3Evg%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&amp;family=Fragment+Mono&amp;display=swap">
+<style>
+body{margin:0;background:#0B0F1A}
+a{color:#C8F06A}a:hover{color:#E4FAA8}
+@keyframes vgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes vgBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.vg-hop{opacity:0;animation:vgIn .5s ease-out forwards}
+.vg-caret{animation:vgBlink 1.1s step-end infinite}
+.vg-card{transition:transform .2s ease,border-color .2s ease}
+.vg-card:hover{transform:translateY(-4px);border-color:#C8F06A !important}
+.vg-ping:hover{background:#E4FAA8 !important}
+.vg-ping:active{transform:scale(.97)}
+@media (prefers-reduced-motion:reduce){.vg-caret{animation:none}.vg-hop{animation:none;opacity:1}.vg-card{transition:none}}
+</style>
+<style>[hidden]{display:none !important}</style>
 </head>
 <body>
-    <!-- PyCon Banner - Only shows from today to August 31, 2025 -->
-    <div class="pycon-banner" id="pyconBanner">
-        <div class="pycon-banner-content">
-            <img src="./cdn/images/pycon-logo.svg" alt="PyCon Greece" class="pycon-logo" id="pyconLogo">
-            <div class="pycon-text">I will speak at PyCon Greece on August 29</div>
-            <div class="pycon-location">
-                <span>📍</span>
-                <span>Technopolis of Municipality of Athens</span>
-            </div>
-            <br />
-            <a href="https://maps.google.com/?q=Technopolis+Athens+Greece" target="_blank" class="directions-btn">
-                Get Directions!
-            </a>
-            <button onclick="window.open('https://colab.research.google.com/drive/1miBkgnOHQHvzIlIrDYn25PRr-ejc4HfV?usp=drive_link', '_blank')" class="directions-btn" style="background-color: rgba(255, 255, 255, 0.15); margin-left: 10px;">
-                Jupyter Notebook
-            </button>
-            <button onclick="window.open('https://drive.google.com/file/d/1-RoASa8JdCv30HAD8UJr0TSYyaFWJ4mL/view?usp=sharing', '_blank')" class="directions-btn" style="background-color: rgba(255, 255, 255, 0.15); margin-left: 10px;">
-                Slides
-            </button>
+<div style="background: #0B0F1A; color: #E8ECF5; font-family: 'Familjen Grotesk', system-ui, sans-serif; min-height: 100vh; background-image: radial-gradient(#1B2338 1px, transparent 1px); background-size: 28px 28px;">
+
+  <!-- Nav -->
+  <header style="max-width: 1200px; margin: 0 auto; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: flex-start;">
+    <a href="/" aria-label="Home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #E8ECF5;">
+      <span style="width: 36px; height: 36px; border-radius: 10px; background: #C8F06A; color: #0B0F1A; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">vg</span>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8;">AS207135</span>
+    </a>
+    <button type="button" id="menu-btn" aria-expanded="false" aria-controls="site-tree" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 18px; border-radius: 999px; border: 1px solid #39435E; background: #111727; color: #E8ECF5; font-family: 'Fragment Mono', monospace; font-size: 14px; cursor: pointer;">menu<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="menu-chevron" style="transform: none; transition: transform .2s ease;"><path d="M6 9l6 6 6-6"></path></svg></button>
+  </header>
+  <div id="site-tree-wrap" hidden>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 28px 24px;">
+      <nav id="site-tree" aria-label="Site" style="background: #0E1322; border: 1px solid #232B42; border-radius: 20px; padding: 18px 22px; font-family: 'Fragment Mono', monospace; font-size: 15px; overflow-x: auto;">
+        <div style="color: #9AA3B8; font-size: 13px; padding-bottom: 6px;"><span style="color: #C8F06A;">$</span> tree ~/vasilis</div>
+        <div style="white-space: pre;"><a href="/" style="display: block; padding: 10px 0; color: #C8F06A; text-decoration: none; font-weight: 700;">~/vasilis</a><a href="/about" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>about/</a><a href="/research" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>research/</a><a href="/research#work" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   ├── </span>selected-work</a><a href="/research#papers" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   └── </span>papers</a><a href="/talks" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>talks/</a><a href="/writing" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>writing/</a><a href="/blog" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>blog/</a><a href="/news" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>news/</a><a href="#contact" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">└── </span>contact</a></div>
+        <div style="color: #6F7A93; font-size: 13px; padding-top: 8px;">6 directories, 3 files</div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="top" style="max-width: 1200px; margin: 0 auto; padding: 48px 28px 72px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
+    <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <img src="/cdn/images/vasilis-london.jpg" alt="Vasilis Giotsas by the Thames at night, with the City of London lit up behind him" style="width: 140px; height: 140px; border-radius: 32px; border: 3px solid #C8F06A; object-fit: cover; box-shadow: 8px 8px 0 #FF9F5A; flex: 0 0 auto; display: block;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8;">$ whois vasilis.giotsas<span class="vg-caret" style="color: #C8F06A;">_</span></div>
+      </div>
+      <h1 style="margin: 0; font-size: clamp(40px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 700;">Hi, I'm Vasilis.</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.55; color: #B4BCCE; max-width: 560px;">I'm a research engineer at Cloudflare. I measure how the Internet is connected and build models that work out what the data can't show directly, such as which IP addresses hide many users and which networks quietly connect to each other.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <a href="/research" style="background: #C8F06A; color: #0B0F1A; text-decoration: none; font-weight: 600; padding: 14px 22px; border-radius: 999px; font-size: 16px;">See the work</a>
+        <a href="#contact" style="border: 1px solid #39435E; color: #E8ECF5; text-decoration: none; font-weight: 500; padding: 14px 22px; border-radius: 999px; font-size: 16px;">Get in touch</a>
+      </div>
+    </div>
+
+    <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+      <div style="background: #0E1322; border: 1px solid #232B42; border-radius: 24px; padding: 22px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <span style="width: 12px; height: 12px; border-radius: 999px; background: #FF6B6B;"></span>
+          <span style="width: 12px; height: 12px; border-radius: 999px; background: #FFC857;"></span>
+          <span style="width: 12px; height: 12px; border-radius: 999px; background: #5FD38D;"></span>
+          <span style="margin-left: 8px; color: #6F7A93; font-size: 12px;">vg@as207135: ~</span>
         </div>
-        <button class="banner-close" onclick="closeBanner()" aria-label="Close banner">&times;</button>
+        <div style="overflow-x: auto; white-space: pre; line-height: 1.75; color: #C9D0E0;"><div><span style="color: #C8F06A;">$</span> traceroute vasilis.as207135.net</div><div style="color: #9AA3B8;">traceroute to vasilis.as207135.net (AS207135), 64 hops max, rtt in years</div><div class="vg-hop" style="animation-delay: 0.4s;"> 1  <span style="color: #E8ECF5;">bsc.unipi.gr</span> <span style="color: #6F7A93;">(2003-2007)</span>  4.0 yrs  4.0 yrs  4.0 yrs</div><div class="vg-hop" style="animation-delay: 0.8s;"> 2  <span style="color: #E8ECF5;">msc.ucl.ac.uk</span> <span style="color: #6F7A93;">(2011-2013)</span>  2.0 yrs  2.0 yrs  2.0 yrs</div><div class="vg-hop" style="animation-delay: 1.2s;"> 3  <span style="color: #E8ECF5;">phd.ucl.ac.uk</span> <span style="color: #6F7A93;">(2009-2014)</span>  5.0 yrs  5.0 yrs  5.0 yrs</div><div class="vg-hop" style="animation-delay: 1.6s;"> 4  <span style="color: #E8ECF5;">postdoc.caida.org</span> <span style="color: #6F7A93;">(2013-2017)</span>  4.0 yrs  4.0 yrs  4.0 yrs</div><div class="vg-hop" style="animation-delay: 2.0s;"> 5  <span style="color: #E8ECF5;">research.tu-berlin.de</span> <span style="color: #6F7A93;">(2017-2018)</span>  1.0 yrs  1.0 yrs  1.0 yrs</div><div class="vg-hop" style="animation-delay: 2.4s;"> 6  <span style="color: #E8ECF5;">lecturer.lancaster.ac.uk</span> <span style="color: #6F7A93;">(2018-2024)</span>  6.0 yrs  6.0 yrs  6.0 yrs</div><div class="vg-hop" style="animation-delay: 2.8s;"> 7  <span style="color: #E8ECF5;">research.cloudflare.com</span> <span style="color: #6F7A93;">(2021-now)</span>  5.0 yrs  5.0 yrs  (still waiting)</div></div>
+      </div>
+
+      <div style="background: #0E1322; border: 1px solid #232B42; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; font-family: 'Fragment Mono', monospace; font-size: 13px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;">
+          <span style="color: #9AA3B8;">$ ping vasilis</span>
+          <button type="button" class="vg-ping" id="ping-btn" style="background: #C8F06A; color: #0B0F1A; border: 0; border-radius: 999px; padding: 12px 20px; min-height: 44px; font-family: 'Fragment Mono', monospace; font-weight: 700; font-size: 13px; cursor: pointer;">send probe</button>
+        </div>
+        <div id="ping-empty" style="color: #6F7A93;">No replies yet. Send a probe to learn something.</div>
+        <div id="ping-replies" aria-live="polite" style="display: flex; flex-direction: column; gap: 12px;"></div>
+      </div>
     </div>
+  </section>
 
-    <div class="container">
-        <header>
-            <img src="./cdn/images/field.jpg" alt="Field in Lancaster" class="header-background">
-            <div class="header-overlay"></div>
-            <div class="header-content">
-                <h1>Vasileios Giotsas</h1>
-                <div class="title">Senior Research Engineer</div>
-                <div class="affiliation">Cloudflare</div>
-            </div>
-        </header>
-
-        <nav class="nav">
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="awards.html">Awards</a></li>
-                <li><a href="talks.html">Talks</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="./cdn/pdf/Academic_Curriculum_Vitae.pdf" target="_blank">CV</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <img src="./cdn/images/vasileios.jpg" alt="Vasileios Giotsas" class="profile-image">
-
-        <section id="about">
-            <h2>About</h2>
-            <div class="biography">
-                <p>Vasileios (Vasilis) Giotsas is a research engineer working on network measurements and telemetry, risk assessment and mitigation of Internet infrastructure vulnerabilities, and analysis of Internet routing policies and performance. He's a lecturer (assistant professor) at the Computer and Communications department of Lancaster University, and has worked as a research scientist at the Internet Measurement and Analysis group of TU Berlin, and as a postdoc researcher at CAIDA (Center of Advanced Internet Data Analysis) at UC San Diego. He has worked on multiple research projects funded by the UK National Cyber Security Center (NCSC), the US Department of Homeland Security (DHS), and the Space and Naval Warfare Systems Command (SPAWAR). His work has been recognized with the CoNEXT 2015 best paper award, and the IETF Applied Networking Research Prize 2016. His datasets have been shortlisted in 2013 and 2014 for the ACM SIGCOMM Community Contribution Award. He received two RIPE NCC Community Projects funds and two RIPE NCC fellowships.</p>
-            </div>
-        </section>
-
-        <section id="research">
-            <h2>Research Interests</h2>
-            <div class="interests-grid">
-                <div class="interest-item">Network Measurements</div>
-                <div class="interest-item">Internet Infrastructure</div>
-                <div class="interest-item">Routing Policies</div>
-                <div class="interest-item">Network Telemetry</div>
-                <div class="interest-item">Risk Assessment</div>
-                <div class="interest-item">Topology Analysis</div>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item">
-                <strong>Ph.D. in Computer Science</strong><br>
-                University College London, 2014<br>
-                <a href="https://profiles.ucl.ac.uk/2169-shi-zhou">Advisor: Shi Zhou</a>
-            </div>
-            <div class="education-item">
-                <strong>M.S. in Data Communications, Networks and Distributed Systems</strong><br>
-                University College London, 2008
-                <em>Summa Cum Laude</em>
-            </div>
-            <div class="education-item">
-                <strong>B.S. in Computer Engineering</strong><br>
-                University of Piraeus, 2006<br>
-            </div>
-        </section>
-
-        <section id="awards" class="updates">
-            <h2>Awards and Recognition</h2>
-            <div class="update-item">
-                <span class="update-date">2016</span>
-                <span>IETF Applied Networking Research Prize for outstanding research contributions.</span>
-            </div>
-            <div class="update-item">
-                <span class="update-date">2015</span>
-                <span>CoNEXT Best Paper Award for our work on Internet infrastructure analysis.</span>
-            </div>
-            <div class="update-item">
-                <span class="update-date">2014</span>
-                <span>Dataset shortlisted for the ACM SIGCOMM Community Contribution Award.</span>
-            </div>
-            <div class="update-item">
-                <span class="update-date">2013</span>
-                <span>Dataset shortlisted for the ACM SIGCOMM Community Contribution Award.</span>
-            </div>
-        </section>
-
-        <section id="videos">
-            <h2>
-                <svg style="width: 1.2em; height: 1.2em; vertical-align: middle; margin-right: 10px; fill: #ff0000;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/>
-                </svg>
-                Talks
-            </h2>
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0;">
-                <iframe 
-                    src="https://www.youtube.com/embed/Al_FvF4irMY?list=PL7_XjTCtHWvN-psk7CqMisGQFIPEyA067" 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);"
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <p style="text-align: center; color: #666; margin-top: 15px;">
-                Research presentations and talks
-            </p>
-        </section>
-
-        <section id="publications">
-            <h2>Selected Publications</h2>
-            
-            <div class="publication">
-                <div class="publication-title">BGPStream: A Software Framework for Live and Historical BGP Data Analysis</div>
-                <div class="publication-authors">Chiara Orsini, Alistair King, Danilo Giordano, Vasileios Giotsas, Alberto Dainotti</div>
-                <div class="publication-venue">Internet Measurement Conference 2016</div>
-            </div>
-
-            <div class="publication">
-                <div class="publication-title">CommunityWatch: The Swiss-Army Knife of BGP Anomaly Detection</div>
-                <div class="publication-authors">Vasileios Giotsas, et al.</div>
-                <div class="publication-venue">ACM SIGCOMM 2018</div>
-            </div>
-
-            <div class="publication">
-                <div class="publication-title">Improving the Discovery of IXP Peering Links through Passive BGP Measurements</div>
-                <div class="publication-authors">Vasileios Giotsas, et al.</div>
-                <div class="publication-venue">IEEE INFOCOM 2013</div>
-            </div>
-
-            <div class="publication">
-                <div class="publication-title">Valley-free violation in Internet routing — Analysis based on BGP Community data</div>
-                <div class="publication-authors">Vasileios Giotsas, et al.</div>
-                <div class="publication-venue">IEEE Communications Letters 2012</div>
-            </div>
-
-            <div class="publication">
-                <div class="publication-title">Inferring Internet AS Relationships Based on BGP Routing Policies</div>
-                <div class="publication-authors">Vasileios Giotsas, et al.</div>
-                <div class="publication-venue">arXiv preprint 2011</div>
-            </div>
-
-            <div class="publication">
-                <div class="publication-title">Performance Analysis of Multipath BGP</div>
-                <div class="publication-authors">Vasileios Giotsas, et al.</div>
-                <div class="publication-venue">arXiv preprint 2021</div>
-            </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="publications.html" style="color: #1a73e8; text-decoration: none; font-weight: 600; font-size: 1.1em;">View All Publications →</a>
-            </div>
-        </section>
-
-        <section id="map" style="margin-bottom: 40px;">
-            <h2>Location Map</h2>
-            <div style="text-align: center; background-color: #f8f9fa; padding: 20px; border-radius: 10px;" id="mapContent">
-                <img src="./cdn/images/tech-map.png" alt="Technopolis Athens Map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" id="eventMap">
-                <p style="margin-top: 15px; color: #666; font-size: 0.9em;" id="mapCaption">
-                    Technopolis of Municipality of Athens - PyCon Greece venue location
-                </p>
-                <a href="https://maps.google.com/?q=Technopolis+Athens+Greece" target="_blank" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background-color: #1a73e8; color: white; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#1557b0'" onmouseout="this.style.backgroundColor='#1a73e8'">
-                    Get Directions 🗺️
-                </a>
-                <div id="noEvents" style="display: none; color: #888; font-size: 1.1em; padding: 20px;">
-                    No events. Please check later.
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <h2>Contact</h2>
-            <p>Feel free to reach out if you're interested in collaboration or have questions about my research!</p>
-            <p style="margin-top: 20px;">
-                <a href="mailto:vasilis.giotsas@mailmasker.com">Email</a> |
-                <a href="https://twitter.com/#!/GVasilis">Twitter</a> |
-                <a href="https://github.com/vgiotsas">GitHub</a> |
-                <a href="https://go.giotsas.com/publications">Google Scholar</a> |
-                <a href="https://uk.linkedin.com/in/giotsas">LinkedIn</a>
-            </p>
-        </section>
+  <!-- Latest -->
+  <section id="latest" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 28px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #FF9F5A;">tail -n 3 ~/news.log</div>
+        <h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; font-weight: 700;">Latest</h2>
+      </div>
+      <a href="/news" style="border: 1px solid #39435E; color: #E8ECF5; text-decoration: none; font-weight: 500; padding: 14px 22px; border-radius: 999px; font-size: 15px;">All news →</a>
     </div>
+    <div style="background: #111727; border: 1px solid #232B42; border-radius: 20px; overflow: hidden;">
+      <a href="/research" style="display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 24px; border-bottom: 1px solid #232B42; text-decoration: none;">
+        <span style="width: 64px; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8;">2026</span>
+        <span style="width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px;"><span style="background: #1E2740; color: #C8F06A; padding: 4px 10px; border-radius: 999px;">paper</span></span>
+        <span style="flex: 1 1 380px; min-width: 0; font-size: 17px; line-height: 1.5; color: #C9D0E0;"><span>Paper accepted at <span style="color: #E8ECF5;">ACM SIGCOMM 2026</span>: a global inference and assessment of large shared IP addresses.</span></span>
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 13px; color: #C8F06A;">→</span>
+      </a>
+      <a href="https://blog.cloudflare.com/detecting-cgn-to-reduce-collateral-damage/" style="display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 24px; border-bottom: 1px solid #232B42; text-decoration: none;">
+        <span style="width: 64px; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8;">2025</span>
+        <span style="width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px;"><span style="background: #1E2740; color: #C8F06A; padding: 4px 10px; border-radius: 999px;">post</span></span>
+        <span style="flex: 1 1 380px; min-width: 0; font-size: 17px; line-height: 1.5; color: #C9D0E0;"><span>New Cloudflare blog post on detecting CGNAT to reduce collateral effects.</span></span>
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 13px; color: #C8F06A;">→</span>
+      </a>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 24px;">
+        <span style="width: 64px; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8;">2025</span>
+        <span style="width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px;"><span style="background: #1E2740; color: #C8F06A; padding: 4px 10px; border-radius: 999px;">fellowship</span></span>
+        <span style="flex: 1 1 380px; min-width: 0; font-size: 17px; line-height: 1.5; color: #C9D0E0;"><span>Selected for the Internet Society <span style="color: #E8ECF5;">PULSE Fellowship</span>.</span></span>
+      </div>
+    </div>
+  </section>
 
-    <button class="go-up-button" id="goUpButton" aria-label="Go to top">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
-        </svg>
-    </button>
+  <!-- Contact -->
+  <section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 64px;">
+    <div style="background: #C8F06A; color: #0B0F1A; border-radius: 28px; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between;">
+      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; font-weight: 500;">$ nc vasilis 443</div>
+        <h2 style="margin: 0; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.02em; font-weight: 700; line-height: 1.02;">Get in touch.</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.5; max-width: 520px;">Open to conversations about data science, Internet measurement and privacy-preserving analytics.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="https://www.linkedin.com/in/giotsas" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">LinkedIn</a>
+        <a href="https://go.giotsas.com/publications" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">Google Scholar</a>
+        <a href="mailto:vasilis.giotsas@mailmasker.com" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">Email</a>
+        <a href="https://github.com/vgiotsas" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">GitHub</a>
+      </div>
+    </div>
+    <footer style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; padding: 28px 4px 0; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8;">
+      <span>© <span id="yr">2026</span> Vasilis Giotsas</span>
+      <span>routed via AS207135 · ttl=64</span>
+    </footer>
+  </section>
 
-    <script>
-        // PyCon Banner Logic - Only show from today until August 31, 2025
-        function checkBannerVisibility() {
-            const today = new Date();
-            const endDate = new Date('2025-08-31');
-            const banner = document.getElementById('pyconBanner');
-            
-            if (today <= endDate && !localStorage.getItem('pycon-banner-closed')) {
-                banner.style.display = 'block';
-                // Update logo for mobile
-                updateLogoForMobile();
-            } else {
-                banner.style.display = 'none';
-            }
-        }
-
-        // Map section logic - Only show map during event period
-        function checkMapVisibility() {
-            const today = new Date();
-            const endDate = new Date('2025-08-31');
-            const eventMap = document.getElementById('eventMap');
-            const mapCaption = document.getElementById('mapCaption');
-            const noEvents = document.getElementById('noEvents');
-            
-            if (today <= endDate) {
-                eventMap.style.display = 'block';
-                mapCaption.style.display = 'block';
-                noEvents.style.display = 'none';
-            } else {
-                eventMap.style.display = 'none';
-                mapCaption.style.display = 'none';
-                noEvents.style.display = 'block';
-            }
-        }
-
-        function updateLogoForMobile() {
-            const logo = document.getElementById('pyconLogo');
-            if (window.innerWidth <= 768) {
-                logo.src = './cdn/images/pycon.svg';
-            } else {
-                logo.src = './cdn/images/pycon-logo.svg';
-            }
-        }
-
-        function closeBanner() {
-            document.getElementById('pyconBanner').style.display = 'none';
-            localStorage.setItem('pycon-banner-closed', 'true');
-        }
-
-        // Download calendar file function
-        function downloadCalendar() {
-            const calendarContent = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Vasileios Giotsas//PyCon Greece//EN
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-BEGIN:VEVENT
-DTSTART:20250829T100000Z
-DTEND:20250829T120000Z
-DTSTAMP:20250824T000000Z
-UID:pycon-greece-vasilis-talk@giotsas.com
-CREATED:20250824T000000Z
-DESCRIPTION:Vasileios Giotsas will be speaking at PyCon Greece 2025. Join us for an insightful presentation on network measurements and Internet infrastructure.
-LAST-MODIFIED:20250824T000000Z
-LOCATION:Technopolis\\, Municipality of Athens\\, Greece
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Vasileios Giotsas at PyCon Greece 2025
-TRANSP:OPAQUE
-URL:https://pycon.gr
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:PyCon Greece talk by Vasileios Giotsas starts in 1 hour
-TRIGGER:-PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:PyCon Greece talk by Vasileios Giotsas starts in 24 hours
-TRIGGER:-PT24H
-END:VALARM
-END:VEVENT
-END:VCALENDAR`;
-
-            const blob = new Blob([calendarContent], { type: 'text/calendar;charset=utf-8' });
-            const link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = 'pycon-greece-giotsas.ics';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // Check banner visibility on load
-        checkBannerVisibility();
-        checkMapVisibility();
-
-        // Update logo on resize
-        window.addEventListener('resize', updateLogoForMobile);
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Go up button functionality
-        const goUpButton = document.getElementById('goUpButton');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                goUpButton.classList.add('visible');
-            } else {
-                goUpButton.classList.remove('visible');
-            }
-        });
-
-        goUpButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Apply initial styles and observe sections
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-    </script>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('menu-btn'),w=document.getElementById('site-tree-wrap'),c=document.getElementById('menu-chevron');
+  if(!b||!w)return;
+  b.addEventListener('click',function(){
+    var open=w.hasAttribute('hidden');
+    if(open){w.removeAttribute('hidden');}else{w.setAttribute('hidden','');}
+    b.setAttribute('aria-expanded',open?'true':'false');
+    if(c)c.style.transform=open?'rotate(180deg)':'none';
+  });
+})();
+</script>
+<script>
+(function(){
+  var facts=[
+      { from: 'AS13335', text: 'senior research engineer at Cloudflare since 2021' },
+      { from: 'soho', text: 'random fact: I once met Amy Winehouse in a supermarket in Soho' },
+      { from: 'scholar', text: '60 peer-reviewed papers and counting' },
+      { from: 'home', text: "I'm the father of a little hacker" },
+      { from: 'CAIDA', text: '134,000+ downloads of my AS relationship datasets' },
+      { from: 'the trail', text: 'I run, play basketball and football (the one played with feet), and love hiking' },
+      { from: 'Periscope', text: 'used by 50+ universities and companies' },
+      { from: 'up north', text: 'I actually like British food, especially in the North' },
+      { from: 'SIGCOMM', text: 'classifiers that find IPs shared by many users' },
+      { from: 'seat 23C', text: 'I always pick the aisle seat, on planes and anywhere else with an aisle' },
+      { from: 'IMC', text: 'link discovery framed as a recommendation problem' },
+      { from: 'CoNEXT', text: 'best paper award, 2015' },
+      { from: 'IETF', text: 'Applied Networking Research Prize, 2017' },
+      { from: 'AS207135', text: 'yes, I run my own IPv6-only network' }
+    ];
+  var n=0,btn=document.getElementById('ping-btn'),box=document.getElementById('ping-replies'),empty=document.getElementById('ping-empty');
+  function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+  btn.addEventListener('click',function(){
+    n++; if(empty)empty.style.display='none';
+    var html='';
+    for(var i=n-1;i>=Math.max(0,n-3);i--){var f=facts[i%facts.length];
+      html+='<div style="color: #C9D0E0; line-height: 1.5;"><span style="color: #C8F06A;">seq='+(i+1)+'</span> reply from <span style="color: #FF9F5A;">'+esc(f.from)+'</span>: '+esc(f.text)+'</div>';}
+    box.innerHTML=html;
+  });
+})();
+</script>
 </body>
 </html>

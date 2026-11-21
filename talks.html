@@ -1,6 +1,176 @@
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url="./videos.html" />
-<title>Talks</title>
-  </head>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talks · Vasilis Giotsas</title>
+<meta name="description" content="Recorded talks by Vasilis Giotsas at research conferences and operator meetings.">
+<link rel="canonical" href="https://v.giotsas.com/talks">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Talks · Vasilis Giotsas">
+<meta property="og:description" content="Recorded talks by Vasilis Giotsas at research conferences and operator meetings.">
+<meta property="og:url" content="https://v.giotsas.com/talks">
+<meta property="og:image" content="https://v.giotsas.com/cdn/images/vasilis-london.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0F1A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23C8F06A'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%230B0F1A'%3Evg%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&amp;family=Fragment+Mono&amp;display=swap">
+<style>
+body{margin:0;background:#0B0F1A}
+a{color:#C8F06A}a:hover{color:#E4FAA8}
+@keyframes vgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes vgBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.vg-hop{opacity:0;animation:vgIn .5s ease-out forwards}
+.vg-caret{animation:vgBlink 1.1s step-end infinite}
+.vg-card{transition:transform .2s ease,border-color .2s ease}
+.vg-card:hover{transform:translateY(-4px);border-color:#C8F06A !important}
+.vg-ping:hover{background:#E4FAA8 !important}
+.vg-ping:active{transform:scale(.97)}
+@media (prefers-reduced-motion:reduce){.vg-caret{animation:none}.vg-hop{animation:none;opacity:1}.vg-card{transition:none}}
+</style>
+<style>[hidden]{display:none !important}</style>
+</head>
+<body>
+<div style="background: #0B0F1A; color: #E8ECF5; font-family: 'Familjen Grotesk', system-ui, sans-serif; min-height: 100vh; background-image: radial-gradient(#1B2338 1px, transparent 1px); background-size: 28px 28px;">
+
+  <!-- Nav -->
+  <header style="max-width: 1200px; margin: 0 auto; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: flex-start;">
+    <a href="/" aria-label="Home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #E8ECF5;">
+      <span style="width: 36px; height: 36px; border-radius: 10px; background: #C8F06A; color: #0B0F1A; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">vg</span>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8;">AS207135</span>
+    </a>
+    <button type="button" id="menu-btn" aria-expanded="false" aria-controls="site-tree" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 18px; border-radius: 999px; border: 1px solid #39435E; background: #111727; color: #E8ECF5; font-family: 'Fragment Mono', monospace; font-size: 14px; cursor: pointer;">menu<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="menu-chevron" style="transform: none; transition: transform .2s ease;"><path d="M6 9l6 6 6-6"></path></svg></button>
+  </header>
+  <div id="site-tree-wrap" hidden>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 28px 24px;">
+      <nav id="site-tree" aria-label="Site" style="background: #0E1322; border: 1px solid #232B42; border-radius: 20px; padding: 18px 22px; font-family: 'Fragment Mono', monospace; font-size: 15px; overflow-x: auto;">
+        <div style="color: #9AA3B8; font-size: 13px; padding-bottom: 6px;"><span style="color: #C8F06A;">$</span> tree ~/vasilis</div>
+        <div style="white-space: pre;"><a href="/" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none; font-weight: 700;">~/vasilis</a><a href="/about" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>about/</a><a href="/research" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>research/</a><a href="/research#work" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   ├── </span>selected-work</a><a href="/research#papers" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   └── </span>papers</a><a href="/talks" style="display: block; padding: 10px 0; color: #C8F06A; text-decoration: none;"><span style="color: #5A6688;">├── </span>talks/</a><a href="/writing" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>writing/</a><a href="/blog" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>blog/</a><a href="/news" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>news/</a><a href="#contact" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">└── </span>contact</a></div>
+        <div style="color: #6F7A93; font-size: 13px; padding-top: 8px;">6 directories, 3 files</div>
+      </nav>
+    </div>
+  </div>
+
+  <div style="height: 40px;"></div>
+  <!-- Talks -->
+  <section id="talks" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 28px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #FF9F5A;">ls ~/talks/*.mp4</div>
+        <h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; font-weight: 700;">Talks</h2>
+        <p style="margin: 0; color: #B4BCCE; font-size: 17px; max-width: 640px;">Operator meetings, research conferences and the occasional Python crowd.</p>
+      </div>
+      <a href="https://www.youtube.com/playlist?list=PL7_XjTCtHWvN-psk7CqMisGQFIPEyA067" style="border: 1px solid #39435E; color: #E8ECF5; text-decoration: none; font-weight: 500; padding: 14px 22px; border-radius: 999px; font-size: 15px;">Full playlist on YouTube →</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+      <a class="vg-card" href="https://www.youtube.com/watch?v=h5hUpRH2VdY" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5;">
+        <div style="aspect-ratio: 16 / 9; border-radius: 14px; background: #1E2740 url(https://img.youtube.com/vi/h5hUpRH2VdY/hqdefault.jpg) center / cover no-repeat; display: flex; align-items: center; justify-content: center;">
+          <span style="width: 56px; height: 56px; border-radius: 999px; background: #C8F06A; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 L17 10 L6 17 Z" fill="#0B0F1A"></path></svg></span>
+        </div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 12px; color: #C8F06A;">LACNIC 43</div>
+        <div style="font-size: 18px; font-weight: 600; line-height: 1.3;">An Internet-wide view of CG-NAT and large-scale IP sharing</div>
+      </a>
+      <a class="vg-card" href="https://www.youtube.com/watch?v=wJ94HUQJEog" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5;">
+        <div style="aspect-ratio: 16 / 9; border-radius: 14px; background: #1E2740 url(https://img.youtube.com/vi/wJ94HUQJEog/hqdefault.jpg) center / cover no-repeat; display: flex; align-items: center; justify-content: center;">
+          <span style="width: 56px; height: 56px; border-radius: 999px; background: #C8F06A; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 L17 10 L6 17 Z" fill="#0B0F1A"></path></svg></span>
+        </div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 12px; color: #C8F06A;">RIPE 89</div>
+        <div style="font-size: 18px; font-weight: 600; line-height: 1.3;">What's in the dataset? Unboxing the APNIC user populations</div>
+      </a>
+      <a class="vg-card" href="https://www.youtube.com/watch?v=RxRxuaNbIHY" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5;">
+        <div style="aspect-ratio: 16 / 9; border-radius: 14px; background: #1E2740 url(https://img.youtube.com/vi/RxRxuaNbIHY/hqdefault.jpg) center / cover no-repeat; display: flex; align-items: center; justify-content: center;">
+          <span style="width: 56px; height: 56px; border-radius: 999px; background: #C8F06A; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 L17 10 L6 17 Z" fill="#0B0F1A"></path></svg></span>
+        </div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 12px; color: #C8F06A;">research talk</div>
+        <div style="font-size: 18px; font-weight: 600; line-height: 1.3;">Decoupling IP from web services and sockets for robust addressing agility at CDN scale</div>
+      </a>
+      <a class="vg-card" href="https://www.youtube.com/watch?v=rosFDZnQSRk" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5;">
+        <div style="aspect-ratio: 16 / 9; border-radius: 14px; background: #1E2740 url(https://img.youtube.com/vi/rosFDZnQSRk/hqdefault.jpg) center / cover no-repeat; display: flex; align-items: center; justify-content: center;">
+          <span style="width: 56px; height: 56px; border-radius: 999px; background: #C8F06A; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 L17 10 L6 17 Z" fill="#0B0F1A"></path></svg></span>
+        </div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 12px; color: #C8F06A;">ACM IMC 2020</div>
+        <div style="font-size: 18px; font-weight: 600; line-height: 1.3;">Cloud provider connectivity in the flat Internet</div>
+      </a>
+      <a class="vg-card" href="https://www.youtube.com/watch?v=Al_FvF4irMY" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5;">
+        <div style="aspect-ratio: 16 / 9; border-radius: 14px; background: #1E2740 url(https://img.youtube.com/vi/Al_FvF4irMY/hqdefault.jpg) center / cover no-repeat; display: flex; align-items: center; justify-content: center;">
+          <span style="width: 56px; height: 56px; border-radius: 999px; background: #C8F06A; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 L17 10 L6 17 Z" fill="#0B0F1A"></path></svg></span>
+        </div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 12px; color: #C8F06A;">research talk</div>
+        <div style="font-size: 18px; font-weight: 600; line-height: 1.3;">A first look at the misuse and abuse of the IPv4 transfer market</div>
+      </a>
+      <a class="vg-card" href="https://www.youtube.com/watch?v=olXdd5LN7EM" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5;">
+        <div style="aspect-ratio: 16 / 9; border-radius: 14px; background: #1E2740 url(https://img.youtube.com/vi/olXdd5LN7EM/hqdefault.jpg) center / cover no-repeat; display: flex; align-items: center; justify-content: center;">
+          <span style="width: 56px; height: 56px; border-radius: 999px; background: #C8F06A; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 L17 10 L6 17 Z" fill="#0B0F1A"></path></svg></span>
+        </div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 12px; color: #C8F06A;">research talk</div>
+        <div style="font-size: 18px; font-weight: 600; line-height: 1.3;">A world view of IP spoofing in L4 volumetric DoS attacks and a call to enable BCP38</div>
+      </a>
+      <a class="vg-card" href="https://www.youtube.com/watch?v=P7aFSi9sPdU" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5;">
+        <div style="aspect-ratio: 16 / 9; border-radius: 14px; background: #1E2740 url(https://img.youtube.com/vi/P7aFSi9sPdU/hqdefault.jpg) center / cover no-repeat; display: flex; align-items: center; justify-content: center;">
+          <span style="width: 56px; height: 56px; border-radius: 999px; background: #C8F06A; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 L17 10 L6 17 Z" fill="#0B0F1A"></path></svg></span>
+        </div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 12px; color: #C8F06A;">USENIX NSDI 2019</div>
+        <div style="font-size: 18px; font-weight: 600; line-height: 1.3;">Stable and practical AS relationship inference with ProbLink</div>
+      </a>
+      <a class="vg-card" href="https://www.youtube.com/watch?v=U_qOSWRe3pQ" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5;">
+        <div style="aspect-ratio: 16 / 9; border-radius: 14px; background: #1E2740 url(https://img.youtube.com/vi/U_qOSWRe3pQ/hqdefault.jpg) center / cover no-repeat; display: flex; align-items: center; justify-content: center;">
+          <span style="width: 56px; height: 56px; border-radius: 999px; background: #C8F06A; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 L17 10 L6 17 Z" fill="#0B0F1A"></path></svg></span>
+        </div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 12px; color: #C8F06A;">ACM SIGCOMM 2017</div>
+        <div style="font-size: 18px; font-weight: 600; line-height: 1.3;">Detecting peering infrastructure outages in the wild</div>
+      </a>
+      <a class="vg-card" href="https://www.youtube.com/watch?v=Lsar7hQcuK4" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5;">
+        <div style="aspect-ratio: 16 / 9; border-radius: 14px; background: #1E2740 url(https://img.youtube.com/vi/Lsar7hQcuK4/hqdefault.jpg) center / cover no-repeat; display: flex; align-items: center; justify-content: center;">
+          <span style="width: 56px; height: 56px; border-radius: 999px; background: #C8F06A; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 L17 10 L6 17 Z" fill="#0B0F1A"></path></svg></span>
+        </div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 12px; color: #C8F06A;">PAM 2016</div>
+        <div style="font-size: 18px; font-weight: 600; line-height: 1.3;">NAT Revelio: detecting NAT444 in the ISP</div>
+      </a>
+      <a class="vg-card" href="https://www.youtube.com/watch?v=rqegnbydLm4" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5;">
+        <div style="aspect-ratio: 16 / 9; border-radius: 14px; background: #1E2740 url(https://img.youtube.com/vi/rqegnbydLm4/hqdefault.jpg) center / cover no-repeat; display: flex; align-items: center; justify-content: center;">
+          <span style="width: 56px; height: 56px; border-radius: 999px; background: #C8F06A; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 L17 10 L6 17 Z" fill="#0B0F1A"></path></svg></span>
+        </div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 12px; color: #C8F06A;">conference talk</div>
+        <div style="font-size: 18px; font-weight: 600; line-height: 1.3;">Periscope: unifying looking glass querying</div>
+      </a>
+    </div>
+    <p style="margin: 0; color: #9AA3B8; font-size: 15px;">Also spoke at Black Hat EU 2023, NANOG 68 (plenary), RIPE 73 and 75, and PyCon Greece 2025.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 64px;">
+    <div style="background: #C8F06A; color: #0B0F1A; border-radius: 28px; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between;">
+      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; font-weight: 500;">$ nc vasilis 443</div>
+        <h2 style="margin: 0; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.02em; font-weight: 700; line-height: 1.02;">Get in touch.</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.5; max-width: 520px;">Open to conversations about data science, Internet measurement and privacy-preserving analytics.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="https://www.linkedin.com/in/giotsas" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">LinkedIn</a>
+        <a href="https://go.giotsas.com/publications" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">Google Scholar</a>
+        <a href="mailto:vasilis.giotsas@mailmasker.com" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">Email</a>
+        <a href="https://github.com/vgiotsas" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">GitHub</a>
+      </div>
+    </div>
+    <footer style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; padding: 28px 4px 0; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8;">
+      <span>© <span id="yr">2026</span> Vasilis Giotsas</span>
+      <span>routed via AS207135 · ttl=64</span>
+    </footer>
+  </section>
+
+</div>
+<script>
+(function(){
+  var b=document.getElementById('menu-btn'),w=document.getElementById('site-tree-wrap'),c=document.getElementById('menu-chevron');
+  if(!b||!w)return;
+  b.addEventListener('click',function(){
+    var open=w.hasAttribute('hidden');
+    if(open){w.removeAttribute('hidden');}else{w.setAttribute('hidden','');}
+    b.setAttribute('aria-expanded',open?'true':'false');
+    if(c)c.style.transform=open?'rotate(180deg)':'none';
+  });
+})();
+</script>
+</body>
 </html>
