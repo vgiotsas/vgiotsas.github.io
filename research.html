@@ -1,562 +1,198 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="name" content="Research - Vasileios Giotsas | Senior Research Engineer">
-    <meta name="generator" content="Claude Opus 4">
-    <meta name="description" content="Research interests and work of Vasileios Giotsas in network measurements, Internet infrastructure, and routing policies." />
-    <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://giotsas.com/research.html" />
-<meta property="og:title" content="Research - Vasileios Giotsas | Senior Research Engineer" />
-<meta property="og:description" content="Research interests and work of Vasileios Giotsas in network measurements, Internet infrastructure, and routing policies." />
-<meta property="og:image" content="./cdn/images/field.jpg" />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://giotsas.com/research.html" />
-<meta property="twitter:title" content="Research - Vasileios Giotsas | Senior Research Engineer" />
-<meta property="twitter:description" content="Research interests and work of Vasileios Giotsas in network measurements, Internet infrastructure, and routing policies." />
-<meta property="twitter:image" content="./cdn/images/field.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research - Vasileios Giotsas | Senior Research Engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 40px 0 30px;
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            font-size: 2.2em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #000;
-        }
-
-        .subtitle {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .nav {
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 20px;
-            border-bottom: 1px solid #e0e0e0;
-            z-index: 100;
-            margin-bottom: 30px;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            list-style: none;
-            flex-wrap: wrap;
-            line-height: 1.8;
-        }
-
-        .nav-links a {
-            color: #666;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: #3498db;
-        }
-
-        .nav-links a[target="_blank"]::after {
-            content: " ↗";
-            font-size: 0.7em;
-            vertical-align: super;
-            opacity: 0.7;
-        }
-
-        .research-overview {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .research-overview h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .research-overview p {
-            font-size: 1.1em;
-            line-height: 1.7;
-            opacity: 0.95;
-        }
-
-        .interests-section {
-            margin-bottom: 50px;
-        }
-
-        .interests-section h2 {
-            font-size: 1.8em;
-            margin-bottom: 30px;
-            color: #222;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .interests-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .interest-card {
-            padding: 30px;
-            background-color: #f8f9fa;
-            border-radius: 15px;
-            text-align: left;
-            transition: all 0.3s ease;
-            border-left: 5px solid #3498db;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .interest-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #3498db, #2ecc71, #e74c3c, #f39c12);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .interest-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            background-color: #fff;
-        }
-
-        .interest-card:hover::before {
-            opacity: 1;
-        }
-
-        .interest-title {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 15px;
-        }
-
-        .interest-description {
-            color: #555;
-            line-height: 1.6;
-            font-size: 0.95em;
-        }
-
-        .projects-section {
-            margin-bottom: 50px;
-        }
-
-        .projects-section h2 {
-            font-size: 1.8em;
-            margin-bottom: 30px;
-            color: #222;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .project-item {
-            margin-bottom: 30px;
-            padding: 25px;
-            background-color: #fafafa;
-            border-radius: 12px;
-            border-left: 4px solid #e74c3c;
-            transition: all 0.3s ease;
-        }
-
-        .project-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .project-title {
-            font-weight: 600;
-            color: #222;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-
-        .project-funding {
-            color: #e74c3c;
-            font-weight: 500;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-
-        .project-description {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .collaboration-section {
-            background-color: #f9f9f9;
-            padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-        }
-
-        .collaboration-section h2 {
-            font-size: 1.8em;
-            margin-bottom: 25px;
-            color: #222;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .collaboration-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .collaboration-item {
-            text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .collaboration-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .collaboration-name {
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 5px;
-        }
-
-        .collaboration-org {
-            color: #666;
-            font-size: 0.9em;
-        }
-
-        .go-up-button {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            z-index: 1000;
-            border: none;
-        }
-
-        .go-up-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-        }
-
-        .go-up-button.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .go-up-button svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            .container {
-                padding: 15px;
-            }
-            
-            .nav-links {
-                gap: 10px;
-                font-size: 0.85em;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .interests-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .collaboration-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-            
-            .go-up-button {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research · Vasilis Giotsas</title>
+<meta name="description" content="Selected work and papers by Vasilis Giotsas on Internet measurement, routing and machine learning.">
+<link rel="canonical" href="https://v.giotsas.com/research">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Research · Vasilis Giotsas">
+<meta property="og:description" content="Selected work and papers by Vasilis Giotsas on Internet measurement, routing and machine learning.">
+<meta property="og:url" content="https://v.giotsas.com/research">
+<meta property="og:image" content="https://v.giotsas.com/cdn/images/vasilis-london.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0F1A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23C8F06A'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%230B0F1A'%3Evg%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&amp;family=Fragment+Mono&amp;display=swap">
+<style>
+body{margin:0;background:#0B0F1A}
+a{color:#C8F06A}a:hover{color:#E4FAA8}
+@keyframes vgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes vgBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.vg-hop{opacity:0;animation:vgIn .5s ease-out forwards}
+.vg-caret{animation:vgBlink 1.1s step-end infinite}
+.vg-card{transition:transform .2s ease,border-color .2s ease}
+.vg-card:hover{transform:translateY(-4px);border-color:#C8F06A !important}
+.vg-ping:hover{background:#E4FAA8 !important}
+.vg-ping:active{transform:scale(.97)}
+@media (prefers-reduced-motion:reduce){.vg-caret{animation:none}.vg-hop{animation:none;opacity:1}.vg-card{transition:none}}
+</style>
+<style>[hidden]{display:none !important}</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Research</h1>
-            <div class="subtitle">Network Measurements & Internet Infrastructure Analysis</div>
-        </header>
+<div style="background: #0B0F1A; color: #E8ECF5; font-family: 'Familjen Grotesk', system-ui, sans-serif; min-height: 100vh; background-image: radial-gradient(#1B2338 1px, transparent 1px); background-size: 28px 28px;">
 
-        <nav class="nav">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="research.html" class="active">Research</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="awards.html">Awards</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="./cdn/pdf/Academic_Curriculum_Vitae.pdf" target="_blank">CV</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="research-overview">
-            <h2>What I Work On</h2>
-            <p>My research is about understanding how the Internet works and making it more secure and reliable. I study network measurements, analyze routing policies, and look at potential vulnerabilities in Internet infrastructure. I work with data analysis and systems security to tackle real problems in Internet operations.</p>
-        </div>
-
-        <div class="interests-section">
-            <h2>Research Interests</h2>
-            <div class="interests-grid">
-                <div class="interest-card">
-                    <div class="interest-title">Network Measurements</div>
-                    <div class="interest-description">
-                        I develop new ways to measure and monitor Internet networks. This includes building tools to understand network topology, performance, and behavior. I focus on methods that can scale to monitor large networks and detect unusual patterns.
-                    </div>
-                </div>
-
-                <div class="interest-card">
-                    <div class="interest-title">Internet Infrastructure</div>
-                    <div class="interest-description">
-                        I study critical Internet infrastructure like Internet Exchange Points (IXPs), Content Delivery Networks (CDNs), and how different networks connect to each other. My work helps map and understand the global Internet ecosystem.
-                    </div>
-                </div>
-
-                <div class="interest-card">
-                    <div class="interest-title">Routing Policies</div>
-                    <div class="interest-description">
-                        Investigation of BGP routing policies, inter-domain relationships, and routing security. Analysis of routing anomalies, policy violations, and their impact on Internet stability and performance.
-                    </div>
-                </div>
-
-                <div class="interest-card">
-                    <div class="interest-title">Network Telemetry</div>
-                    <div class="interest-description">
-                        Advanced telemetry systems for real-time network monitoring and analysis. Development of efficient data collection and processing pipelines for large-scale network visibility and operational insights.
-                    </div>
-                </div>
-
-                <div class="interest-card">
-                    <div class="interest-title">Risk Assessment</div>
-                    <div class="interest-description">
-                        Systematic evaluation of vulnerabilities in network infrastructures. Development of methodologies for identifying and quantifying risks to critical Internet services and communication pathways.
-                    </div>
-                </div>
-
-                <div class="interest-card">
-                    <div class="interest-title">Topology Analysis</div>
-                    <div class="interest-description">
-                        Mathematical and computational analysis of network topologies. Research on graph-theoretic properties of Internet infrastructure and their implications for resilience, efficiency, and evolution.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="projects-section">
-            <h2>Key Research Projects</h2>
-            
-            <div class="project-item">
-                <div class="project-title">Critical Internet Infrastructure Vulnerability Assessment</div>
-                <div class="project-funding">Funded by UK National Cyber Security Center (NCSC)</div>
-                <div class="project-description">
-                    Mission-critical research project focusing on identifying and mitigating topological and macroscopic vulnerabilities in essential Internet infrastructures. Development of comprehensive risk assessment frameworks and mitigation strategies.
-                </div>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">Internet Routing Security and Policy Analysis</div>
-                <div class="project-funding">Funded by US Department of Homeland Security (DHS)</div>
-                <div class="project-description">
-                    Large-scale analysis of BGP routing policies and security implications. Investigation of routing anomalies, policy violations, and development of detection mechanisms for malicious routing activities.
-                </div>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">Advanced Network Measurement Systems</div>
-                <div class="project-funding">Funded by Space and Naval Warfare Systems Command (SPAWAR)</div>
-                <div class="project-description">
-                    Development of next-generation network measurement tools and methodologies for military and civilian applications. Focus on real-time monitoring, anomaly detection, and performance optimization.
-                </div>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">BGPStream Framework Development</div>
-                <div class="project-funding">RIPE NCC Community Projects Fund</div>
-                <div class="project-description">
-                    Creation of a comprehensive software framework for live and historical BGP data analysis. Development of tools and libraries that enable researchers and operators to analyze Internet routing data at scale.
-                </div>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">Internet Exchange Point Analysis</div>
-                <div class="project-funding">RIPE NCC Fellowship Program</div>
-                <div class="project-description">
-                    Comprehensive study of Internet Exchange Points and their role in global Internet connectivity. Development of methodologies for discovering and analyzing IXP peering relationships and their impact on Internet performance.
-                </div>
-            </div>
-        </div>
-
-        <div class="collaboration-section">
-            <h2>Research Collaborations</h2>
-            <p style="text-align: center; margin-bottom: 25px; color: #555;">
-                Active collaborations with leading institutions and research groups worldwide
-            </p>
-            <div class="collaboration-grid">
-                <div class="collaboration-item">
-                    <div class="collaboration-name">CAIDA</div>
-                    <div class="collaboration-org">UC San Diego</div>
-                </div>
-                <div class="collaboration-item">
-                    <div class="collaboration-name">Internet Measurement Group</div>
-                    <div class="collaboration-org">TU Berlin</div>
-                </div>
-                <div class="collaboration-item">
-                    <div class="collaboration-name">Lancaster University</div>
-                    <div class="collaboration-org">Computer & Communications</div>
-                </div>
-                <div class="collaboration-item">
-                    <div class="collaboration-name">RIPE NCC</div>
-                    <div class="collaboration-org">Research & Analysis</div>
-                </div>
-                <div class="collaboration-item">
-                    <div class="collaboration-name">Cloudflare Research</div>
-                    <div class="collaboration-org">Industry Partnership</div>
-                </div>
-                <div class="collaboration-item">
-                    <div class="collaboration-name">NCSC</div>
-                    <div class="collaboration-org">UK Government</div>
-                </div>
-            </div>
-        </div>
+  <!-- Nav -->
+  <header style="max-width: 1200px; margin: 0 auto; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: flex-start;">
+    <a href="/" aria-label="Home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #E8ECF5;">
+      <span style="width: 36px; height: 36px; border-radius: 10px; background: #C8F06A; color: #0B0F1A; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">vg</span>
+      <span style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8;">AS207135</span>
+    </a>
+    <button type="button" id="menu-btn" aria-expanded="false" aria-controls="site-tree" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 18px; border-radius: 999px; border: 1px solid #39435E; background: #111727; color: #E8ECF5; font-family: 'Fragment Mono', monospace; font-size: 14px; cursor: pointer;">menu<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="menu-chevron" style="transform: none; transition: transform .2s ease;"><path d="M6 9l6 6 6-6"></path></svg></button>
+  </header>
+  <div id="site-tree-wrap" hidden>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 28px 24px;">
+      <nav id="site-tree" aria-label="Site" style="background: #0E1322; border: 1px solid #232B42; border-radius: 20px; padding: 18px 22px; font-family: 'Fragment Mono', monospace; font-size: 15px; overflow-x: auto;">
+        <div style="color: #9AA3B8; font-size: 13px; padding-bottom: 6px;"><span style="color: #C8F06A;">$</span> tree ~/vasilis</div>
+        <div style="white-space: pre;"><a href="/" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none; font-weight: 700;">~/vasilis</a><a href="/about" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>about/</a><a href="/research" style="display: block; padding: 10px 0; color: #C8F06A; text-decoration: none;"><span style="color: #5A6688;">├── </span>research/</a><a href="/research#work" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   ├── </span>selected-work</a><a href="/research#papers" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   └── </span>papers</a><a href="/talks" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>talks/</a><a href="/writing" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>writing/</a><a href="/blog" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>blog/</a><a href="/news" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>news/</a><a href="#contact" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">└── </span>contact</a></div>
+        <div style="color: #6F7A93; font-size: 13px; padding-top: 8px;">6 directories, 3 files</div>
+      </nav>
     </div>
+  </div>
 
-    <button class="go-up-button" id="goUpButton" aria-label="Go to top">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
-        </svg>
-    </button>
+  <div style="height: 40px;"></div>
+  <!-- Selected work -->
+  <section id="work" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 28px;">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #FF9F5A;">ls -t ~/vasilis/research/selected-work</div>
+      <h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; font-weight: 700;">Selected work</h2>
+      <p style="margin: 0; color: #B4BCCE; font-size: 17px; max-width: 640px;">Machine learning and inference on data that never shows the whole picture.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+      <div class="vg-card" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
+          <span style="background: #1E2740; color: #C8F06A; padding: 4px 10px; border-radius: 999px;">SIGCOMM 2026</span>
+          <span style="background: #1E2740; color: #C9D0E0; padding: 4px 10px; border-radius: 999px;">supervised learning</span>
+        </div>
+        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">Finding the IPs that hide many users</div>
+        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">Classifiers trained on global CDN request logs spot carrier-grade NATs, VPNs and proxies, checked against a second model built on public M-Lab data.</div>
+        <a href="https://blog.cloudflare.com/detecting-cgn-to-reduce-collateral-damage/" style="font-family: 'Fragment Mono', monospace; font-size: 13px; margin-top: auto; padding: 8px 0;">read the blog post →</a>
+      </div>
+      <div class="vg-card" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
+          <span style="background: #1E2740; color: #C8F06A; padding: 4px 10px; border-radius: 999px;">IMC 2024</span>
+          <span style="background: #1E2740; color: #C9D0E0; padding: 4px 10px; border-radius: 999px;">recommender systems</span>
+        </div>
+        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">metAScritic: topology as a recommendation problem</div>
+        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">Matrix completion predicts the peering links that BGP and traceroute never see.</div>
+      </div>
+      <div class="vg-card" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
+          <span style="background: #1E2740; color: #C8F06A; padding: 4px 10px; border-radius: 999px;">NSDI 2019</span>
+          <span style="background: #1E2740; color: #C9D0E0; padding: 4px 10px; border-radius: 999px;">probabilistic inference</span>
+        </div>
+        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">ProbLink: who pays whom on the Internet</div>
+        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">Probabilistic inference over noisy BGP paths replaces brittle heuristics for inferring business relationships between networks.</div>
+      </div>
+      <div class="vg-card" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
+          <span style="background: #1E2740; color: #C8F06A; padding: 4px 10px; border-radius: 999px;">Kepler</span>
+          <span style="background: #1E2740; color: #C9D0E0; padding: 4px 10px; border-radius: 999px;">anomaly detection</span>
+        </div>
+        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">Catching outages from public BGP data</div>
+        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">Found 159 outages across 87 facilities and 41 exchange points in four years of routing data.</div>
+        <a href="https://labs.ripe.net/author/vgiotsas/detection-of-peering-infrastructure-outages-based-on-bgp-communities/" style="font-family: 'Fragment Mono', monospace; font-size: 13px; margin-top: auto; padding: 8px 0;">read on RIPE Labs →</a>
+      </div>
+      <div class="vg-card" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
+          <span style="background: #1E2740; color: #C8F06A; padding: 4px 10px; border-radius: 999px;">GLOBECOM 2019</span>
+          <span style="background: #1E2740; color: #C9D0E0; padding: 4px 10px; border-radius: 999px;">random forests</span>
+        </div>
+        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">Profiling IoT botnets through DNS</div>
+        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">Random Forest classifiers trained on DNS traffic features detect Mirai-like botnet activity in the wild.</div>
+      </div>
+      <div class="vg-card" style="background: #111727; border: 1px solid #232B42; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
+          <span style="background: #1E2740; color: #C8F06A; padding: 4px 10px; border-radius: 999px;">2019 to 2020</span>
+          <span style="background: #1E2740; color: #C9D0E0; padding: 4px 10px; border-radius: 999px;">deep learning</span>
+        </div>
+        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">Neural precoding for video</div>
+        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">CNNs that prepare video before AVC, HEVC, VP9 and AV1 encoding, cutting bitrate and transcoding cost.</div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+  <!-- Papers -->
+  <section id="papers" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 28px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #FF9F5A;">cat ~/papers.bib | head</div>
+        <h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; font-weight: 700;">Papers</h2>
+        <p style="margin: 0; color: #B4BCCE; font-size: 17px; max-width: 640px;">A few from 60 peer-reviewed papers, newest first.</p>
+      </div>
+      <a href="https://go.giotsas.com/publications" style="border: 1px solid #39435E; color: #E8ECF5; text-decoration: none; font-weight: 500; padding: 14px 22px; border-radius: 999px; font-size: 15px;">All papers on Google Scholar →</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #232B42;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
+        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #C8F06A;">ACM SIGCOMM</span><span style="color: #9AA3B8;">2026</span></div>
+        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">A Global Inference and Assessment of Large Shared IP Addresses</span><span style="color: #9AA3B8; font-size: 14px;">with Loqman Salamatian, Antoine Cordelle, Nick Wood and Marwan Fayed</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
+        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #C8F06A;">ACM IMC</span><span style="color: #9AA3B8;">2024</span></div>
+        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">metAScritic: Reframing AS-Level Topology Discovery as a Recommendation System</span><span style="color: #9AA3B8; font-size: 14px;">with Loqman Salamatian, Kevin Vermeulen, Ítalo Cunha and Ethan Katz-Bassett</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
+        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #C8F06A;">SPIE ADIP</span><span style="color: #9AA3B8;">2020</span></div>
+        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Escaping the Complexity-Bitrate-Quality Barriers of Video Encoders via Deep Perceptual Optimization</span><span style="color: #9AA3B8; font-size: 14px;">with Aaron Chadha, Russell Anam, Ilya Fadeev and Yiannis Andreopoulos</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
+        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #C8F06A;">IEEE TCSVT</span><span style="color: #9AA3B8;">2020</span></div>
+        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Deep Video Precoding</span><span style="color: #9AA3B8; font-size: 14px;">with Eirina Bourtsoulatze, Aaron Chadha, Ilya Fadeev and Yiannis Andreopoulos</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
+        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #C8F06A;">USENIX NSDI</span><span style="color: #9AA3B8;">2019</span></div>
+        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Stable and Practical AS Relationship Inference with ProbLink</span><span style="color: #9AA3B8; font-size: 14px;">with Yuchen Jin, Colin Scott, Amogh Dhamdhere, Arvind Krishnamurthy and Scott Shenker</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
+        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #C8F06A;">IEEE GLOBECOM</span><span style="color: #9AA3B8;">2019</span></div>
+        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Profiling IoT-Based Botnet Traffic Using DNS</span><span style="color: #9AA3B8; font-size: 14px;">with Owen P. Dwyer, Angelos K. Marnerides and Troy Mursch</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
+        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #C8F06A;">IBC</span><span style="color: #9AA3B8;">2019</span></div>
+        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Deep-Learning Based Precoding Techniques for Next-Generation Video Compression</span><span style="color: #9AA3B8; font-size: 14px;">with Aaron Chadha, Eirina Bourtsoulatze, Yiannis Andreopoulos and Sergio Grce</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
+        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #C8F06A;">ACM IMC</span><span style="color: #9AA3B8;">2014</span></div>
+        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Inferring Complex AS Relationships</span><span style="color: #9AA3B8; font-size: 14px;">first author</span></div>
+      </div>
+    </div>
+  </section>
 
-        // Go up button functionality
-        const goUpButton = document.getElementById('goUpButton');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                goUpButton.classList.add('visible');
-            } else {
-                goUpButton.classList.remove('visible');
-            }
-        });
+  <!-- Contact -->
+  <section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 64px;">
+    <div style="background: #C8F06A; color: #0B0F1A; border-radius: 28px; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between;">
+      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; font-weight: 500;">$ nc vasilis 443</div>
+        <h2 style="margin: 0; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.02em; font-weight: 700; line-height: 1.02;">Get in touch.</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.5; max-width: 520px;">Open to conversations about data science, Internet measurement and privacy-preserving analytics.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="https://www.linkedin.com/in/giotsas" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">LinkedIn</a>
+        <a href="https://go.giotsas.com/publications" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">Google Scholar</a>
+        <a href="mailto:vasilis.giotsas@mailmasker.com" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">Email</a>
+        <a href="https://github.com/vgiotsas" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;">GitHub</a>
+      </div>
+    </div>
+    <footer style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; padding: 28px 4px 0; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8;">
+      <span>© <span id="yr">2026</span> Vasilis Giotsas</span>
+      <span>routed via AS207135 · ttl=64</span>
+    </footer>
+  </section>
 
-        goUpButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Apply initial styles and observe sections
-        document.querySelectorAll('.research-overview, .interests-section, .projects-section, .collaboration-section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-    </script>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('menu-btn'),w=document.getElementById('site-tree-wrap'),c=document.getElementById('menu-chevron');
+  if(!b||!w)return;
+  b.addEventListener('click',function(){
+    var open=w.hasAttribute('hidden');
+    if(open){w.removeAttribute('hidden');}else{w.setAttribute('hidden','');}
+    b.setAttribute('aria-expanded',open?'true':'false');
+    if(c)c.style.transform=open?'rotate(180deg)':'none';
+  });
+})();
+</script>
 </body>
 </html>
