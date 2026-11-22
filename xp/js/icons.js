@@ -1,4 +1,4 @@
-/* Original icon set for xp.v.giotsas.com (hand-drawn SVG, 48x48 grid) */
+/* Original icon set for v.giotsas.com/xp (hand-drawn SVG, 48x48 grid) */
 (function () {
   const g = (id, stops) => `<linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1">${stops.map(([o, c]) => `<stop offset="${o}" stop-color="${c}"/>`).join('')}</linearGradient>`;
   let n = 0;

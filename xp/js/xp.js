@@ -1,4 +1,4 @@
-/* VGOS: window manager and apps for xp.v.giotsas.com */
+/* VGOS: window manager and apps for v.giotsas.com/xp */
 (function () {
   'use strict';
   const D = window.VG, I = window.ICON;
@@ -473,7 +473,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         const text = String(f.get('body') || '').trim();
         if (!text) { body.querySelector('textarea').focus(); balloon('Empty message', 'Write something first, even a hello.'); return; }
         const name = String(f.get('name') || '').trim(), from = String(f.get('from') || '').trim();
-        const subj = String(f.get('subject') || '').trim() || 'Hello from xp.v.giotsas.com';
+        const subj = String(f.get('subject') || '').trim() || 'Hello from v.giotsas.com/xp';
         const sig = (name || from) ? `\n\n— ${name}${from ? ' <' + from + '>' : ''}` : '';
         const href = `mailto:${D.email}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(text + sig)}`;
         (APPS._sent || (APPS._sent = [])).unshift({ from: (name || 'You') + (from ? ` <${from}>` : ''), date: 'Today', subject: subj, body: text + sig, unread: false });

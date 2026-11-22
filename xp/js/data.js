@@ -1,4 +1,4 @@
-/* Content for xp.v.giotsas.com. Everything here comes from Vasilis's CV and public profiles. */
+/* Content for v.giotsas.com/xp. Everything here comes from Vasilis's CV and public profiles. */
 window.VG = {
   name: 'Vasilis Giotsas',
   email: 'giotsas@gmail.com',
