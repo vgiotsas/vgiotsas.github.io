@@ -13,20 +13,20 @@
 <meta property="og:image" content="https://v.giotsas.com/cdn/images/vasilis-london.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0B0F1A">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236FB7A8'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%230B0F1A'%3Evg%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23EDEAE3'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%230B0F1A'%3Evg%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&amp;family=Fragment+Mono&amp;display=swap">
 <style>
 body{margin:0;background:#0B0F1A}
-a{color:#6FB7A8}a:hover{color:#A3D6CB}
+a{color:#EDEAE3}a:hover{color:#FFFFFF}
 @keyframes vgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @keyframes vgBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
 .vg-hop{opacity:0;animation:vgIn .5s ease-out forwards}
 .vg-caret{animation:vgBlink 1.1s step-end infinite}
 .vg-card{transition:border-color .2s ease}
-.vg-card:hover{border-color:#6FB7A8 !important}
+.vg-card:hover{border-color:#EDEAE3 !important}
 .vg-row:hover{background:#111727}
-.vg-ping:hover{background:#A3D6CB !important}
+.vg-ping:hover{background:#FFFFFF !important}
 .vg-ping:active{transform:scale(.97)}
 @media (prefers-reduced-motion:reduce){.vg-caret{animation:none}.vg-hop{animation:none;opacity:1}.vg-card{transition:none}}
 </style>
@@ -38,7 +38,7 @@ a{color:#6FB7A8}a:hover{color:#A3D6CB}
   <!-- Nav -->
   <header style="max-width: 1200px; margin: 0 auto; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: flex-start;">
     <a href="/" aria-label="Home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #E8ECF5;">
-      <span style="width: 36px; height: 36px; border-radius: 0; background: #6FB7A8; color: #0B0F1A; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">vg</span>
+      <span style="width: 36px; height: 36px; border-radius: 0; background: #EDEAE3; color: #0B0F1A; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">vg</span>
       <span style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8;">AS207135</span>
     </a>
     <button type="button" id="menu-btn" aria-expanded="false" aria-controls="site-tree" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 18px; border-radius: 999px; border: 1px solid #39435E; background: #111727; color: #E8ECF5; font-family: 'Fragment Mono', monospace; font-size: 14px; cursor: pointer;">menu<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="menu-chevron" style="transform: none; transition: transform .2s ease;"><path d="M6 9l6 6 6-6"></path></svg></button>
@@ -46,8 +46,8 @@ a{color:#6FB7A8}a:hover{color:#A3D6CB}
   <div id="site-tree-wrap" hidden>
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 28px 24px;">
       <nav id="site-tree" aria-label="Site" style="background: #0E1322; border: 1px solid #232B42; border-radius: 20px; padding: 18px 22px; font-family: 'Fragment Mono', monospace; font-size: 15px; overflow-x: auto;">
-        <div style="color: #9AA3B8; font-size: 13px; padding-bottom: 6px;"><span style="color: #6FB7A8;">$</span> tree ~/vasilis</div>
-        <div style="white-space: pre;"><a href="/" style="display: block; padding: 10px 0; color: #6FB7A8; text-decoration: none; font-weight: 700;">~/vasilis</a><a href="/about" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>about/</a><a href="/research" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>research/</a><a href="/research#work" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   ├── </span>selected-work</a><a href="/research#papers" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   └── </span>papers</a><a href="/talks" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>talks/</a><a href="/writing" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>writing/</a><a href="/blog" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>blog/</a><a href="/news" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>news/</a><a href="#contact" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">└── </span>contact</a></div>
+        <div style="color: #9AA3B8; font-size: 13px; padding-bottom: 6px;"><span style="color: #EDEAE3;">$</span> tree ~/vasilis</div>
+        <div style="white-space: pre;"><a href="/" style="display: block; padding: 10px 0; color: #E0614F; text-decoration: none; font-weight: 700;">~/vasilis</a><a href="/about" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>about/</a><a href="/research" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>research/</a><a href="/research#work" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   ├── </span>selected-work</a><a href="/research#papers" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   └── </span>papers</a><a href="/talks" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>talks/</a><a href="/writing" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>writing/</a><a href="/blog" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>blog/</a><a href="/news" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>news/</a><a href="#contact" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">└── </span>contact</a></div>
         <div style="color: #6F7A93; font-size: 13px; padding-top: 8px;">6 directories, 3 files</div>
       </nav>
     </div>
@@ -57,13 +57,13 @@ a{color:#6FB7A8}a:hover{color:#A3D6CB}
   <section id="top" style="max-width: 1200px; margin: 0 auto; padding: 48px 28px 72px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
     <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px;">
       <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-        <img src="/cdn/images/vasilis-london.jpg" alt="Vasilis Giotsas by the Thames at night, with the City of London lit up behind him" style="width: 140px; height: 140px; border-radius: 32px; border: 3px solid #6FB7A8; object-fit: cover; flex: 0 0 auto; display: block;">
-        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8;">$ whois vasilis.giotsas<span class="vg-caret" style="color: #6FB7A8;">_</span></div>
+        <img src="/cdn/images/vasilis-london.jpg" alt="Vasilis Giotsas by the Thames at night, with the City of London lit up behind him" style="width: 140px; height: 140px; border-radius: 32px; border: 3px solid #EDEAE3; object-fit: cover; flex: 0 0 auto; display: block;">
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8;">$ whois vasilis.giotsas<span class="vg-caret" style="color: #EDEAE3;">_</span></div>
       </div>
       <h1 style="margin: 0; font-size: clamp(40px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 700;">Hi, I'm Vasilis.</h1>
       <p style="margin: 0; font-size: 19px; line-height: 1.55; color: #B4BCCE; max-width: 560px;">I'm a research engineer at Cloudflare. I measure how the Internet is connected and build models that work out what the data can't show directly, such as which IP addresses hide many users and which networks quietly connect to each other.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-        <a href="/research" style="background: #6FB7A8; color: #0B0F1A; text-decoration: none; font-weight: 600; padding: 14px 22px; border-radius: 0; font-size: 16px;">See the work</a>
+        <a href="/research" style="background: #EDEAE3; color: #0B0F1A; text-decoration: none; font-weight: 600; padding: 14px 22px; border-radius: 0; font-size: 16px;">See the work</a>
         <a href="#contact" style="border: 1px solid #39435E; color: #E8ECF5; text-decoration: none; font-weight: 500; padding: 14px 22px; border-radius: 0; font-size: 16px;">Get in touch</a>
       </div>
     </div>
@@ -76,13 +76,13 @@ a{color:#6FB7A8}a:hover{color:#A3D6CB}
           <span style="width: 12px; height: 12px; border-radius: 999px; background: #5FD38D;"></span>
           <span style="margin-left: 8px; color: #6F7A93; font-size: 12px;">vg@as207135: ~</span>
         </div>
-        <div style="overflow-x: auto; white-space: pre; line-height: 1.75; color: #C9D0E0;"><div><span style="color: #6FB7A8;">$</span> traceroute vasilis.as207135.net</div><div style="color: #9AA3B8;">traceroute to vasilis.as207135.net (AS207135), 64 hops max, rtt in years</div><div class="vg-hop" style="animation-delay: 0.4s;"> 1  <span style="color: #E8ECF5;">bsc.unipi.gr</span> <span style="color: #6F7A93;">(2003-2007)</span>  4.0 yrs  4.0 yrs  4.0 yrs</div><div class="vg-hop" style="animation-delay: 0.8s;"> 2  <span style="color: #E8ECF5;">msc.ucl.ac.uk</span> <span style="color: #6F7A93;">(2007-2008)</span>  1.0 yrs  1.0 yrs  1.0 yrs</div><div class="vg-hop" style="animation-delay: 1.2s;"> 3  <span style="color: #E8ECF5;">phd.ucl.ac.uk</span> <span style="color: #6F7A93;">(2009-2014)</span>  5.0 yrs  5.0 yrs  5.0 yrs</div><div class="vg-hop" style="animation-delay: 1.6s;"> 4  <span style="color: #E8ECF5;">postdoc.caida.org</span> <span style="color: #6F7A93;">(2013-2017)</span>  4.0 yrs  4.0 yrs  4.0 yrs</div><div class="vg-hop" style="animation-delay: 2.0s;"> 5  <span style="color: #E8ECF5;">research.tu-berlin.de</span> <span style="color: #6F7A93;">(2017-2018)</span>  1.0 yrs  1.0 yrs  1.0 yrs</div><div class="vg-hop" style="animation-delay: 2.4s;"> 6  <span style="color: #E8ECF5;">lecturer.lancaster.ac.uk</span> <span style="color: #6F7A93;">(2018-2024)</span>  6.0 yrs  6.0 yrs  6.0 yrs</div><div class="vg-hop" style="animation-delay: 2.8s;"> 7  <span style="color: #E8ECF5;">research.cloudflare.com</span> <span style="color: #6F7A93;">(2021-now)</span>  5.0 yrs  5.0 yrs  (still waiting)</div></div>
+        <div style="overflow-x: auto; white-space: pre; line-height: 1.75; color: #C9D0E0;"><div><span style="color: #EDEAE3;">$</span> traceroute vasilis.as207135.net</div><div style="color: #9AA3B8;">traceroute to vasilis.as207135.net (AS207135), 64 hops max, rtt in years</div><div class="vg-hop" style="animation-delay: 0.4s;"> 1  <span style="color: #E8ECF5;">bsc.unipi.gr</span> <span style="color: #6F7A93;">(2003-2007)</span>  4.0 yrs  4.0 yrs  4.0 yrs</div><div class="vg-hop" style="animation-delay: 0.8s;"> 2  <span style="color: #E8ECF5;">msc.ucl.ac.uk</span> <span style="color: #6F7A93;">(2007-2008)</span>  1.0 yrs  1.0 yrs  1.0 yrs</div><div class="vg-hop" style="animation-delay: 1.2s;"> 3  <span style="color: #E8ECF5;">phd.ucl.ac.uk</span> <span style="color: #6F7A93;">(2009-2014)</span>  5.0 yrs  5.0 yrs  5.0 yrs</div><div class="vg-hop" style="animation-delay: 1.6s;"> 4  <span style="color: #E8ECF5;">postdoc.caida.org</span> <span style="color: #6F7A93;">(2013-2017)</span>  4.0 yrs  4.0 yrs  4.0 yrs</div><div class="vg-hop" style="animation-delay: 2.0s;"> 5  <span style="color: #E8ECF5;">research.tu-berlin.de</span> <span style="color: #6F7A93;">(2017-2018)</span>  1.0 yrs  1.0 yrs  1.0 yrs</div><div class="vg-hop" style="animation-delay: 2.4s;"> 6  <span style="color: #E8ECF5;">lecturer.lancaster.ac.uk</span> <span style="color: #6F7A93;">(2018-2024)</span>  6.0 yrs  6.0 yrs  6.0 yrs</div><div class="vg-hop" style="animation-delay: 2.8s;"> 7  <span style="color: #E8ECF5;">research.cloudflare.com</span> <span style="color: #6F7A93;">(2021-now)</span>  5.0 yrs  5.0 yrs  (still waiting)</div></div>
       </div>
 
       <div style="background: #0E1322; border: 1px solid #232B42; border-radius: 0; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; font-family: 'Fragment Mono', monospace; font-size: 13px;">
         <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;">
           <span style="color: #9AA3B8;">$ ping vasilis</span>
-          <button type="button" class="vg-ping" id="ping-btn" style="background: #6FB7A8; color: #0B0F1A; border: 0; border-radius: 0; padding: 12px 20px; min-height: 44px; font-family: 'Fragment Mono', monospace; font-weight: 700; font-size: 13px; cursor: pointer;">send probe</button>
+          <button type="button" class="vg-ping" id="ping-btn" style="background: #EDEAE3; color: #0B0F1A; border: 0; border-radius: 0; padding: 12px 20px; min-height: 44px; font-family: 'Fragment Mono', monospace; font-weight: 700; font-size: 13px; cursor: pointer;">send probe</button>
         </div>
         <div id="ping-empty" style="color: #6F7A93;">No replies yet. Send a probe to learn something.</div>
         <div id="ping-replies" aria-live="polite" style="display: flex; flex-direction: column; gap: 12px;"></div>
@@ -94,7 +94,7 @@ a{color:#6FB7A8}a:hover{color:#A3D6CB}
   <section id="latest" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 28px;">
     <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between;">
       <div style="display: flex; flex-direction: column; gap: 10px;">
-        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #D9A35B;">tail -n 3 ~/news.log</div>
+        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #E0614F;">tail -n 3 ~/news.log</div>
         <h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; font-weight: 700;">Latest</h2>
       </div>
       <a href="/news" style="border: 1px solid #39435E; color: #E8ECF5; text-decoration: none; font-weight: 500; padding: 14px 22px; border-radius: 0; font-size: 15px;">All news →</a>
@@ -102,19 +102,19 @@ a{color:#6FB7A8}a:hover{color:#A3D6CB}
     <div style="border-top: 2px solid #39435E;">
       <a href="/research" style="display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42; text-decoration: none;">
         <span style="width: 64px; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8;">2026</span>
-        <span style="width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px;"><span style="color: #6FB7A8; text-transform: uppercase; letter-spacing: 0.06em;">paper</span></span>
+        <span style="width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px;"><span style="color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em;">paper</span></span>
         <span style="flex: 1 1 380px; min-width: 0; font-size: 17px; line-height: 1.5; color: #C9D0E0;"><span>Paper accepted at <span style="color: #E8ECF5;">ACM SIGCOMM 2026</span>: a global inference and assessment of large shared IP addresses.</span></span>
-        <span style="font-family: 'Fragment Mono', monospace; font-size: 13px; color: #6FB7A8;">→</span>
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 13px; color: #EDEAE3;">→</span>
       </a>
       <a href="https://blog.cloudflare.com/detecting-cgn-to-reduce-collateral-damage/" style="display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42; text-decoration: none;">
         <span style="width: 64px; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8;">2025</span>
-        <span style="width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px;"><span style="color: #6FB7A8; text-transform: uppercase; letter-spacing: 0.06em;">post</span></span>
+        <span style="width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px;"><span style="color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em;">post</span></span>
         <span style="flex: 1 1 380px; min-width: 0; font-size: 17px; line-height: 1.5; color: #C9D0E0;"><span>New Cloudflare blog post on detecting CGNAT to reduce collateral effects.</span></span>
-        <span style="font-family: 'Fragment Mono', monospace; font-size: 13px; color: #6FB7A8;">→</span>
+        <span style="font-family: 'Fragment Mono', monospace; font-size: 13px; color: #EDEAE3;">→</span>
       </a>
       <div style="display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0;">
         <span style="width: 64px; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8;">2025</span>
-        <span style="width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px;"><span style="color: #6FB7A8; text-transform: uppercase; letter-spacing: 0.06em;">fellowship</span></span>
+        <span style="width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px;"><span style="color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em;">fellowship</span></span>
         <span style="flex: 1 1 380px; min-width: 0; font-size: 17px; line-height: 1.5; color: #C9D0E0;"><span>Selected for the Internet Society <span style="color: #E8ECF5;">PULSE Fellowship</span>.</span></span>
       </div>
     </div>
@@ -122,7 +122,7 @@ a{color:#6FB7A8}a:hover{color:#A3D6CB}
 
   <!-- Contact -->
   <section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 64px;">
-    <div style="background: #6FB7A8; color: #0B0F1A; border-radius: 0; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between;">
+    <div style="background: #EDEAE3; color: #0B0F1A; border-radius: 0; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between;">
       <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
         <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; font-weight: 500;">$ nc vasilis 443</div>
         <h2 style="margin: 0; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.02em; font-weight: 700; line-height: 1.02;">Get in touch.</h2>
@@ -178,7 +178,7 @@ a{color:#6FB7A8}a:hover{color:#A3D6CB}
     n++; if(empty)empty.style.display='none';
     var html='';
     for(var i=n-1;i>=Math.max(0,n-3);i--){var f=facts[i%facts.length];
-      html+='<div style="color: #C9D0E0; line-height: 1.5;"><span style="color: #6FB7A8;">seq='+(i+1)+'</span> reply from <span style="color: #D9A35B;">'+esc(f.from)+'</span>: '+esc(f.text)+'</div>';}
+      html+='<div style="color: #C9D0E0; line-height: 1.5;"><span style="color: #EDEAE3;">seq='+(i+1)+'</span> reply from <span style="color: #E0614F;">'+esc(f.from)+'</span>: '+esc(f.text)+'</div>';}
     box.innerHTML=html;
   });
 })();
