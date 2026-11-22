@@ -82,82 +82,81 @@ body{margin:0;background:#0B0F1A}
 .u52{max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 28px}
 .u53{display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between}
 .u54{display: flex; flex-direction: column; gap: 10px}
-.u55{font-family: 'Fragment Mono', monospace; font-size: 14px; color: #E0614F}
-.u56{margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; font-weight: 700}
-.u57{border: 1px solid #39435E; color: #E8ECF5; text-decoration: none; font-weight: 500; padding: 14px 22px; border-radius: 999px; font-size: 15px}
-.u58{border-top: 2px solid #39435E}
-.u59{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42; text-decoration: none}
-.u60{width: 64px; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8}
-.u61{width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px}
-.u62{color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em}
-.u63{flex: 1 1 380px; min-width: 0; font-size: 17px; line-height: 1.5; color: #C9D0E0}
-.u64{color: #E8ECF5}
-.u65{font-family: 'Fragment Mono', monospace; font-size: 13px; color: #EDEAE3}
-.u66{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0}
-.u67{max-width: 1200px; margin: 0 auto; padding: 0 28px 64px}
-.u68{background: #EDEAE3; color: #0B0F1A; border-radius: 0; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between}
-.u69{flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px}
-.u70{font-family: 'Fragment Mono', monospace; font-size: 14px; font-weight: 500}
-.u71{margin: 0; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.02em; font-weight: 700; line-height: 1.02}
-.u72{margin: 0; font-size: 18px; line-height: 1.5; max-width: 520px}
-.u73{display: flex; flex-wrap: wrap; gap: 10px}
-.u74{background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px}
-.u75{display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; padding: 28px 4px 0; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8}
-.u76{display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none; font-weight: 700}
-.u77{display: block; padding: 10px 0; color: #E0614F; text-decoration: none}
-.u78{height: 40px}
-.u79{margin: 0; color: #B4BCCE; font-size: 17px; max-width: 640px}
-.u80{display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 48px 40px}
-.u81{background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 12px}
-.u82{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em}
-.u83{font-size: 20px; font-weight: 600}
-.u84{color: #9AA3B8; font-size: 14px}
-.u85{color: #C9D0E0; font-size: 15px; line-height: 1.5}
-.u86{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #9AA3B8; text-transform: uppercase; letter-spacing: 0.06em}
-.u87{max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-wrap: wrap; gap: 24px}
-.u88{flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px}
-.u89{background: #0E1322; border: 1px solid #232B42; border-radius: 0; padding: 24px; font-family: 'Fragment Mono', monospace; font-size: 14px; line-height: 1.6; display: flex; flex-direction: column; gap: 14px; overflow-x: auto}
-.u90{display: flex; flex-wrap: wrap; gap: 4px 16px}
-.u91{color: #EDEAE3; width: 110px}
-.u92{flex: 1 1 300px; color: #C9D0E0}
-.u93{color: #6F7A93}
-.u94{flex: 2 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 20px}
-.u95{border-top: 2px solid #39435E; padding: 20px 0 0; display: flex; flex-direction: column; gap: 18px}
-.u96{display: flex; flex-direction: column; gap: 4px}
-.u97{font-weight: 600; font-size: 16px}
-.u98{display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px 40px}
-.u99{background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px}
-.u100{display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px}
-.u101{color: #9AA3B8; text-transform: uppercase; letter-spacing: 0.06em}
-.u102{font-size: 22px; font-weight: 600; line-height: 1.25}
-.u103{color: #C9D0E0; font-size: 15px; line-height: 1.55}
-.u104{font-family: 'Fragment Mono', monospace; font-size: 13px; margin-top: auto; padding: 8px 0}
-.u105{display: flex; flex-direction: column; gap: 0; border-top: 1px solid #232B42}
-.u106{display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42}
-.u107{width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px}
-.u108{color: #9AA3B8}
-.u109{flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px}
-.u110{font-size: 18px; font-weight: 600; line-height: 1.35}
-.u111{display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px 40px}
-.u112{background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5}
-.u113{aspect-ratio: 16 / 9; border-radius: 0; background: #1E2740; display: flex; align-items: center; justify-content: center}
-.u114{width: 56px; height: 56px; border-radius: 999px; background: #EDEAE3; display: flex; align-items: center; justify-content: center}
-.u115{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #EDEAE3}
-.u116{font-size: 18px; font-weight: 600; line-height: 1.3}
-.u117{margin: 0; color: #9AA3B8; font-size: 15px}
-.u118{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42; text-decoration: none; color: #E8ECF5}
-.u119{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #EDEAE3; width: 130px}
-.u120{flex: 1 1 360px; font-size: 17px}
-.u121{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #9AA3B8}
-.u122{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #E0614F; width: 130px}
-.u123{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; text-decoration: none; color: #E8ECF5}
-.u124{background: #0E1322; border: 1px solid #232B42; border-radius: 20px; padding: 24px; font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8}
-.u125{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42}
-.u126{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; text-decoration: none}
-.u127{background: #0B0F1A; color: #E8ECF5; font-family: 'Familjen Grotesk', system-ui, sans-serif; min-height: 100vh; background-image: radial-gradient(#1B2338 1px, transparent 1px); background-size: 28px 28px; display: flex; align-items: center; justify-content: center; padding: 28px}
-.u128{max-width: 720px; width: 100%; display: flex; flex-direction: column; gap: 24px}
-.u129{background: #0E1322; border: 1px solid #232B42; border-radius: 24px; padding: 22px; font-family: 'Fragment Mono', monospace; font-size: 13px; overflow-x: auto; white-space: pre; line-height: 1.75; color: #C9D0E0}
-.u130{color: #E0614F}
-.u131{margin: 0; font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.03em; font-weight: 700; line-height: 1.05}
-.u132{background:#0B0F1A; color:#E8ECF5; font-family:system-ui,sans-serif; padding:40px}
-.u133{color:#EDEAE3}
+.u55{margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; font-weight: 700}
+.u56{border: 1px solid #39435E; color: #E8ECF5; text-decoration: none; font-weight: 500; padding: 14px 22px; border-radius: 999px; font-size: 15px}
+.u57{border-top: 2px solid #39435E}
+.u58{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42; text-decoration: none}
+.u59{width: 64px; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8}
+.u60{width: 110px; font-family: 'Fragment Mono', monospace; font-size: 12px}
+.u61{color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em}
+.u62{flex: 1 1 380px; min-width: 0; font-size: 17px; line-height: 1.5; color: #C9D0E0}
+.u63{color: #E8ECF5}
+.u64{font-family: 'Fragment Mono', monospace; font-size: 13px; color: #EDEAE3}
+.u65{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0}
+.u66{max-width: 1200px; margin: 0 auto; padding: 0 28px 64px}
+.u67{background: #EDEAE3; color: #0B0F1A; border-radius: 0; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between}
+.u68{flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px}
+.u69{margin: 0; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.02em; font-weight: 700; line-height: 1.02}
+.u70{margin: 0; font-size: 18px; line-height: 1.5; max-width: 520px}
+.u71{display: flex; flex-wrap: wrap; gap: 10px}
+.u72{background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px}
+.u73{display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; padding: 28px 4px 0; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8}
+.u74{display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none; font-weight: 700}
+.u75{display: block; padding: 10px 0; color: #E0614F; text-decoration: none}
+.u76{height: 40px}
+.u77{font-family: 'Fragment Mono', monospace; font-size: 14px; color: #E0614F}
+.u78{margin: 0; color: #B4BCCE; font-size: 17px; max-width: 640px}
+.u79{display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 48px 40px}
+.u80{background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 12px}
+.u81{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em}
+.u82{font-size: 20px; font-weight: 600}
+.u83{color: #9AA3B8; font-size: 14px}
+.u84{color: #C9D0E0; font-size: 15px; line-height: 1.5}
+.u85{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #9AA3B8; text-transform: uppercase; letter-spacing: 0.06em}
+.u86{max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-wrap: wrap; gap: 24px}
+.u87{flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px}
+.u88{background: #0E1322; border: 1px solid #232B42; border-radius: 0; padding: 24px; font-family: 'Fragment Mono', monospace; font-size: 14px; line-height: 1.6; display: flex; flex-direction: column; gap: 14px; overflow-x: auto}
+.u89{display: flex; flex-wrap: wrap; gap: 4px 16px}
+.u90{color: #EDEAE3; width: 110px}
+.u91{flex: 1 1 300px; color: #C9D0E0}
+.u92{color: #6F7A93}
+.u93{flex: 2 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 20px}
+.u94{border-top: 2px solid #39435E; padding: 20px 0 0; display: flex; flex-direction: column; gap: 18px}
+.u95{display: flex; flex-direction: column; gap: 4px}
+.u96{font-weight: 600; font-size: 16px}
+.u97{display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px 40px}
+.u98{background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px}
+.u99{display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px}
+.u100{color: #9AA3B8; text-transform: uppercase; letter-spacing: 0.06em}
+.u101{font-size: 22px; font-weight: 600; line-height: 1.25}
+.u102{color: #C9D0E0; font-size: 15px; line-height: 1.55}
+.u103{font-family: 'Fragment Mono', monospace; font-size: 13px; margin-top: auto; padding: 8px 0}
+.u104{display: flex; flex-direction: column; gap: 0; border-top: 1px solid #232B42}
+.u105{display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42}
+.u106{width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px}
+.u107{color: #9AA3B8}
+.u108{flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px}
+.u109{font-size: 18px; font-weight: 600; line-height: 1.35}
+.u110{display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px 40px}
+.u111{background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #E8ECF5}
+.u112{aspect-ratio: 16 / 9; border-radius: 0; background: #1E2740; display: flex; align-items: center; justify-content: center}
+.u113{width: 56px; height: 56px; border-radius: 999px; background: #EDEAE3; display: flex; align-items: center; justify-content: center}
+.u114{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #EDEAE3}
+.u115{font-size: 18px; font-weight: 600; line-height: 1.3}
+.u116{margin: 0; color: #9AA3B8; font-size: 15px}
+.u117{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42; text-decoration: none; color: #E8ECF5}
+.u118{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #EDEAE3; width: 130px}
+.u119{flex: 1 1 360px; font-size: 17px}
+.u120{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #9AA3B8}
+.u121{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #E0614F; width: 130px}
+.u122{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; text-decoration: none; color: #E8ECF5}
+.u123{background: #0E1322; border: 1px solid #232B42; border-radius: 20px; padding: 24px; font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8}
+.u124{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42}
+.u125{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; text-decoration: none}
+.u126{background: #0B0F1A; color: #E8ECF5; font-family: 'Familjen Grotesk', system-ui, sans-serif; min-height: 100vh; background-image: radial-gradient(#1B2338 1px, transparent 1px); background-size: 28px 28px; display: flex; align-items: center; justify-content: center; padding: 28px}
+.u127{max-width: 720px; width: 100%; display: flex; flex-direction: column; gap: 24px}
+.u128{background: #0E1322; border: 1px solid #232B42; border-radius: 24px; padding: 22px; font-family: 'Fragment Mono', monospace; font-size: 13px; overflow-x: auto; white-space: pre; line-height: 1.75; color: #C9D0E0}
+.u129{color: #E0614F}
+.u130{margin: 0; font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.03em; font-weight: 700; line-height: 1.05}
+.u131{background:#0B0F1A; color:#E8ECF5; font-family:system-ui,sans-serif; padding:40px}
+.u132{color:#EDEAE3}
