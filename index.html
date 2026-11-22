@@ -76,13 +76,19 @@ a{color:#EDEAE3}a:hover{color:#FFFFFF}
         <div style="overflow-x: auto; white-space: pre; line-height: 1.6; color: #EEEEEC; padding: 10px 14px 16px;"><div><span style="color: #8AE234; font-weight: 700;">vg@as207135</span>:<span style="color: #729FCF; font-weight: 700;">~</span>$ traceroute vasilis.as207135.net</div><div>traceroute to vasilis.as207135.net (AS207135), 64 hops max, rtt in years</div><div class="vg-hop" style="animation-delay: 0.4s;"> 1  <span style="color: #EEEEEC;">bsc.unipi.gr</span> <span style="color: #AD7FA8;">(2003-2007)</span>  4.0 yrs  4.0 yrs  4.0 yrs</div><div class="vg-hop" style="animation-delay: 0.8s;"> 2  <span style="color: #EEEEEC;">msc.ucl.ac.uk</span> <span style="color: #AD7FA8;">(2007-2008)</span>  1.0 yrs  1.0 yrs  1.0 yrs</div><div class="vg-hop" style="animation-delay: 1.2s;"> 3  <span style="color: #EEEEEC;">phd.ucl.ac.uk</span> <span style="color: #AD7FA8;">(2009-2014)</span>  5.0 yrs  5.0 yrs  5.0 yrs</div><div class="vg-hop" style="animation-delay: 1.6s;"> 4  <span style="color: #EEEEEC;">postdoc.caida.org</span> <span style="color: #AD7FA8;">(2013-2017)</span>  4.0 yrs  4.0 yrs  4.0 yrs</div><div class="vg-hop" style="animation-delay: 2.0s;"> 5  <span style="color: #EEEEEC;">research.tu-berlin.de</span> <span style="color: #AD7FA8;">(2017-2018)</span>  1.0 yrs  1.0 yrs  1.0 yrs</div><div class="vg-hop" style="animation-delay: 2.4s;"> 6  <span style="color: #EEEEEC;">lecturer.lancaster.ac.uk</span> <span style="color: #AD7FA8;">(2018-2024)</span>  6.0 yrs  6.0 yrs  6.0 yrs</div><div class="vg-hop" style="animation-delay: 2.8s;"> 7  <span style="color: #EEEEEC;">research.cloudflare.com</span> <span style="color: #AD7FA8;">(2021-now)</span>  5.0 yrs  5.0 yrs  (still waiting)</div><div><span style="color: #8AE234; font-weight: 700;">vg@as207135</span>:<span style="color: #729FCF; font-weight: 700;">~</span>$ <span class="vg-caret" style="display: inline-block; width: 0.6em; height: 1.1em; vertical-align: text-bottom; background: #EEEEEC;"></span></div></div>
       </div>
 
-      <div style="flex: 1 1 auto; background: #0E1322; border: 1px solid #232B42; border-radius: 0; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; font-family: 'Fragment Mono', monospace; font-size: 13px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;">
-          <span style="color: #9AA3B8;">$ ping vasilis</span>
-          <button type="button" class="vg-ping" id="ping-btn" style="background: #EDEAE3; color: #0B0F1A; border: 0; border-radius: 999px; padding: 12px 20px; min-height: 44px; font-family: 'Fragment Mono', monospace; font-weight: 700; font-size: 13px; cursor: pointer;">send probe</button>
+      <div style="flex: 1 1 auto; background: #300A24; border: 1px solid #1E0616; border-radius: 12px 12px 8px 8px; overflow: hidden; display: flex; flex-direction: column; font-family: 'Ubuntu Mono', 'Fragment Mono', monospace; font-size: 15px;">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 7px 10px; background: linear-gradient(#5A5852, #3C3B37); border-bottom: 1px solid #2B2A27;">
+          <span style="display: flex; gap: 5px;"><span style="width: 14px; height: 14px; border-radius: 999px; background: linear-gradient(#F37853, #DF4A16); border: 1px solid #A8380F; display: flex; align-items: center; justify-content: center;"><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 2l4 4M6 2l-4 4" stroke="#3C1A0E" stroke-width="1.3" stroke-linecap="round"></path></svg></span><span style="width: 14px; height: 14px; border-radius: 999px; background: linear-gradient(#9C9A94, #6F6D68); border: 1px solid #55534E; display: flex; align-items: center; justify-content: center;"><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 4h4" stroke="#3C3B37" stroke-width="1.3" stroke-linecap="round"></path></svg></span><span style="width: 14px; height: 14px; border-radius: 999px; background: linear-gradient(#9C9A94, #6F6D68); border: 1px solid #55534E; display: flex; align-items: center; justify-content: center;"><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><rect x="2" y="2" width="4" height="4" fill="none" stroke="#3C3B37" stroke-width="1.1"></rect></svg></span></span>
+          <span style="color: #DFDBD2; font-family: 'Ubuntu', system-ui, sans-serif; font-size: 13px; font-weight: 500;">vg@as207135: ~</span>
         </div>
-        <div id="ping-empty" style="color: #6F7A93;">No replies yet. Send a probe to learn something.</div>
+        <div style="padding: 10px 14px 16px; display: flex; flex-direction: column; gap: 10px; color: #EEEEEC;">
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;">
+            <span><span style="color: #8AE234; font-weight: 700;">vg@as207135</span>:<span style="color: #729FCF; font-weight: 700;">~</span>$ ping vasilis</span>
+            <button type="button" class="vg-ping" id="ping-btn" style="background: #EDEAE3; color: #300A24; border: 0; border-radius: 999px; padding: 10px 18px; min-height: 44px; font-family: 'Ubuntu Mono', 'Fragment Mono', monospace; font-weight: 700; font-size: 15px; cursor: pointer;">send probe</button>
+          </div>
+          <div id="ping-empty" style="color: #B9A6B5;">No replies yet. Send a probe to learn something.</div>
         <div id="ping-replies" aria-live="polite" style="display: flex; flex-direction: column; gap: 12px;"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -175,7 +181,7 @@ a{color:#EDEAE3}a:hover{color:#FFFFFF}
     n++; if(empty)empty.style.display='none';
     var html='';
     for(var i=n-1;i>=Math.max(0,n-3);i--){var f=facts[i%facts.length];
-      html+='<div style="color: #C9D0E0; line-height: 1.5;"><span style="color: #EDEAE3;">seq='+(i+1)+'</span> reply from <span style="color: #E0614F;">'+esc(f.from)+'</span>: '+esc(f.text)+'</div>';}
+      html+='<div style="color: #EEEEEC; line-height: 1.5;"><span style="color: #AD7FA8;">seq='+(i+1)+'</span> reply from <span style="color: #729FCF; font-weight: 700;">'+esc(f.from)+'</span>: '+esc(f.text)+'</div>';}
     box.innerHTML=html;
   });
 })();
