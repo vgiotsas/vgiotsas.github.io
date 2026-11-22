@@ -77,12 +77,12 @@ body{margin:0;background:#0B0F1A}
 .u47{padding: 10px 14px 16px; display: flex; flex-direction: column; gap: 10px; color: #EEEEEC}
 .u48{display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between}
 .u49{background: #EDEAE3; color: #300A24; border: 0; border-radius: 999px; padding: 10px 18px; min-height: 44px; font-family: 'Ubuntu Mono', 'Fragment Mono', monospace; font-weight: 700; font-size: 15px; cursor: pointer}
-.u50{color: #B9A6B5}
-.u51{display: flex; flex-direction: column; gap: 12px}
-.u52{max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 28px}
-.u53{display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between}
-.u54{display: flex; flex-direction: column; gap: 10px}
-.u55{font-family: 'Fragment Mono', monospace; font-size: 14px; color: #E0614F}
+.u50{height: 9.5em; overflow-y: auto; display: flex; flex-direction: column; gap: 10px}
+.u51{color: #B9A6B5}
+.u52{display: flex; flex-direction: column; gap: 12px}
+.u53{max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 28px}
+.u54{display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between}
+.u55{display: flex; flex-direction: column; gap: 10px}
 .u56{margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; font-weight: 700}
 .u57{border: 1px solid #39435E; color: #E8ECF5; text-decoration: none; font-weight: 500; padding: 14px 22px; border-radius: 999px; font-size: 15px}
 .u58{border-top: 2px solid #39435E}
@@ -97,15 +97,15 @@ body{margin:0;background:#0B0F1A}
 .u67{max-width: 1200px; margin: 0 auto; padding: 0 28px 64px}
 .u68{background: #EDEAE3; color: #0B0F1A; border-radius: 0; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between}
 .u69{flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px}
-.u70{font-family: 'Fragment Mono', monospace; font-size: 14px; font-weight: 500}
-.u71{margin: 0; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.02em; font-weight: 700; line-height: 1.02}
-.u72{margin: 0; font-size: 18px; line-height: 1.5; max-width: 520px}
-.u73{display: flex; flex-wrap: wrap; gap: 10px}
-.u74{background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px}
-.u75{display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; padding: 28px 4px 0; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8}
-.u76{display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none; font-weight: 700}
-.u77{display: block; padding: 10px 0; color: #E0614F; text-decoration: none}
-.u78{height: 40px}
+.u70{margin: 0; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.02em; font-weight: 700; line-height: 1.02}
+.u71{margin: 0; font-size: 18px; line-height: 1.5; max-width: 520px}
+.u72{display: flex; flex-wrap: wrap; gap: 10px}
+.u73{background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px}
+.u74{display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; padding: 28px 4px 0; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8}
+.u75{display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none; font-weight: 700}
+.u76{display: block; padding: 10px 0; color: #E0614F; text-decoration: none}
+.u77{height: 40px}
+.u78{font-family: 'Fragment Mono', monospace; font-size: 14px; color: #E0614F}
 .u79{margin: 0; color: #B4BCCE; font-size: 17px; max-width: 640px}
 .u80{display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 48px 40px}
 .u81{background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 12px}
