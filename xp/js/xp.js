@@ -489,11 +489,11 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
     browser(tab = 'home') {
       const T = [
         { k: 'home', t: 'v.giotsas.com', url: D.links.home, icon: 'home', frame: true },
-        { k: 'linkedin', t: 'LinkedIn', url: D.links.linkedin, icon: 'user', text: 'My professional profile: roles at Cloudflare, Lancaster University, TU Berlin and CAIDA, plus recommendations.' },
-        { k: 'scholar', t: 'Google Scholar', url: D.links.scholar, icon: 'search', text: 'All 60 of my peer-reviewed papers with citation counts, from AS relationship inference to deep video precoding.' },
-        { k: 'github', t: 'GitHub', url: D.links.github, icon: 'zip', text: 'My open source code: PeeringDB and RIPE Atlas scripts, a Wireshark dissector for NTS-KE, BGP tools and more.' },
-        { k: 'twitter', t: 'Twitter / X', url: D.links.twitter, icon: 'send', text: 'Where I post about Internet measurement, routing and the occasional conference.' },
-        { k: 'youtube', t: 'YouTube talks', url: D.links.youtube, icon: 'video', text: 'A playlist of my recorded talks. You can also watch them in My Videos.' },
+        { k: 'linkedin', t: 'LinkedIn', url: D.links.linkedin, icon: 'user', shot: 'img/shots/linkedin.jpg', alt: 'My LinkedIn profile: Vasileios Giotsas, Research Engineer, Lecturer, Data Scientist, with Cloudflare and UCL.' },
+        { k: 'scholar', t: 'Google Scholar', url: D.links.scholar, icon: 'search', shot: 'img/shots/scholar.jpg', alt: 'My Google Scholar profile, listing papers by citation count.' },
+        { k: 'github', t: 'GitHub', url: D.links.github, icon: 'zip', shot: 'img/shots/github.jpg', alt: 'My GitHub profile, vgiotsas, with popular repositories.' },
+        { k: 'twitter', t: 'Twitter / X', url: D.links.twitter, icon: 'send', shot: 'img/shots/twitter.jpg', alt: 'My X profile, @GVasilis.' },
+        { k: 'youtube', t: 'YouTube', url: 'https://www.youtube.com/@giotsas', icon: 'video', shot: 'img/shots/youtube.jpg', alt: 'The Giotsas YouTube channel, run by Vasilis and Nikos Giotsas.' },
         { k: 'cfblog', t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', text: 'My posts on the Cloudflare Blog about CGNAT detection, route leaks, RPKI and Internet resilience.' }
       ];
       const body = el(`<div style="display:flex;flex-direction:column;flex:1;min-height:0">
@@ -509,12 +509,14 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         body.querySelector('.field').innerHTML = I.browser() + esc(t.url);
         body.querySelector('[data-a="go"]').href = t.url;
         const view = body.querySelector('.br-view');
-        view.innerHTML = t.frame ? `<iframe title="v.giotsas.com" src="${t.url}"></iframe>` :
+        view.scrollTop = 0;
+        view.innerHTML = t.frame ? `<iframe title="v.giotsas.com" src="${t.url}"></iframe>` : t.shot ?
+          `<a class="br-shot" href="${t.url}" target="_blank" rel="noopener" aria-label="Open my ${esc(t.t)} page in a new tab"><span class="br-hint">${I.info()}This is a picture of my ${esc(t.t)} page. Click anywhere to open the real one in a new tab.</span><img src="${t.shot}" alt="${esc(t.alt)}"></a>` :
           `<div class="br-page"><h2>${I[t.icon]()}${esc(t.t)}</h2><div class="url">${esc(t.url)}</div><p>${esc(t.text)}</p>
            <p>This site doesn't allow itself to be shown inside another page, so it opens in a new tab.</p>
            <p><a class="btn primary" href="${t.url}" target="_blank" rel="noopener">Open ${esc(t.t)}</a></p></div>`;
         rec.setTitle(t.t + ' - Web Browser');
-        body.querySelector('.st').textContent = t.frame ? 'Done' : 'Opens in a new tab';
+        body.querySelector('.st').textContent = t.frame ? 'Done' : t.shot ? 'Picture of ' + t.url + '. Click to open the real page.' : 'Opens in a new tab';
       }
       body.querySelector('[data-a="reload"]').onclick = () => show(cur);
       body.querySelector('[data-a="home"]').onclick = () => show('home');
