@@ -494,7 +494,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         { k: 'github', t: 'GitHub', url: D.links.github, icon: 'zip', shot: 'img/shots/github.jpg', alt: 'My GitHub profile, vgiotsas, with popular repositories.' },
         { k: 'twitter', t: 'Twitter / X', url: D.links.twitter, icon: 'send', shot: 'img/shots/twitter.jpg', alt: 'My X profile, @GVasilis.' },
         { k: 'youtube', t: 'YouTube', url: 'https://www.youtube.com/@giotsas', icon: 'video', shot: 'img/shots/youtube.jpg', alt: 'The Giotsas YouTube channel, run by Vasilis and Nikos Giotsas.' },
-        { k: 'cfblog', t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', text: 'My posts on the Cloudflare Blog about CGNAT detection, route leaks, RPKI and Internet resilience.' }
+        { k: 'cfblog', t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', shot: 'img/shots/cfblog.jpg', alt: 'My author page on the Cloudflare Blog, with my post on detecting CGNAT.' }
       ];
       const body = el(`<div style="display:flex;flex-direction:column;flex:1;min-height:0">
         <div class="menubar"><span>File</span><span>Edit</span><span>View</span><span>Favorites</span><span>Tools</span><span>Help</span></div>
