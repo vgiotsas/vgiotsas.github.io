@@ -16,168 +16,154 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23EDEAE3'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%230B0F1A'%3Evg%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&amp;family=Fragment+Mono&amp;display=swap">
-<style>
-body{margin:0;background:#0B0F1A}
-a{color:#EDEAE3}a:hover{color:#FFFFFF}
-@keyframes vgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-@keyframes vgBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
-.vg-hop{opacity:0;animation:vgIn .5s ease-out forwards}
-.vg-caret{animation:vgBlink 1.1s step-end infinite}
-.vg-card{transition:border-color .2s ease}
-.vg-card:hover{border-color:#EDEAE3 !important}
-.vg-row:hover{background:#111727}
-.vg-ping:hover{background:#FFFFFF !important}
-.vg-ping:active{transform:scale(.97)}
-@media (prefers-reduced-motion:reduce){.vg-caret{animation:none}.vg-hop{animation:none;opacity:1}.vg-card{transition:none}}
-</style>
-<style>[hidden]{display:none !important}</style>
+<link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-<div style="background: #0B0F1A; color: #E8ECF5; font-family: 'Familjen Grotesk', system-ui, sans-serif; min-height: 100vh; background-image: radial-gradient(#1B2338 1px, transparent 1px); background-size: 28px 28px;">
+<div class="u1">
 
   <!-- Nav -->
-  <header style="max-width: 1200px; margin: 0 auto; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: flex-start;">
-    <a href="/" aria-label="Home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #E8ECF5;">
-      <span style="width: 36px; height: 36px; border-radius: 0; background: #EDEAE3; color: #0B0F1A; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">vg</span>
-      <span style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8;">AS207135</span>
+  <header class="u2">
+    <a class="u3" href="/" aria-label="Home">
+      <span class="u4">vg</span>
+      <span class="u5">AS207135</span>
     </a>
-    <button type="button" id="menu-btn" aria-expanded="false" aria-controls="site-tree" style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 18px; border-radius: 999px; border: 1px solid #39435E; background: #111727; color: #E8ECF5; font-family: 'Fragment Mono', monospace; font-size: 14px; cursor: pointer;">menu<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="menu-chevron" style="transform: none; transition: transform .2s ease;"><path d="M6 9l6 6 6-6"></path></svg></button>
+    <button class="u6" type="button" id="menu-btn" aria-expanded="false" aria-controls="site-tree">menu<svg class="u7" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="menu-chevron"><path d="M6 9l6 6 6-6"></path></svg></button>
   </header>
   <div id="site-tree-wrap" hidden>
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 28px 24px;">
-      <nav id="site-tree" aria-label="Site" style="background: #0E1322; border: 1px solid #232B42; border-radius: 20px; padding: 18px 22px; font-family: 'Fragment Mono', monospace; font-size: 15px; overflow-x: auto;">
-        <div style="color: #9AA3B8; font-size: 13px; padding-bottom: 6px;"><span style="color: #EDEAE3;">$</span> tree ~/vasilis</div>
-        <div style="white-space: pre;"><a href="/" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none; font-weight: 700;">~/vasilis</a><a href="/about" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>about/</a><a href="/research" style="display: block; padding: 10px 0; color: #E0614F; text-decoration: none;"><span style="color: #5A6688;">├── </span>research/</a><a href="/research#work" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   ├── </span>selected-work</a><a href="/research#papers" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">│   └── </span>papers</a><a href="/talks" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>talks/</a><a href="/writing" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>writing/</a><a href="/blog" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>blog/</a><a href="/news" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">├── </span>news/</a><a href="#contact" style="display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none;"><span style="color: #5A6688;">└── </span>contact</a></div>
-        <div style="color: #6F7A93; font-size: 13px; padding-top: 8px;">6 directories, 3 files</div>
+    <div class="u8">
+      <nav class="u9" id="site-tree" aria-label="Site">
+        <div class="u10"><span class="u11">$</span> tree ~/vasilis</div>
+        <div class="u12"><a class="u76" href="/">~/vasilis</a><a class="u14" href="/about"><span class="u15">├── </span>about/</a><a class="u77" href="/research"><span class="u15">├── </span>research/</a><a class="u14" href="/research#work"><span class="u15">│   ├── </span>selected-work</a><a class="u14" href="/research#papers"><span class="u15">│   └── </span>papers</a><a class="u14" href="/talks"><span class="u15">├── </span>talks/</a><a class="u14" href="/writing"><span class="u15">├── </span>writing/</a><a class="u14" href="/blog"><span class="u15">├── </span>blog/</a><a class="u14" href="/news"><span class="u15">├── </span>news/</a><a class="u14" href="#contact"><span class="u15">└── </span>contact</a></div>
+        <div class="u16">6 directories, 3 files</div>
       </nav>
     </div>
   </div>
 
-  <div style="height: 40px;"></div>
+  <div class="u78"></div>
   <!-- Selected work -->
-  <section id="work" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 28px;">
-    <div style="display: flex; flex-direction: column; gap: 10px;">
-      <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #E0614F;">ls -t ~/vasilis/research/selected-work</div>
-      <h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; font-weight: 700;">Selected work</h2>
-      <p style="margin: 0; color: #B4BCCE; font-size: 17px; max-width: 640px;">Machine learning and inference on data that never shows the whole picture.</p>
+  <section class="u52" id="work">
+    <div class="u54">
+      <div class="u55">ls -t ~/vasilis/research/selected-work</div>
+      <h2 class="u56">Selected work</h2>
+      <p class="u79">Machine learning and inference on data that never shows the whole picture.</p>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px 40px;">
-      <div class="vg-card" style="background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
-          <span style="color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em;">SIGCOMM 2026</span>
-          <span style="color: #9AA3B8; text-transform: uppercase; letter-spacing: 0.06em;">supervised learning</span>
+    <div class="u98">
+      <div class="vg-card u99">
+        <div class="u100">
+          <span class="u62">SIGCOMM 2026</span>
+          <span class="u101">supervised learning</span>
         </div>
-        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">Finding the IPs that hide many users</div>
-        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">Classifiers trained on global CDN request logs spot carrier-grade NATs, VPNs and proxies, checked against a second model built on public M-Lab data.</div>
-        <a href="https://blog.cloudflare.com/detecting-cgn-to-reduce-collateral-damage/" style="font-family: 'Fragment Mono', monospace; font-size: 13px; margin-top: auto; padding: 8px 0;">read the blog post →</a>
+        <div class="u102">Finding the IPs that hide many users</div>
+        <div class="u103">Classifiers trained on global CDN request logs spot carrier-grade NATs, VPNs and proxies, checked against a second model built on public M-Lab data.</div>
+        <a class="u104" href="https://blog.cloudflare.com/detecting-cgn-to-reduce-collateral-damage/">read the blog post →</a>
       </div>
-      <div class="vg-card" style="background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
-          <span style="color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em;">IMC 2024</span>
-          <span style="color: #9AA3B8; text-transform: uppercase; letter-spacing: 0.06em;">recommender systems</span>
+      <div class="vg-card u99">
+        <div class="u100">
+          <span class="u62">IMC 2024</span>
+          <span class="u101">recommender systems</span>
         </div>
-        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">metAScritic: topology as a recommendation problem</div>
-        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">Matrix completion predicts the peering links that BGP and traceroute never see.</div>
+        <div class="u102">metAScritic: topology as a recommendation problem</div>
+        <div class="u103">Matrix completion predicts the peering links that BGP and traceroute never see.</div>
       </div>
-      <div class="vg-card" style="background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
-          <span style="color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em;">NSDI 2019</span>
-          <span style="color: #9AA3B8; text-transform: uppercase; letter-spacing: 0.06em;">probabilistic inference</span>
+      <div class="vg-card u99">
+        <div class="u100">
+          <span class="u62">NSDI 2019</span>
+          <span class="u101">probabilistic inference</span>
         </div>
-        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">ProbLink: who pays whom on the Internet</div>
-        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">Probabilistic inference over noisy BGP paths replaces brittle heuristics for inferring business relationships between networks.</div>
+        <div class="u102">ProbLink: who pays whom on the Internet</div>
+        <div class="u103">Probabilistic inference over noisy BGP paths replaces brittle heuristics for inferring business relationships between networks.</div>
       </div>
-      <div class="vg-card" style="background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
-          <span style="color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em;">Kepler</span>
-          <span style="color: #9AA3B8; text-transform: uppercase; letter-spacing: 0.06em;">anomaly detection</span>
+      <div class="vg-card u99">
+        <div class="u100">
+          <span class="u62">Kepler</span>
+          <span class="u101">anomaly detection</span>
         </div>
-        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">Catching outages from public BGP data</div>
-        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">Found 159 outages across 87 facilities and 41 exchange points in four years of routing data.</div>
-        <a href="https://labs.ripe.net/author/vgiotsas/detection-of-peering-infrastructure-outages-based-on-bgp-communities/" style="font-family: 'Fragment Mono', monospace; font-size: 13px; margin-top: auto; padding: 8px 0;">read on RIPE Labs →</a>
+        <div class="u102">Catching outages from public BGP data</div>
+        <div class="u103">Found 159 outages across 87 facilities and 41 exchange points in four years of routing data.</div>
+        <a class="u104" href="https://labs.ripe.net/author/vgiotsas/detection-of-peering-infrastructure-outages-based-on-bgp-communities/">read on RIPE Labs →</a>
       </div>
-      <div class="vg-card" style="background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
-          <span style="color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em;">GLOBECOM 2019</span>
-          <span style="color: #9AA3B8; text-transform: uppercase; letter-spacing: 0.06em;">random forests</span>
+      <div class="vg-card u99">
+        <div class="u100">
+          <span class="u62">GLOBECOM 2019</span>
+          <span class="u101">random forests</span>
         </div>
-        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">Profiling IoT botnets through DNS</div>
-        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">Random Forest classifiers trained on DNS traffic features detect Mirai-like botnet activity in the wild.</div>
+        <div class="u102">Profiling IoT botnets through DNS</div>
+        <div class="u103">Random Forest classifiers trained on DNS traffic features detect Mirai-like botnet activity in the wild.</div>
       </div>
-      <div class="vg-card" style="background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px;">
-          <span style="color: #EDEAE3; text-transform: uppercase; letter-spacing: 0.06em;">2019 to 2020</span>
-          <span style="color: #9AA3B8; text-transform: uppercase; letter-spacing: 0.06em;">deep learning</span>
+      <div class="vg-card u99">
+        <div class="u100">
+          <span class="u62">2019 to 2020</span>
+          <span class="u101">deep learning</span>
         </div>
-        <div style="font-size: 22px; font-weight: 600; line-height: 1.25;">Neural precoding for video</div>
-        <div style="color: #C9D0E0; font-size: 15px; line-height: 1.55;">CNNs that prepare video before AVC, HEVC, VP9 and AV1 encoding, cutting bitrate and transcoding cost.</div>
+        <div class="u102">Neural precoding for video</div>
+        <div class="u103">CNNs that prepare video before AVC, HEVC, VP9 and AV1 encoding, cutting bitrate and transcoding cost.</div>
       </div>
     </div>
   </section>
 
   <!-- Papers -->
-  <section id="papers" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 28px;">
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between;">
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; color: #E0614F;">cat ~/papers.bib | head</div>
-        <h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; font-weight: 700;">Papers</h2>
-        <p style="margin: 0; color: #B4BCCE; font-size: 17px; max-width: 640px;">A few from 60 peer-reviewed papers, newest first.</p>
+  <section class="u52" id="papers">
+    <div class="u53">
+      <div class="u54">
+        <div class="u55">cat ~/papers.bib | head</div>
+        <h2 class="u56">Papers</h2>
+        <p class="u79">A few from 60 peer-reviewed papers, newest first.</p>
       </div>
-      <a href="https://go.giotsas.com/publications" style="border: 1px solid #39435E; color: #E8ECF5; text-decoration: none; font-weight: 500; padding: 14px 22px; border-radius: 999px; font-size: 15px;">All papers on Google Scholar →</a>
+      <a class="u57" href="https://go.giotsas.com/publications">All papers on Google Scholar →</a>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #232B42;">
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
-        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #EDEAE3;">ACM SIGCOMM</span><span style="color: #9AA3B8;">2026</span></div>
-        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">A Global Inference and Assessment of Large Shared IP Addresses</span><span style="color: #9AA3B8; font-size: 14px;">with Loqman Salamatian, Antoine Cordelle, Nick Wood and Marwan Fayed</span></div>
+    <div class="u105">
+      <div class="u106">
+        <div class="u107"><span class="u11">ACM SIGCOMM</span><span class="u108">2026</span></div>
+        <div class="u109"><span class="u110">A Global Inference and Assessment of Large Shared IP Addresses</span><span class="u84">with Loqman Salamatian, Antoine Cordelle, Nick Wood and Marwan Fayed</span></div>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
-        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #EDEAE3;">ACM IMC</span><span style="color: #9AA3B8;">2024</span></div>
-        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">metAScritic: Reframing AS-Level Topology Discovery as a Recommendation System</span><span style="color: #9AA3B8; font-size: 14px;">with Loqman Salamatian, Kevin Vermeulen, Ítalo Cunha and Ethan Katz-Bassett</span></div>
+      <div class="u106">
+        <div class="u107"><span class="u11">ACM IMC</span><span class="u108">2024</span></div>
+        <div class="u109"><span class="u110">metAScritic: Reframing AS-Level Topology Discovery as a Recommendation System</span><span class="u84">with Loqman Salamatian, Kevin Vermeulen, Ítalo Cunha and Ethan Katz-Bassett</span></div>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
-        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #EDEAE3;">SPIE ADIP</span><span style="color: #9AA3B8;">2020</span></div>
-        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Escaping the Complexity-Bitrate-Quality Barriers of Video Encoders via Deep Perceptual Optimization</span><span style="color: #9AA3B8; font-size: 14px;">with Aaron Chadha, Russell Anam, Ilya Fadeev and Yiannis Andreopoulos</span></div>
+      <div class="u106">
+        <div class="u107"><span class="u11">SPIE ADIP</span><span class="u108">2020</span></div>
+        <div class="u109"><span class="u110">Escaping the Complexity-Bitrate-Quality Barriers of Video Encoders via Deep Perceptual Optimization</span><span class="u84">with Aaron Chadha, Russell Anam, Ilya Fadeev and Yiannis Andreopoulos</span></div>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
-        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #EDEAE3;">IEEE TCSVT</span><span style="color: #9AA3B8;">2020</span></div>
-        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Deep Video Precoding</span><span style="color: #9AA3B8; font-size: 14px;">with Eirina Bourtsoulatze, Aaron Chadha, Ilya Fadeev and Yiannis Andreopoulos</span></div>
+      <div class="u106">
+        <div class="u107"><span class="u11">IEEE TCSVT</span><span class="u108">2020</span></div>
+        <div class="u109"><span class="u110">Deep Video Precoding</span><span class="u84">with Eirina Bourtsoulatze, Aaron Chadha, Ilya Fadeev and Yiannis Andreopoulos</span></div>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
-        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #EDEAE3;">USENIX NSDI</span><span style="color: #9AA3B8;">2019</span></div>
-        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Stable and Practical AS Relationship Inference with ProbLink</span><span style="color: #9AA3B8; font-size: 14px;">with Yuchen Jin, Colin Scott, Amogh Dhamdhere, Arvind Krishnamurthy and Scott Shenker</span></div>
+      <div class="u106">
+        <div class="u107"><span class="u11">USENIX NSDI</span><span class="u108">2019</span></div>
+        <div class="u109"><span class="u110">Stable and Practical AS Relationship Inference with ProbLink</span><span class="u84">with Yuchen Jin, Colin Scott, Amogh Dhamdhere, Arvind Krishnamurthy and Scott Shenker</span></div>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
-        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #EDEAE3;">IEEE GLOBECOM</span><span style="color: #9AA3B8;">2019</span></div>
-        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Profiling IoT-Based Botnet Traffic Using DNS</span><span style="color: #9AA3B8; font-size: 14px;">with Owen P. Dwyer, Angelos K. Marnerides and Troy Mursch</span></div>
+      <div class="u106">
+        <div class="u107"><span class="u11">IEEE GLOBECOM</span><span class="u108">2019</span></div>
+        <div class="u109"><span class="u110">Profiling IoT-Based Botnet Traffic Using DNS</span><span class="u84">with Owen P. Dwyer, Angelos K. Marnerides and Troy Mursch</span></div>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
-        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #EDEAE3;">IBC</span><span style="color: #9AA3B8;">2019</span></div>
-        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Deep-Learning Based Precoding Techniques for Next-Generation Video Compression</span><span style="color: #9AA3B8; font-size: 14px;">with Aaron Chadha, Eirina Bourtsoulatze, Yiannis Andreopoulos and Sergio Grce</span></div>
+      <div class="u106">
+        <div class="u107"><span class="u11">IBC</span><span class="u108">2019</span></div>
+        <div class="u109"><span class="u110">Deep-Learning Based Precoding Techniques for Next-Generation Video Compression</span><span class="u84">with Aaron Chadha, Eirina Bourtsoulatze, Yiannis Andreopoulos and Sergio Grce</span></div>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42;">
-        <div style="width: 150px; font-family: 'Fragment Mono', monospace; font-size: 13px; display: flex; flex-direction: column; gap: 4px;"><span style="color: #EDEAE3;">ACM IMC</span><span style="color: #9AA3B8;">2014</span></div>
-        <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 18px; font-weight: 600; line-height: 1.35;">Inferring Complex AS Relationships</span><span style="color: #9AA3B8; font-size: 14px;">first author</span></div>
+      <div class="u106">
+        <div class="u107"><span class="u11">ACM IMC</span><span class="u108">2014</span></div>
+        <div class="u109"><span class="u110">Inferring Complex AS Relationships</span><span class="u84">first author</span></div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 0 28px 64px;">
-    <div style="background: #EDEAE3; color: #0B0F1A; border-radius: 0; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between;">
-      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
-        <div style="font-family: 'Fragment Mono', monospace; font-size: 14px; font-weight: 500;">$ nc vasilis 443</div>
-        <h2 style="margin: 0; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.02em; font-weight: 700; line-height: 1.02;">Get in touch.</h2>
-        <p style="margin: 0; font-size: 18px; line-height: 1.5; max-width: 520px;">Open to conversations about data science, Internet measurement and privacy-preserving analytics.</p>
+  <section class="u67" id="contact">
+    <div class="u68">
+      <div class="u69">
+        <div class="u70">$ nc vasilis 443</div>
+        <h2 class="u71">Get in touch.</h2>
+        <p class="u72">Open to conversations about data science, Internet measurement and privacy-preserving analytics.</p>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        <a href="https://www.linkedin.com/in/giotsas" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>LinkedIn</a>
-        <a href="https://go.giotsas.com/publications" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"></path></svg>Google Scholar</a>
-        <a href="mailto:giotsas@gmail.com" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path></svg>Email</a>
-        <a href="https://github.com/vgiotsas" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>GitHub</a>
-        <a href="https://twitter.com/GVasilis" style="background: #0B0F1A; color: #E8ECF5; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>Twitter</a>
+      <div class="u73">
+        <a class="u74" href="https://www.linkedin.com/in/giotsas"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>LinkedIn</a>
+        <a class="u74" href="https://go.giotsas.com/publications"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"></path></svg>Google Scholar</a>
+        <a class="u74" href="mailto:giotsas@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path></svg>Email</a>
+        <a class="u74" href="https://github.com/vgiotsas"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>GitHub</a>
+        <a class="u74" href="https://twitter.com/GVasilis"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>Twitter</a>
       </div>
     </div>
-    <footer style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; padding: 28px 4px 0; font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8;">
+    <footer class="u75">
       <span>© <span id="yr">2026</span> Vasilis Giotsas</span>
     </footer>
   </section>
@@ -191,7 +177,7 @@ a{color:#EDEAE3}a:hover{color:#FFFFFF}
     var open=w.hasAttribute('hidden');
     if(open){w.removeAttribute('hidden');}else{w.setAttribute('hidden','');}
     b.setAttribute('aria-expanded',open?'true':'false');
-    if(c)c.style.transform=open?'rotate(180deg)':'none';
+    if(c)c.classList.toggle('is-open',open);
   });
 })();
 </script>
