@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VGOS · Vasilis Giotsas</title>
+<meta name="description" content="Vasilis Giotsas's CV as an early-2000s desktop: papers in My Documents, talks in My Videos, open source in Downloads, and a mail client to get in touch.">
+<link rel="canonical" href="https://v.giotsas.com/xp/">
+<meta property="og:title" content="VGOS · Vasilis Giotsas">
+<meta property="og:description" content="My CV as an early-2000s desktop. Double-click around.">
+<meta property="og:image" content="https://v.giotsas.com/xp/img/vasilis-london.jpg">
+<meta name="theme-color" content="#2459cf">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233a9b38'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Trebuchet MS,Arial' font-style='italic' font-weight='700' font-size='30' fill='%23fff'%3Evg%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/xp.css?v=1">
+</head>
+<body>
+
+<!-- Boot screen -->
+<div class="screen boot" id="boot" role="button" tabindex="0" aria-label="Starting VGOS. Press to skip.">
+  <div class="boot-logo" id="boot-logo"></div>
+  <div class="boot-bar"><i></i></div>
+  <div class="boot-hint">Click anywhere to skip</div>
+</div>
+
+<!-- Login screen -->
+<div class="screen login" id="login" hidden>
+  <div class="login-wrap">
+    <div class="login-left">
+      <div class="boot-name">VGOS<small>Vasilis Giotsas Operating System</small></div>
+      <p>To begin, click your user name</p>
+    </div>
+    <div class="login-right">
+      <button class="user-tile" id="user-tile" type="button">
+        <img src="img/vasilis.jpg" alt="">
+        <div><b>Vasilis</b><span>Senior Research Engineer, Cloudflare</span></div>
+      </button>
+    </div>
+  </div>
+  <div class="login-foot">
+    <button type="button" id="login-off"><span id="login-off-icon"></span>Turn off computer</button>
+    <span>After you log on, double-click any icon to explore.</span>
+  </div>
+</div>
+
+<!-- Shut down screen -->
+<div class="screen shutdown" id="shutdown" hidden>
+  <div>It's now safe to turn off<br>your computer.</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+    <button type="button" id="restart">Restart</button>
+    <a href="https://v.giotsas.com/">Go to v.giotsas.com</a>
+  </div>
+</div>
+
+<!-- Desktop -->
+<main id="desktop" aria-label="Desktop" hidden>
+  <svg class="wallpaper" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f62d6"/><stop offset=".55" stop-color="#5ea2ef"/><stop offset="1" stop-color="#bfe0ff"/></linearGradient>
+      <linearGradient id="hillA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc14d"/><stop offset="1" stop-color="#3d8a25"/></linearGradient>
+      <linearGradient id="hillB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fae3a"/><stop offset="1" stop-color="#2c6e18"/></linearGradient>
+      <radialGradient id="cloud" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1600" height="1000" fill="url(#sky)"/>
+    <g opacity=".22" stroke="#fff" stroke-width="1.5" fill="#fff">
+      <path d="M180 140L420 90L610 210L880 120L1120 190L1380 110M420 90L520 300M880 120L760 290M1120 190L1260 330M610 210L760 290L1010 260L1260 330" fill="none"/>
+      <circle cx="180" cy="140" r="5"/><circle cx="420" cy="90" r="6"/><circle cx="610" cy="210" r="5"/><circle cx="880" cy="120" r="7"/><circle cx="1120" cy="190" r="5"/><circle cx="1380" cy="110" r="6"/><circle cx="520" cy="300" r="4"/><circle cx="760" cy="290" r="5"/><circle cx="1010" cy="260" r="4"/><circle cx="1260" cy="330" r="5"/>
+    </g>
+    <ellipse cx="300" cy="230" rx="220" ry="40" fill="url(#cloud)"/>
+    <ellipse cx="1180" cy="300" rx="260" ry="46" fill="url(#cloud)"/>
+    <ellipse cx="820" cy="380" rx="180" ry="30" fill="url(#cloud)" opacity=".8"/>
+    <path d="M0 640C260 520 560 520 860 610C1100 680 1380 600 1600 560V1000H0z" fill="url(#hillB)"/>
+    <path d="M0 760C300 610 700 600 1000 700C1240 780 1460 760 1600 720V1000H0z" fill="url(#hillA)"/>
+  </svg>
+  <div class="icons" id="icons"></div>
+</main>
+
+<div id="windows"></div>
+
+<nav id="taskbar" aria-label="Taskbar" hidden>
+  <button type="button" id="start-btn" aria-haspopup="menu" aria-expanded="false"><span id="start-mark"></span>start</button>
+  <div id="tasks"></div>
+  <div id="tray">
+    <button type="button" id="tray-net" title="AS207135: connected"></button>
+    <button type="button" id="tray-vol" title="Volume"></button>
+    <span id="clock"></span>
+  </div>
+</nav>
+
+<div id="startmenu" role="menu" hidden></div>
+<div id="ctx" hidden></div>
+
+<script src="js/data.js?v=1"></script>
+<script src="js/icons.js?v=1"></script>
+<script src="js/xp.js?v=1"></script>
+</body>
+</html>

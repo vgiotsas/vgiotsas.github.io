@@ -1,0 +1,150 @@
+/* Content for v.giotsas.com/xp. Everything here comes from Vasilis's CV and public profiles. */
+window.VG = {
+  name: 'Vasilis Giotsas',
+  email: 'giotsas@gmail.com',
+  links: {
+    home: 'https://v.giotsas.com/',
+    linkedin: 'https://www.linkedin.com/in/giotsas',
+    scholar: 'https://go.giotsas.com/publications',
+    github: 'https://github.com/vgiotsas',
+    twitter: 'https://twitter.com/GVasilis',
+    youtube: 'https://www.youtube.com/playlist?list=PL7_XjTCtHWvN-psk7CqMisGQFIPEyA067',
+    cfblog: 'https://blog.cloudflare.com/author/vasilis/',
+    son: 'https://ngiotsas.github.io/'
+  },
+
+  papers: [
+    { file: 'shared-ip-addresses-sigcomm26.pdf', venue: 'ACM SIGCOMM', year: 2026,
+      title: 'A Global Inference and Assessment of Large Shared IP Addresses',
+      authors: 'with Loqman Salamatian, Antoine Cordelle, Nick Wood and Marwan Fayed',
+      summary: 'Supervised classifiers trained on global CDN request logs find carrier-grade NATs, VPNs and proxies, the IP addresses that hide many users. A second model built on public M-Lab data checks the results.' },
+    { file: 'metascritic-imc24.pdf', venue: 'ACM IMC', year: 2024,
+      title: 'metAScritic: Reframing AS-Level Topology Discovery as a Recommendation System',
+      authors: 'with Loqman Salamatian, Kevin Vermeulen, Ítalo Cunha and Ethan Katz-Bassett',
+      summary: 'Treats hidden inter-domain link discovery as matrix completion, predicting the peering links that BGP and traceroute vantage points never see.' },
+    { file: 'deep-perceptual-optimization-spie20.pdf', venue: 'SPIE ADIP', year: 2020,
+      title: 'Escaping the Complexity-Bitrate-Quality Barriers of Video Encoders via Deep Perceptual Optimization',
+      authors: 'with Aaron Chadha, Russell Anam, Ilya Fadeev and Yiannis Andreopoulos',
+      summary: 'A pixel-to-pixel CNN preprocesses video before AVC and AV1 encoding, trained with a rate-distortion-perception loss.' },
+    { file: 'deep-video-precoding-tcsvt20.pdf', venue: 'IEEE TCSVT', year: 2020,
+      title: 'Deep Video Precoding',
+      authors: 'with Eirina Bourtsoulatze, Aaron Chadha, Ilya Fadeev and Yiannis Andreopoulos',
+      summary: 'An end-to-end neural precoder learns rate-aware transformations ahead of HEVC and VP9 encoders, cutting bitrate and transcoding cost.' },
+    { file: 'problink-nsdi19.pdf', venue: 'USENIX NSDI', year: 2019,
+      title: 'Stable and Practical AS Relationship Inference with ProbLink',
+      authors: 'with Yuchen Jin, Colin Scott, Amogh Dhamdhere, Arvind Krishnamurthy and Scott Shenker',
+      summary: 'Probabilistic inference over noisy BGP paths replaces brittle heuristics for inferring business relationships between networks.' },
+    { file: 'iot-botnet-dns-globecom19.pdf', venue: 'IEEE GLOBECOM', year: 2019,
+      title: 'Profiling IoT-Based Botnet Traffic Using DNS',
+      authors: 'with Owen P. Dwyer, Angelos K. Marnerides and Troy Mursch',
+      summary: 'Random Forest classifiers trained on DNS traffic features detect Mirai-like botnet activity in the wild.' },
+    { file: 'deep-precoding-ibc19.pdf', venue: 'IBC', year: 2019,
+      title: 'Deep-Learning Based Precoding Techniques for Next-Generation Video Compression',
+      authors: 'with Aaron Chadha, Eirina Bourtsoulatze, Yiannis Andreopoulos and Sergio Grce',
+      summary: 'Neural precoding applied to cloud video transcoding pipelines, reducing bitrate against conventional encoders.' },
+    { file: 'complex-as-relationships-imc14.pdf', venue: 'ACM IMC', year: 2014,
+      title: 'Inferring Complex AS Relationships',
+      authors: 'first author',
+      summary: 'Infers hybrid and partial-transit relationships between networks, which the usual customer-provider and peer labels miss.' }
+  ],
+
+  talks: [
+    ['h5hUpRH2VdY', 'LACNIC 43', 'An Internet-wide view of CG-NAT and large-scale IP sharing'],
+    ['wJ94HUQJEog', 'RIPE 89', "What's in the dataset? Unboxing the APNIC user populations"],
+    ['RxRxuaNbIHY', 'Research talk', 'Decoupling IP from web services and sockets for robust addressing agility at CDN scale'],
+    ['rosFDZnQSRk', 'ACM IMC 2020', 'Cloud provider connectivity in the flat Internet'],
+    ['Al_FvF4irMY', 'Research talk', 'A first look at the misuse and abuse of the IPv4 transfer market'],
+    ['olXdd5LN7EM', 'Research talk', 'A world view of IP spoofing in L4 volumetric DoS attacks and a call to enable BCP38'],
+    ['P7aFSi9sPdU', 'USENIX NSDI 2019', 'Stable and practical AS relationship inference with ProbLink'],
+    ['U_qOSWRe3pQ', 'ACM SIGCOMM 2017', 'Detecting peering infrastructure outages in the wild'],
+    ['Lsar7hQcuK4', 'PAM 2016', 'NAT Revelio: detecting NAT444 in the ISP'],
+    ['rqegnbydLm4', 'Conference talk', 'Periscope: unifying looking glass querying']
+  ],
+
+  software: [
+    { file: 'PeeringDB_Queries.zip', repo: 'PeeringDB_Queries', lang: 'Python', year: 2025,
+      desc: 'Scripts that query PeeringDB to collect data about networks, exchanges and facilities.' },
+    { file: 'RIPEAtlas_Scripts.zip', repo: 'RIPEAtlas_Scripts', lang: 'Python', year: 2025,
+      desc: 'The scripts I use to query and process RIPE Atlas measurements.' },
+    { file: 'homelab-setup-notes.zip', repo: 'homelab-setup-notes', lang: 'Notes', year: 2025,
+      desc: 'Notes from turning a pile of old PCs and laptops into a mixed-OS home lab with Docker and Kubernetes.' },
+    { file: 'ip-transfers-observatory.zip', repo: 'ip-transfers-observatory', lang: 'Python', year: 2021,
+      desc: 'Observatory and datasets for monitoring abuse and misuse of the IPv4 transfer market.' },
+    { file: 'NTS-KE-Dissector.zip', repo: 'NTS-KE-Dissector', lang: 'Lua', year: 2020,
+      desc: 'A Wireshark dissector for NTS-KE (Network Time Security Key Establishment) messages, with sample captures.' },
+    { file: 'SiblingASesCollector.zip', repo: 'SiblingASesCollector', lang: 'Java, Python', year: 2020,
+      desc: 'Finds sibling networks that the usual RPSL organisation names miss, for example when one company registers in several RIRs.' },
+    { file: 'IxpRsCollector.zip', repo: 'IxpRsCollector', lang: 'Java', year: 2019,
+      desc: 'Collects the ASNs of IXP route servers from PeeringDB and Euro-IX, to clean BGP paths before inferring AS relationships.' },
+    { file: 'BGPCommunityWatch.zip', repo: 'CommunitiesParser', lang: 'Java', year: 2018,
+      desc: 'Detects routing events in historical or live BGP data from changes in BGP Communities values.' },
+    { file: 'ipv6-route-optimization.zip', repo: 'ipv6-route-optimization', lang: 'Python, JavaScript', year: 2017,
+      desc: 'RIPE NCC IPv6 hackathon project on optimising IPv6 paths using disparities between BGP and traceroute.' }
+  ],
+
+  articles: [
+    ['Cloudflare Blog', 2025, 'One IP address, many users: detecting CGNAT to reduce collateral effects', 'https://blog.cloudflare.com/detecting-cgn-to-reduce-collateral-damage/'],
+    ['Cloudflare Blog', 2024, 'A framework for measuring Internet resilience', 'https://blog.cloudflare.com/a-framework-for-measuring-internet-resilience/'],
+    ['Cloudflare Blog', 2022, 'Helping build a safer Internet by measuring BGP RPKI Route Origin Validation', 'https://blog.cloudflare.com/rpki-updates-data/'],
+    ['Cloudflare Blog', 2022, 'How we detect route leaks and our new Cloudflare Radar route leak service', 'https://blog.cloudflare.com/route-leak-detection-with-cloudflare-radar/'],
+    ['Cloudflare Blog', 2021, 'Look, Ma, no probes! Characterizing CDNs’ latencies with passive measurement', 'https://blog.cloudflare.com/cdn-latency-passive-measurement/'],
+    ['Cloudflare Blog', 2021, 'Unboxing the Last Mile: Introducing Last Mile Insights', 'https://blog.cloudflare.com/last-mile-insights/'],
+    ['RIPE Labs', 2020, 'IPv4 Transfer Markets Misuse: A First Look', 'https://labs.ripe.net/author/vgiotsas/ipv4-transfer-markets-misuse-a-first-look/'],
+    ['The Conversation', 2019, 'The internet is surprisingly fragile, crashes thousands of times a year, and no one is making it stronger', 'https://theconversation.com/the-internet-is-surprisingly-fragile-crashes-thousands-of-times-a-year-and-no-one-is-making-it-stronger-120364'],
+    ['RIPE Labs', 2018, 'Uncovering Remote Peering at IXPs', 'https://labs.ripe.net/author/vgiotsas/uncovering-remote-peering-at-ixps/'],
+    ['RIPE Labs', 2018, 'Detection of Peering Infrastructure Outages Based on BGP Communities', 'https://labs.ripe.net/author/vgiotsas/detection-of-peering-infrastructure-outages-based-on-bgp-communities/']
+  ],
+
+  news: [
+    { date: '2026', subject: 'Paper accepted at ACM SIGCOMM 2026',
+      body: 'Our paper "A Global Inference and Assessment of Large Shared IP Addresses" will appear at ACM SIGCOMM 2026. It infers which IP addresses hide many users (CGNs, VPNs, proxies) from global CDN logs.' },
+    { date: '2025', subject: 'New post on the Cloudflare Blog: detecting CGNAT',
+      body: 'I wrote about how we detect CGNAT so that IP-based security rules block fewer legitimate users.\n\nRead it: https://blog.cloudflare.com/detecting-cgn-to-reduce-collateral-damage/' },
+    { date: '2025', subject: 'Internet Society PULSE Fellowship',
+      body: 'I was selected for the Internet Society PULSE Fellowship.' },
+    { date: '2025', subject: 'Talk at PyCon Greece',
+      body: 'I spoke at PyCon Greece 2025.' },
+    { date: '2024', subject: 'metAScritic at ACM IMC 2024',
+      body: 'We presented metAScritic, which treats AS-level topology discovery as a recommendation problem, at ACM IMC 2024.' },
+    { date: '2023', subject: 'Talk at Black Hat EU 2023',
+      body: 'I spoke at Black Hat EU 2023.' }
+  ],
+
+  career: [
+    ['bsc.unipi.gr', '2003-2007', 4.0, 'University of Piraeus', 'B.Sc. Computer Science'],
+    ['msc.ucl.ac.uk', '2007-2008', 1.0, 'University College London', 'M.Sc. Data Communications, Networks and Distributed Systems (Distinction)'],
+    ['phd.ucl.ac.uk', '2009-2014', 5.0, 'University College London', 'Ph.D. Computer Science'],
+    ['postdoc.caida.org', '2013-2017', 4.0, 'CAIDA, UC San Diego', 'Postdoctoral Researcher. Built Periscope and the AS relationship datasets (134,000+ downloads)'],
+    ['research.tu-berlin.de', '2017-2018', 1.0, 'TU Berlin', 'Research Scientist, Internet Measurement and Analysis'],
+    ['lecturer.lancaster.ac.uk', '2018-2024', 6.0, 'Lancaster University', 'Senior Lecturer (Associate Professor). Led the network security group'],
+    ['research.cloudflare.com', '2021-now', 5.0, 'Cloudflare', 'Senior Research Engineer']
+  ],
+
+  facts: [
+    ['AS13335', 'senior research engineer at Cloudflare since 2021'],
+    ['soho', 'random fact: I once met Amy Winehouse in a supermarket in Soho'],
+    ['scholar', '60 peer-reviewed papers and counting'],
+    ['home', "I'm the father of a little hacker"],
+    ['CAIDA', '134,000+ downloads of my AS relationship datasets'],
+    ['the-trail', 'I run, play basketball and football (the one played with feet), and love hiking'],
+    ['periscope', 'used by 50+ universities and companies'],
+    ['up-north', 'I actually like British food, especially in the North'],
+    ['SIGCOMM', 'classifiers that find IPs shared by many users'],
+    ['seat-23C', 'I always pick the aisle seat, on planes and anywhere else with an aisle'],
+    ['CoNEXT', 'best paper award, 2015'],
+    ['IETF', 'Applied Networking Research Prize, 2017'],
+    ['AS207135', 'my son and I run our own IPv6-only network']
+  ],
+
+  awards: ['ACM CoNEXT Best Paper Award (2015)', 'IETF Applied Networking Research Prize (2017)',
+           'Internet Society PULSE Fellowship (2025)', 'RIPE Academic Collaboration Initiative fellowships (2017, 2018)'],
+
+  skills: [
+    ['Languages', 'Python, Go, SQL'],
+    ['Data', 'BigQuery, ClickHouse, Spark, Kafka, Airflow, Jupyter'],
+    ['Machine learning', 'PyTorch, TensorFlow, scikit-learn, XGBoost, pandas, NumPy'],
+    ['NLP', 'Hugging Face, spaCy, NLTK'],
+    ['Infrastructure', 'Docker, Kubernetes, Terraform, Salt, AWS, GCP, Cloudflare'],
+    ['Observability', 'Prometheus, Grafana, Git, Scapy']
+  ]
+};
