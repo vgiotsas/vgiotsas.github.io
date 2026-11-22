@@ -47,7 +47,7 @@ body{margin:0;background:#0B0F1A}
 .u17{max-width: 1200px; margin: 0 auto; padding: 48px 28px 72px; display: flex; flex-wrap: wrap; gap: 48px; align-items: stretch}
 .u18{flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 24px}
 .u19{display: flex; align-items: center; gap: 20px; flex-wrap: wrap}
-.u20{width: 100%; max-width: 560px; height: 230px; border-radius: 24px; border: 3px solid #EDEAE3; object-fit: cover; object-position: 70% 40%; display: block; box-sizing: border-box}
+.u20{width: 100%; max-width: 560px; height: 180px; border-radius: 24px; border: 3px solid #EDEAE3; object-fit: cover; object-position: 70% 40%; display: block; box-sizing: border-box}
 .u21{margin: 0; font-size: clamp(40px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 700}
 .u22{margin: 0; font-size: 19px; line-height: 1.55; color: #DCE1EA; max-width: 560px}
 .u23{display: flex; flex-wrap: wrap; gap: 12px}
