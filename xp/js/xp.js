@@ -495,13 +495,13 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
     /* ----- Browser ----- */
     browser(tab = 'home') {
       const T = [
-        { k: 'home', t: 'v.giotsas.com', url: D.links.home, icon: 'home', frame: true },
-        { k: 'linkedin', t: 'LinkedIn', url: D.links.linkedin, icon: 'user', page: true },
-        { k: 'scholar', t: 'Google Scholar', url: D.links.scholar, icon: 'search', page: true },
-        { k: 'github', t: 'GitHub', url: D.links.github, icon: 'zip', page: true },
-        { k: 'twitter', t: 'Twitter / X', url: D.links.twitter, icon: 'send', page: true },
-        { k: 'youtube', t: 'YouTube', url: 'https://www.youtube.com/@giotsas', icon: 'video', page: true },
-        { k: 'cfblog', t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', page: true }
+        { k: 'home', fav: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23EDEAE3'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%230B0F1A'%3Evg%3C/text%3E%3C/svg%3E", t: 'v.giotsas.com', url: D.links.home, icon: 'home', frame: true },
+        { k: 'linkedin', fav: "https://www.linkedin.com/favicon.ico", t: 'LinkedIn', url: D.links.linkedin, icon: 'user', page: true },
+        { k: 'scholar', fav: "https://scholar.google.com/favicon.ico", t: 'Google Scholar', url: D.links.scholar, icon: 'search', page: true },
+        { k: 'github', fav: "https://github.com/favicon.ico", t: 'GitHub', url: D.links.github, icon: 'zip', page: true },
+        { k: 'twitter', fav: "https://x.com/favicon.ico", t: 'Twitter / X', url: D.links.twitter, icon: 'send', page: true },
+        { k: 'youtube', fav: "https://www.youtube.com/favicon.ico", t: 'YouTube', url: 'https://www.youtube.com/@giotsas', icon: 'video', page: true },
+        { k: 'cfblog', fav: "https://blog.cloudflare.com/favicon.ico", t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', page: true }
       ];
       const body = el(`<div style="display:flex;flex-direction:column;flex:1;min-height:0">
         <div class="menubar"><span>File</span><span>Edit</span><span>View</span><span>Favorites</span><span>Tools</span><span>Help</span></div>
@@ -555,7 +555,9 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
       }
       function show(k) {
         cur = k; const t = T.find(x => x.k === k) || T[0];
-        body.querySelector('.br-tabs').innerHTML = T.map(x => `<button type="button" role="tab" aria-selected="${x.k === k}" class="${x.k === k ? 'on' : ''}" data-k="${x.k}">${I[x.icon]()}<span>${esc(x.t)}</span></button>`).join('');
+        body.querySelector('.br-tabs').innerHTML = T.map(x => `<button type="button" role="tab" aria-selected="${x.k === k}" class="${x.k === k ? 'on' : ''}" data-k="${x.k}"><img class="fav" src="${x.fav}" alt="" width="16" height="16" data-i="${x.icon}"><span>${esc(x.t)}</span></button>`).join('');
+        // A site's own icon, as a real browser shows it; our drawn icon if it fails to load
+        body.querySelectorAll('.br-tabs img.fav').forEach(im => { im.onerror = () => { im.outerHTML = I[im.dataset.i](); }; });
         body.querySelectorAll('[data-k]').forEach(b => { b.onclick = () => show(b.dataset.k); });
         body.querySelector('.field').innerHTML = I.browser() + esc(t.url);
         body.querySelector('[data-a="go"]').href = t.url;

@@ -249,9 +249,9 @@ a{color:#0b4ee0}
 @media (max-width:700px){.mail-folders{display:none}}
 
 /* Browser */
-.br-tabs{display:flex;gap:2px;padding:4px 6px 0;background:#ece9d8;overflow-x:auto}
-.br-tabs button{display:flex;align-items:center;gap:6px;max-width:170px;padding:4px 10px;border:1px solid #a7a6aa;border-bottom:0;border-radius:4px 4px 0 0;background:linear-gradient(#f8f8f8,#dedede);cursor:pointer;font-size:11px;white-space:nowrap}
-.br-tabs button svg{width:14px;height:14px;flex:0 0 auto}
+.br-tabs{display:flex;gap:3px;padding:6px 8px 0;background:#ece9d8;overflow-x:auto}
+.br-tabs button{display:flex;align-items:center;gap:8px;max-width:230px;padding:8px 16px;border:1px solid #a7a6aa;border-bottom:0;border-radius:5px 5px 0 0;background:linear-gradient(#f8f8f8,#dedede);cursor:pointer;font-size:13px;white-space:nowrap}
+.br-tabs button svg,.br-tabs button img.fav{width:16px;height:16px;flex:0 0 auto}
 .br-tabs button span{overflow:hidden;text-overflow:ellipsis}
 .br-tabs button.on{background:#fff;position:relative;top:1px}
 .br-view{flex:1;background:#fff;position:relative;border-top:1px solid #a7a6aa;overflow:auto}
