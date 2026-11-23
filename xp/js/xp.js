@@ -496,12 +496,12 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
     browser(tab = 'home') {
       const T = [
         { k: 'home', t: 'v.giotsas.com', url: D.links.home, icon: 'home', frame: true },
-        { k: 'linkedin', t: 'LinkedIn', url: D.links.linkedin, icon: 'user', shot: 'img/shots/linkedin.webp', h: 911, alt: 'My LinkedIn profile: Vasileios Giotsas, Research Engineer, Lecturer, Data Scientist, with Cloudflare and UCL.' },
-        { k: 'scholar', t: 'Google Scholar', url: D.links.scholar, icon: 'search', shot: 'img/shots/scholar.webp', h: 777, alt: 'My Google Scholar profile, listing papers by citation count.' },
-        { k: 'github', t: 'GitHub', url: D.links.github, icon: 'zip', shot: 'img/shots/github.webp', h: 1011, alt: 'My GitHub profile, vgiotsas, with popular repositories.' },
-        { k: 'twitter', t: 'Twitter / X', url: D.links.twitter, icon: 'send', shot: 'img/shots/twitter.webp', h: 1236, alt: 'My X profile, @GVasilis.' },
-        { k: 'youtube', t: 'YouTube', url: 'https://www.youtube.com/@giotsas', icon: 'video', shot: 'img/shots/youtube.webp', h: 952, alt: 'The Giotsas YouTube channel, run by Vasilis and Nikos Giotsas.' },
-        { k: 'cfblog', t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', shot: 'img/shots/cfblog.webp', h: 790, alt: 'My author page on the Cloudflare Blog, with my post on detecting CGNAT.' }
+        { k: 'linkedin', t: 'LinkedIn', url: D.links.linkedin, icon: 'user', page: true },
+        { k: 'scholar', t: 'Google Scholar', url: D.links.scholar, icon: 'search', page: true },
+        { k: 'github', t: 'GitHub', url: D.links.github, icon: 'zip', page: true },
+        { k: 'twitter', t: 'Twitter / X', url: D.links.twitter, icon: 'send', page: true },
+        { k: 'youtube', t: 'YouTube', url: 'https://www.youtube.com/@giotsas', icon: 'video', page: true },
+        { k: 'cfblog', t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', page: true }
       ];
       const body = el(`<div style="display:flex;flex-direction:column;flex:1;min-height:0">
         <div class="menubar"><span>File</span><span>Edit</span><span>View</span><span>Favorites</span><span>Tools</span><span>Help</span></div>
@@ -517,13 +517,13 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         body.querySelector('[data-a="go"]').href = t.url;
         const view = body.querySelector('.br-view');
         view.scrollTop = 0;
-        view.innerHTML = t.frame ? `<iframe title="v.giotsas.com" src="${t.url}"></iframe>` : t.shot ?
-          `<a class="br-shot" href="${t.url}" target="_blank" rel="noopener" aria-label="Open my ${esc(t.t)} page in a new tab"><span class="br-hint">${I.info()}This is a picture of my ${esc(t.t)} page. Click anywhere to open the real one in a new tab.</span><img src="${t.shot}" width="1100" height="${t.h}" decoding="async" alt="${esc(t.alt)}"></a>` :
+        view.innerHTML = t.frame ? `<iframe title="v.giotsas.com" src="${t.url}"></iframe>` : t.page ?
+          `<a class="br-shot wp wp-${t.k}" href="${t.url}" target="_blank" rel="noopener" aria-label="Open my ${esc(t.t)} page in a new tab"><span class="br-hint">${I.info()}A preview of my ${esc(t.t)} page. Click anywhere to open the real one in a new tab.</span>${webPage(t.k)}</a>` :
           `<div class="br-page"><h2>${I[t.icon]()}${esc(t.t)}</h2><div class="url">${esc(t.url)}</div><p>${esc(t.text)}</p>
            <p>This site doesn't allow itself to be shown inside another page, so it opens in a new tab.</p>
            <p><a class="btn primary" href="${t.url}" target="_blank" rel="noopener">Open ${esc(t.t)}</a></p></div>`;
         rec.setTitle(t.t + ' - Web Browser');
-        body.querySelector('.st').textContent = t.frame ? 'Done' : t.shot ? 'Picture of ' + t.url + '. Click to open the real page.' : 'Opens in a new tab';
+        body.querySelector('.st').textContent = t.frame ? 'Done' : t.page ? 'Preview of ' + t.url + '. Click to open the real page.' : 'Opens in a new tab';
       }
       body.querySelector('[data-a="reload"]').onclick = () => show(cur);
       body.querySelector('[data-a="home"]').onclick = () => show('home');
@@ -531,8 +531,6 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
       if (existing) { existing.show(tab); restore('br'); return; }
       const rec = openWin('br', { title: 'Web Browser', icon: 'browser', w: 980, h: 620, body });
       rec.show = show; show(tab);
-      // Fetch the other screenshots in the background so switching tabs is instant
-      setTimeout(() => T.forEach(x => { if (x.shot) new Image().src = x.shot; }), 1500);
     },
 
     /* ----- Command prompt ----- */
@@ -634,6 +632,67 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
       prompt(); input.focus();
     }
   };
+  /* Previews of my profiles on other sites, drawn in HTML from my own public details. Each one is a single link to
+     the real page, so nothing inside may be a link. No logos: only the site's colours and layout ideas. */
+  function webPage(k) {
+    const yt = id => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
+    const bar = (name, path) => `<div class="wp-bar"><b>${name}</b><span>${path}</span></div>`;
+    if (k === 'linkedin') {
+      const jobs = D.career.slice().reverse().filter(c => !/B\.Sc|M\.Sc|Ph\.D/.test(c[4]));
+      const edu = D.career.slice().reverse().filter(c => /B\.Sc|M\.Sc|Ph\.D/.test(c[4]));
+      const row = (c, job) => `<div class="li-row"><span class="li-logo">${esc(c[3][0])}</span><div><b>${esc(job ? c[4].split('. ')[0] : c[4])}</b><div>${esc(c[3])}</div><small>${esc(c[1].replace('-', ' – ').replace('now', 'Present'))}</small></div></div>`;
+      return bar('LinkedIn', 'linkedin.com/in/giotsas') + `<div class="li-wrap">
+        <section class="li-card li-top"><div class="li-cover"></div><img src="img/vasilis.jpg" alt="">
+          <h1>Vasileios Giotsas</h1><p class="li-head">Research Engineer, Lecturer, Data Scientist</p>
+          <p class="li-loc">London, England, United Kingdom · <span class="li-link">Contact info</span></p><p class="li-loc"><b>500+</b> connections</p>
+          <div class="li-orgs"><span><i>C</i>Cloudflare</span><span><i>U</i>UCL</span></div>
+          <span class="li-btn">View full profile</span></section>
+        <section class="li-card"><h2>Experience</h2>${jobs.map(c => row(c, true)).join('')}</section>
+        <section class="li-card"><h2>Education</h2>${edu.map(c => row(c, false)).join('')}</section></div>`;
+    }
+    if (k === 'scholar') {
+      const P = [['AS Relationships, Customer Cones, and Validation', 'M Luckie, B Huffaker, A Dhamdhere, V Giotsas', 'IMC', 458, 2013],
+        ['Inferring complex AS relationships', 'V Giotsas, M Luckie, B Huffaker, KC Claffy', 'Proceedings of the 2014 Conference on Internet Measurement Conference, 23-30', 199, 2014],
+        ['BGPStream: a software framework for live and historical BGP data analysis', 'C Orsini, A King, D Giordano, V Giotsas, A Dainotti', 'Proceedings of the 2016 Internet Measurement Conference, 429-444', 197, 2016],
+        ['Cloud provider connectivity in the flat internet', 'T Arnold, J He, W Jiang, M Calder, I Cunha, V Giotsas, E Katz-Bassett', 'Proceedings of the ACM Internet Measurement Conference, 230-246', 124, 2020],
+        ['Detecting peering infrastructure outages in the wild', 'V Giotsas, C Dietzel, G Smaragdakis, A Feldmann, A Berger, E Aben', 'Proceedings of the ACM SIGCOMM conference', 109, 2017]];
+      return bar('Scholar', 'scholar.google.com') + `<div class="gs-wrap"><div class="gs-head"><img src="img/vasilis-london.jpg" alt="">
+          <div><h1>Giotsas Vasileios</h1><p class="gs-u">Lancaster University</p><p>Verified email at lancaster.ac.uk - <u>Homepage</u></p>
+          <p class="gs-tags"><span>Internet Routing</span><span>Complex Networks</span><span>Distributed Systems</span><span>Sensor Networks</span></p></div>
+          <span class="gs-follow">Follow</span></div>
+        <div class="gs-table"><div class="gs-th"><span>Title</span><span>Cited by</span><span>Year</span></div>
+        ${P.map(p => `<div class="gs-tr"><div><span class="gs-t">${esc(p[0])}</span><small>${esc(p[1])}</small><small>${esc(p[2])}</small></div><span class="gs-c">${p[3]}</span><span>${p[4]}</span></div>`).join('')}
+        <div class="gs-more">Show more</div></div></div>`;
+    }
+    if (k === 'github') {
+      const order = ['ipv6-route-optimization', 'CommunitiesParser', 'ip-transfers-observatory', 'IxpRsCollector', 'NTS-KE-Dissector', 'SiblingASesCollector'];
+      const repos = order.map(r => D.software.find(x => x.repo === r)).filter(Boolean);
+      const dot = { Python: '#3572A5', Java: '#b07219', Lua: '#000080', JavaScript: '#f1e05a' };
+      const cells = '0111001010101010101000000'.split('').map(b => `<i class="${b === '1' ? 'on' : ''}"></i>`).join('');
+      return bar('GitHub', 'github.com/vgiotsas') + `<div class="gh-wrap"><aside><div class="gh-av">${cells}</div><h1>vgiotsas</h1><span class="gh-btn">Follow</span></aside>
+        <div class="gh-main"><div class="gh-tabs"><b>Overview</b><span>Repositories</span><span>Projects</span><span>Stars</span></div>
+          <h2>Popular repositories</h2><div class="gh-grid">${repos.map(r => { const l = r.lang.split(',')[0].trim();
+            return `<div class="gh-repo"><div><b>${esc(r.repo)}</b><em>Public</em></div><p>${esc(r.desc)}</p><small><i style="background:${dot[l] || '#8b949e'}"></i>${esc(l)}</small></div>`; }).join('')}</div></div></div>`;
+    }
+    if (k === 'twitter') {
+      return bar('X', 'x.com/GVasilis') + `<div class="tw-wrap"><div class="tw-banner"></div><div class="tw-prof"><img src="img/vasilis.jpg" alt=""><span class="tw-btn">Follow</span></div>
+        <h1>Vasileios Giotsas</h1><p class="tw-h">@GVasilis</p><p><span class="tw-l">#BSky</span>: <span class="tw-l">@giotsas</span>.com</p>
+        <p class="tw-h"><span class="tw-l">giotsas.com</span> · Joined April 2010</p><p><b>596</b> <span class="tw-h">Following</span> &nbsp; <b>357</b> <span class="tw-h">Followers</span></p>
+        <div class="tw-tabs"><b>Posts</b><span>Replies</span><span>Media</span></div><p class="tw-note">Open X to read my posts.</p></div>`;
+    }
+    if (k === 'youtube') {
+      return bar('YouTube', 'youtube.com/@giotsas') + `<div class="yt-wrap"><div class="yt-head"><img src="img/vasilis.jpg" alt=""><div><h1>Giotsas</h1>
+          <p>@giotsas · 85 videos</p><p>Run by Vasilis and Nikos Giotsas.</p><span class="yt-btn">Subscribe</span></div></div>
+        <div class="yt-tabs"><span>Home</span><b>Videos</b><span>Playlists</span></div>
+        <div class="yt-grid">${D.talks.map(t => `<div class="yt-v"><img loading="lazy" src="${yt(t[0])}" alt=""><b>${esc(t[2])}</b><small>${esc(t[1])}</small></div>`).join('')}</div></div>`;
+    }
+    if (k === 'cfblog') {
+      const posts = D.articles.filter(a => a[0] === 'Cloudflare Blog');
+      return bar('The Cloudflare Blog', 'blog.cloudflare.com/author/vasilis') + `<div class="cf-wrap"><div class="cf-head"><img src="img/vasilis.jpg" alt=""><div><h1>Vasilis Giotsas</h1><p>London, UK</p></div></div>
+        ${posts.map(a => `<div class="cf-post"><small>${a[1]}</small><b>${esc(a[2])}</b></div>`).join('')}</div>`;
+    }
+    return '';
+  }
   function linkify(t) { return esc(t).replace(/https?:\/\/[^\s]+/g, u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`); }
 
   /* ---------------- Desktop icons ---------------- */
