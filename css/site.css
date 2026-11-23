@@ -104,7 +104,6 @@ body{margin:0;background:#0B0F1A}
 .s9dd2ff4{display: block; padding: 10px 0; color: #E8ECF5; text-decoration: none; font-weight: 700}
 .s1affde9{display: block; padding: 10px 0; color: #E0614F; text-decoration: none}
 .s341c041{height: 40px}
-.s9020eee{font-family: 'Fragment Mono', monospace; font-size: 14px; color: #E0614F}
 .sc962ddd{margin: 0; color: #B4BCCE; font-size: 17px; max-width: 640px}
 .s0d6505e{display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 48px 40px}
 .s8b6e2d4{background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 12px}
@@ -124,6 +123,7 @@ body{margin:0;background:#0B0F1A}
 .s4419a22{border-top: 2px solid #39435E; padding: 20px 0 0; display: flex; flex-direction: column; gap: 18px}
 .sbc0172c{display: flex; flex-direction: column; gap: 4px}
 .see9e14e{font-weight: 600; font-size: 16px}
+.s9020eee{font-family: 'Fragment Mono', monospace; font-size: 14px; color: #E0614F}
 .s0172421{display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px 40px}
 .sc3ca275{background: transparent; border: 0; border-top: 2px solid #39435E; border-radius: 0; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px}
 .s3f8350a{display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fragment Mono', monospace; font-size: 12px}
