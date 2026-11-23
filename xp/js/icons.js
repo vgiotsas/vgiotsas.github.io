@@ -5,23 +5,20 @@
   const uid = p => p + (++n);
   const svg = (inner, defs = '') => `<svg viewBox="0 0 48 48" aria-hidden="true"><defs>${defs}</defs>${inner}</svg>`;
 
-  function folder(badge = '') {
-    const a = uid('fa'), b = uid('fb');
-    return svg(`<path d="M4 12a3 3 0 0 1 3-3h12l4 4h18a3 3 0 0 1 3 3v22a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" fill="url(#${a})" stroke="#b88a16" stroke-width="1"/>
-      <path d="M4 18h40v20a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" fill="url(#${b})" stroke="#c99a1c" stroke-width="1"/>${badge}`,
-      g(a, [[0, '#f7d978'], [1, '#e3b33c']]) + g(b, [[0, '#ffe9a3'], [1, '#f4c94d']]));
-  }
+  const png = name => svg(`<image href="img/${name}.png" x="0" y="0" width="48" height="48"/>`);
+  const folder = (badge = '') => svg(`<image href="img/folder.png" x="0" y="0" width="48" height="48"/>${badge}`);
   const I = {
     folder: () => folder(),
-    documents: () => folder(`<rect x="17" y="21" width="15" height="17" rx="1" fill="#fff" stroke="#7a8aa8"/><path d="M20 26h9M20 29h9M20 32h6" stroke="#5876b8" stroke-width="1.4"/>`),
-    videos: () => folder(`<rect x="15" y="23" width="18" height="13" rx="2" fill="#2e3b63"/><path d="M22 26.5v6l5-3z" fill="#fff"/>`),
-    pictures: () => folder(`<rect x="15" y="22" width="18" height="14" rx="1" fill="#fff" stroke="#7a8aa8"/><path d="M16 35l5-6 4 4 3-3 4 5z" fill="#4c9a3f"/><circle cx="28" cy="26" r="2" fill="#f2b53a"/>`),
+    music: () => png('music'),
+    documents: () => png('documents'),
+    videos: () => png('videos'),
+    pictures: () => png('pictures'),
     downloads: () => folder(`<circle cx="24" cy="29" r="8" fill="#2f8a2c"/><path d="M24 24v9M20 29.5l4 4 4-4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>`),
     articles: () => folder(`<circle cx="24" cy="29" r="8" fill="#2c6fd6"/><path d="M16 29h16M24 21c3 3 3 13 0 16M24 21c-3 3-3 13 0 16" stroke="#fff" stroke-width="1.3" fill="none"/>`),
-    computer: () => { const a = uid('ca'); return svg(`<rect x="6" y="7" width="36" height="26" rx="3" fill="#d9dde6" stroke="#6d7891"/><rect x="10" y="11" width="28" height="18" fill="url(#${a})"/><path d="M19 33h10l2 6H17z" fill="#b8bfcd"/><rect x="12" y="39" width="24" height="3" rx="1" fill="#9ba4b7"/>`, g(a, [[0, '#4f8fe8'], [1, '#1b4fb0']])); },
-    recycle: () => { const a = uid('ra'); return svg(`<path d="M12 14h24l-3 28H15z" fill="url(#${a})" stroke="#6f8a9c"/><ellipse cx="24" cy="14" rx="13" ry="3.5" fill="#cfe2ee" stroke="#6f8a9c"/><path d="M20 22l-3 14M24 22v14M28 22l3 14" stroke="#8fb0c4" stroke-width="1.5"/><path d="M19 28a5 5 0 0 1 9-2l1-2v5h-5l2-1a3 3 0 0 0-5 1z" fill="#3a9b38"/>`, g(a, [[0, '#e8f2f8'], [1, '#b7d0de']])); },
+    computer: () => png('computer'),
+    recycle: () => png('recycle'),
     mail: () => { const a = uid('ma'); return svg(`<rect x="5" y="12" width="38" height="26" rx="2" fill="url(#${a})" stroke="#8a7a4a"/><path d="M6 13l18 14 18-14" fill="none" stroke="#8a7a4a" stroke-width="1.5"/><circle cx="37" cy="13" r="7" fill="#2c6fd6"/><path d="M34 13h6M37 10v6" stroke="#fff" stroke-width="1.6"/>`, g(a, [[0, '#fff8df'], [1, '#ecd99c']])); },
-    browser: () => svg('<image href="img/browser.png" x="0" y="0" width="48" height="48"/>'),
+    browser: () => png('browser'),
     cmd: () => svg(`<rect x="5" y="8" width="38" height="32" rx="2" fill="#000" stroke="#7a7a7a"/><rect x="5" y="8" width="38" height="5" fill="#2c5fd0"/><path d="M10 20l5 4-5 4" stroke="#c0c0c0" stroke-width="2" fill="none"/><path d="M17 29h8" stroke="#c0c0c0" stroke-width="2"/>`),
     notepad: () => svg(`<rect x="10" y="6" width="28" height="36" rx="1" fill="#fff" stroke="#6d7891"/><rect x="10" y="6" width="28" height="6" fill="#7aa7e9"/><path d="M15 18h18M15 23h18M15 28h18M15 33h12" stroke="#9aa6bd" stroke-width="1.4"/>`),
     doc: () => svg(`<path d="M11 5h19l8 8v30H11z" fill="#fff" stroke="#6d7891"/><path d="M30 5v8h8" fill="#e5ebf5" stroke="#6d7891"/><rect x="11" y="18" width="20" height="10" fill="#2c5fd0"/><text x="21" y="26" font-family="Arial" font-weight="700" font-size="8" fill="#fff" text-anchor="middle">CV</text><path d="M15 32h19M15 36h19" stroke="#9aa6bd" stroke-width="1.4"/>`),

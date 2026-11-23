@@ -185,6 +185,7 @@
           { name: 'Articles', icon: 'articles', info: 'Blog posts and articles for engineers and operators.', open: () => nav('My Documents\\Articles') },
           { name: 'My Pictures', icon: 'pictures', open: () => nav('My Pictures') },
           { name: 'My Videos', icon: 'videos', open: () => nav('My Videos') },
+          { name: 'My Music', icon: 'music', open: () => nav('My Music') },
           { name: 'Downloads', icon: 'downloads', open: () => nav('Downloads') },
           { name: 'Resume.doc', icon: 'doc', info: 'Experience, education, awards and skills.', open: () => APPS.resume() },
           { name: 'readme.txt', icon: 'notepad', open: () => APPS.readme() }
@@ -205,6 +206,12 @@
         items: [
           { name: 'london-at-night.jpg', icon: 'image', info: 'Tower Bridge and the City, from the Thames.', open: () => APPS.picture('img/vasilis-london.jpg', 'london-at-night.jpg') },
           { name: 'profile.jpg', icon: 'image', open: () => APPS.picture('img/vasilis.jpg', 'profile.jpg') }
+        ]
+      },
+      'My Music': {
+        icon: 'music', view: 'icons',
+        items: [
+          { name: 'soho.txt', icon: 'notepad', info: 'A true story.', open: () => APPS.notepad('soho.txt', 'I once met Amy Winehouse in a supermarket in Soho.\n') }
         ]
       },
       'My Videos': {
@@ -230,7 +237,7 @@
     return P[path];
   }
   const ROOT_OF = p => p.startsWith('My Documents') ? 'My Documents' : p;
-  const OTHER = [['My Documents', 'documents'], ['My Pictures', 'pictures'], ['My Videos', 'videos'], ['Downloads', 'downloads'], ['My Computer', 'computer']];
+  const OTHER = [['My Documents', 'documents'], ['My Pictures', 'pictures'], ['My Videos', 'videos'], ['My Music', 'music'], ['Downloads', 'downloads'], ['My Computer', 'computer']];
 
   function pathLabel(p) { return p === 'My Computer' ? 'My Computer' : p === 'Recycle Bin' ? 'Recycle Bin' : HOME + '\\' + p; }
   function nav(path) {
