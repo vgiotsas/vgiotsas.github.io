@@ -495,37 +495,87 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
     /* ----- Browser ----- */
     browser(tab = 'home') {
       const T = [
-        { k: 'home', t: 'v.giotsas.com', url: D.links.home, icon: 'home', frame: true },
-        { k: 'linkedin', t: 'LinkedIn', url: D.links.linkedin, icon: 'user', page: true },
-        { k: 'scholar', t: 'Google Scholar', url: D.links.scholar, icon: 'search', page: true },
-        { k: 'github', t: 'GitHub', url: D.links.github, icon: 'zip', page: true },
-        { k: 'twitter', t: 'Twitter / X', url: D.links.twitter, icon: 'send', page: true },
-        { k: 'youtube', t: 'YouTube', url: 'https://www.youtube.com/@giotsas', icon: 'video', page: true },
-        { k: 'cfblog', t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', page: true }
+        { k: 'home', fav: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23EDEAE3'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%230B0F1A'%3Evg%3C/text%3E%3C/svg%3E", t: 'v.giotsas.com', url: D.links.home, icon: 'home', frame: true },
+        { k: 'linkedin', fav: "https://www.linkedin.com/favicon.ico", t: 'LinkedIn', url: D.links.linkedin, icon: 'user', page: true },
+        { k: 'scholar', fav: "https://scholar.google.com/favicon.ico", t: 'Google Scholar', url: D.links.scholar, icon: 'search', page: true },
+        { k: 'github', fav: "https://github.com/favicon.ico", t: 'GitHub', url: D.links.github, icon: 'zip', page: true },
+        { k: 'twitter', fav: "https://x.com/favicon.ico", t: 'Twitter / X', url: D.links.twitter, icon: 'send', page: true },
+        { k: 'youtube', fav: "https://www.youtube.com/favicon.ico", t: 'YouTube', url: 'https://www.youtube.com/@giotsas', icon: 'video', page: true },
+        { k: 'cfblog', fav: "https://blog.cloudflare.com/favicon.ico", t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', page: true }
       ];
       const body = el(`<div style="display:flex;flex-direction:column;flex:1;min-height:0">
         <div class="menubar"><span>File</span><span>Edit</span><span>View</span><span>Favorites</span><span>Tools</span><span>Help</span></div>
-        <div class="toolbar"><button class="tbtn" type="button" disabled>${I.back()}Back</button><button class="tbtn" type="button" disabled aria-label="Forward">${I.forward()}</button><button class="tbtn" type="button" data-a="reload">${I.refresh()}</button><button class="tbtn" type="button" data-a="home">${I.home()}Home</button></div>
+        <div class="toolbar"><button class="tbtn" type="button" data-a="back" disabled>${I.back()}Back</button><button class="tbtn" type="button" data-a="fwd" disabled aria-label="Forward">${I.forward()}</button><button class="tbtn" type="button" data-a="reload">${I.refresh()}</button><button class="tbtn" type="button" data-a="home">${I.home()}Home</button></div>
         <div class="addr">Address<div class="field"></div><a class="btn" data-a="go" target="_blank" rel="noopener" style="min-width:0;padding:2px 10px">Go</a></div>
         <div class="br-tabs" role="tablist"></div><div class="br-view"></div><div class="statusbar"><span class="st">Done</span></div></div>`);
       let cur = tab;
+      /* Pages loaded in the v.giotsas.com frame: our own history, since the frame's may be cross-origin */
+      let hist = [], pos = -1, pending = null, stepping = false;
+      // Sites known to allow being shown in a frame; links anywhere else open in a real tab
+      const FRAMEOK = /(^|\.)(giotsas\.com|github\.io|localhost)$/;
+      const bare = u => u.replace(/^https?:\/\/(www\.)?/i, '').split(/[?#]/)[0].replace(/\/$/, '').toLowerCase();
+      const tabFor = href => T.find(x => x.page && (bare(x.url) === bare(href) || bare(x.url.replace('twitter.com', 'x.com')) === bare(href)));
+      const setNav = () => { body.querySelector('[data-a="back"]').disabled = pos <= 0; body.querySelector('[data-a="fwd"]').disabled = pos >= hist.length - 1; };
+      function setAddr(href, title) {
+        body.querySelector('.field').innerHTML = I.browser() + esc(href);
+        body.querySelector('[data-a="go"]').href = href;
+        rec.setTitle((title || href.replace(/^https?:\/\//, '')) + ' - Web Browser');
+        body.querySelector('.st').textContent = 'Done';
+      }
+      function frameTo(href) {
+        const f = body.querySelector('.br-view iframe');
+        if (!f) return;
+        pending = href; body.querySelector('.st').textContent = 'Opening page ' + href + '...';
+        f.src = href;
+      }
+      function watch(f) {
+        f.addEventListener('load', () => {
+          let href = pending, title = null;
+          try { href = f.contentWindow.location.href; title = f.contentDocument.title; hook(f.contentDocument); }
+          catch (e) { /* another site: we can't read where it went, so keep the link we saw clicked */ }
+          pending = null;
+          if (!href || href === 'about:blank') return;
+          if (!stepping && hist[pos] !== href) { hist = hist.slice(0, pos + 1); hist.push(href); pos = hist.length - 1; }
+          stepping = false; setNav(); setAddr(href, title);
+        });
+      }
+      function hook(doc) {
+        doc.addEventListener('click', e => {
+          const a = e.target.closest && e.target.closest('a[href]');
+          if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || a.hasAttribute('download')) return;
+          const href = a.href;
+          if (/^mailto:/i.test(href)) { e.preventDefault(); APPS.compose(); return; }
+          if (!/^https?:/i.test(href)) return;
+          const u = new URL(href), t = tabFor(href);
+          if (t) { e.preventDefault(); show(t.k); return; }
+          if (!FRAMEOK.test(u.hostname)) { e.preventDefault(); window.open(href, '_blank', 'noopener'); return; }
+          if (u.origin !== doc.location.origin || a.target === '_blank') { e.preventDefault(); frameTo(href); return; }
+          pending = href; // same site: the load handler reads the real URL
+        }, true);
+      }
       function show(k) {
         cur = k; const t = T.find(x => x.k === k) || T[0];
-        body.querySelector('.br-tabs').innerHTML = T.map(x => `<button type="button" role="tab" aria-selected="${x.k === k}" class="${x.k === k ? 'on' : ''}" data-k="${x.k}">${I[x.icon]()}<span>${esc(x.t)}</span></button>`).join('');
+        body.querySelector('.br-tabs').innerHTML = T.map(x => `<button type="button" role="tab" aria-selected="${x.k === k}" class="${x.k === k ? 'on' : ''}" data-k="${x.k}"><img class="fav" src="${x.fav}" alt="" width="16" height="16" data-i="${x.icon}"><span>${esc(x.t)}</span></button>`).join('');
+        // A site's own icon, as a real browser shows it; our drawn icon if it fails to load
+        body.querySelectorAll('.br-tabs img.fav').forEach(im => { im.onerror = () => { im.outerHTML = I[im.dataset.i](); }; });
         body.querySelectorAll('[data-k]').forEach(b => { b.onclick = () => show(b.dataset.k); });
         body.querySelector('.field').innerHTML = I.browser() + esc(t.url);
         body.querySelector('[data-a="go"]').href = t.url;
         const view = body.querySelector('.br-view');
         view.scrollTop = 0;
+        hist = []; pos = -1; pending = null; setNav();
         view.innerHTML = t.frame ? `<iframe title="v.giotsas.com" src="${t.url}"></iframe>` : t.page ?
           `<a class="br-shot wp wp-${t.k}" href="${t.url}" target="_blank" rel="noopener" aria-label="Open my ${esc(t.t)} page in a new tab"><span class="br-hint">${I.info()}A preview of my ${esc(t.t)} page. Click anywhere to open the real one in a new tab.</span>${webPage(t.k)}</a>` :
           `<div class="br-page"><h2>${I[t.icon]()}${esc(t.t)}</h2><div class="url">${esc(t.url)}</div><p>${esc(t.text)}</p>
            <p>This site doesn't allow itself to be shown inside another page, so it opens in a new tab.</p>
            <p><a class="btn primary" href="${t.url}" target="_blank" rel="noopener">Open ${esc(t.t)}</a></p></div>`;
         rec.setTitle(t.t + ' - Web Browser');
+        if (t.frame) { pending = t.url; watch(view.querySelector('iframe')); }
         body.querySelector('.st').textContent = t.frame ? 'Done' : t.page ? 'Preview of ' + t.url + '. Click to open the real page.' : 'Opens in a new tab';
       }
-      body.querySelector('[data-a="reload"]').onclick = () => show(cur);
+      body.querySelector('[data-a="reload"]').onclick = () => { if (cur === 'home' && hist[pos]) { stepping = true; frameTo(hist[pos]); } else show(cur); };
+      body.querySelector('[data-a="back"]').onclick = () => { if (pos > 0) { pos--; stepping = true; frameTo(hist[pos]); setNav(); } };
+      body.querySelector('[data-a="fwd"]').onclick = () => { if (pos < hist.length - 1) { pos++; stepping = true; frameTo(hist[pos]); setNav(); } };
       body.querySelector('[data-a="home"]').onclick = () => show('home');
       const existing = wins.get('br');
       if (existing) { existing.show(tab); restore('br'); return; }
