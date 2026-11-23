@@ -496,12 +496,12 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
     browser(tab = 'home') {
       const T = [
         { k: 'home', t: 'v.giotsas.com', url: D.links.home, icon: 'home', frame: true },
-        { k: 'linkedin', t: 'LinkedIn', url: D.links.linkedin, icon: 'user', shot: 'img/shots/linkedin.jpg', alt: 'My LinkedIn profile: Vasileios Giotsas, Research Engineer, Lecturer, Data Scientist, with Cloudflare and UCL.' },
-        { k: 'scholar', t: 'Google Scholar', url: D.links.scholar, icon: 'search', shot: 'img/shots/scholar.jpg', alt: 'My Google Scholar profile, listing papers by citation count.' },
-        { k: 'github', t: 'GitHub', url: D.links.github, icon: 'zip', shot: 'img/shots/github.jpg', alt: 'My GitHub profile, vgiotsas, with popular repositories.' },
-        { k: 'twitter', t: 'Twitter / X', url: D.links.twitter, icon: 'send', shot: 'img/shots/twitter.jpg', alt: 'My X profile, @GVasilis.' },
-        { k: 'youtube', t: 'YouTube', url: 'https://www.youtube.com/@giotsas', icon: 'video', shot: 'img/shots/youtube.jpg', alt: 'The Giotsas YouTube channel, run by Vasilis and Nikos Giotsas.' },
-        { k: 'cfblog', t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', shot: 'img/shots/cfblog.jpg', alt: 'My author page on the Cloudflare Blog, with my post on detecting CGNAT.' }
+        { k: 'linkedin', t: 'LinkedIn', url: D.links.linkedin, icon: 'user', shot: 'img/shots/linkedin.webp', h: 911, alt: 'My LinkedIn profile: Vasileios Giotsas, Research Engineer, Lecturer, Data Scientist, with Cloudflare and UCL.' },
+        { k: 'scholar', t: 'Google Scholar', url: D.links.scholar, icon: 'search', shot: 'img/shots/scholar.webp', h: 777, alt: 'My Google Scholar profile, listing papers by citation count.' },
+        { k: 'github', t: 'GitHub', url: D.links.github, icon: 'zip', shot: 'img/shots/github.webp', h: 1011, alt: 'My GitHub profile, vgiotsas, with popular repositories.' },
+        { k: 'twitter', t: 'Twitter / X', url: D.links.twitter, icon: 'send', shot: 'img/shots/twitter.webp', h: 1236, alt: 'My X profile, @GVasilis.' },
+        { k: 'youtube', t: 'YouTube', url: 'https://www.youtube.com/@giotsas', icon: 'video', shot: 'img/shots/youtube.webp', h: 952, alt: 'The Giotsas YouTube channel, run by Vasilis and Nikos Giotsas.' },
+        { k: 'cfblog', t: 'Cloudflare Blog', url: D.links.cfblog, icon: 'articles', shot: 'img/shots/cfblog.webp', h: 790, alt: 'My author page on the Cloudflare Blog, with my post on detecting CGNAT.' }
       ];
       const body = el(`<div style="display:flex;flex-direction:column;flex:1;min-height:0">
         <div class="menubar"><span>File</span><span>Edit</span><span>View</span><span>Favorites</span><span>Tools</span><span>Help</span></div>
@@ -518,7 +518,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         const view = body.querySelector('.br-view');
         view.scrollTop = 0;
         view.innerHTML = t.frame ? `<iframe title="v.giotsas.com" src="${t.url}"></iframe>` : t.shot ?
-          `<a class="br-shot" href="${t.url}" target="_blank" rel="noopener" aria-label="Open my ${esc(t.t)} page in a new tab"><span class="br-hint">${I.info()}This is a picture of my ${esc(t.t)} page. Click anywhere to open the real one in a new tab.</span><img src="${t.shot}" alt="${esc(t.alt)}"></a>` :
+          `<a class="br-shot" href="${t.url}" target="_blank" rel="noopener" aria-label="Open my ${esc(t.t)} page in a new tab"><span class="br-hint">${I.info()}This is a picture of my ${esc(t.t)} page. Click anywhere to open the real one in a new tab.</span><img src="${t.shot}" width="1100" height="${t.h}" decoding="async" alt="${esc(t.alt)}"></a>` :
           `<div class="br-page"><h2>${I[t.icon]()}${esc(t.t)}</h2><div class="url">${esc(t.url)}</div><p>${esc(t.text)}</p>
            <p>This site doesn't allow itself to be shown inside another page, so it opens in a new tab.</p>
            <p><a class="btn primary" href="${t.url}" target="_blank" rel="noopener">Open ${esc(t.t)}</a></p></div>`;
@@ -531,6 +531,8 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
       if (existing) { existing.show(tab); restore('br'); return; }
       const rec = openWin('br', { title: 'Web Browser', icon: 'browser', w: 980, h: 620, body });
       rec.show = show; show(tab);
+      // Fetch the other screenshots in the background so switching tabs is instant
+      setTimeout(() => T.forEach(x => { if (x.shot) new Image().src = x.shot; }), 1500);
     },
 
     /* ----- Command prompt ----- */
