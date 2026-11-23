@@ -584,6 +584,148 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
     },
 
     /* ----- Command prompt ----- */
+    /* Paper Sweeper: Minesweeper where the mines are Reviewer 2 and flags are rebuttals */
+    sweeper() {
+      const LV = { workshop: ['Workshop', 9, 9, 10, 40, 120], conference: ['Conference', 16, 16, 40, 150, 360], journal: ['Journal', 30, 16, 99, 360, 800] };
+      const SAY = ['The authors should cite my work. All of it.',
+        'Interesting, but have the authors considered doing a completely different study?',
+        'The contribution is incremental. Please make it bigger, but shorter.',
+        'I did not read the appendix, but I am confident the answer is in there somewhere.',
+        'Figure 3 is unreadable. So is Figure 1.',
+        'This has been done before. I cannot remember where.',
+        'Please add more experiments, and also cut the paper to fit the page limit.',
+        'Strong reject. Confidence: 5/5. Expertise: I skimmed the abstract.',
+        'The writing is so clear that the flaws are easy to see.',
+        'Have the authors tried machine learning?',
+        'The dataset is too small. Also, the dataset is too large to be reproducible.',
+        'Why IPv4? Why not IPv6? Why not both? Why at all?'];
+      const COL = ['', '#0000ff', '#007b00', '#ff0000', '#00007b', '#7b0000', '#007b7b', '#000', '#7b7b7b'];
+      const face = f => `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#ffd93b" stroke="#000" stroke-width="1"/>${
+        f === 'dead' ? '<path d="M6.5 7.5l3 3m0-3l-3 3M14.5 7.5l3 3m0-3l-3 3" stroke="#000" stroke-width="1.3"/><path d="M7.5 17.5q4.5-4 9 0" fill="none" stroke="#000" stroke-width="1.3"/>'
+        : `<circle cx="8.3" cy="9.5" r="2.4" fill="#fff" stroke="#000" stroke-width="1"/><circle cx="15.7" cy="9.5" r="2.4" fill="#fff" stroke="#000" stroke-width="1"/><path d="M10.7 9.5h2.6" stroke="#000"/><circle cx="8.3" cy="9.6" r=".9"/><circle cx="15.7" cy="9.6" r=".9"/>${
+          f === 'oh' ? '<circle cx="12" cy="16.5" r="2" fill="#000"/>' : '<path d="M7.5 15q4.5 4 9 0" fill="none" stroke="#000" stroke-width="1.3"/>'}`}${
+        f === 'win' ? '<path d="M3.5 4.6L12 1.4l8.5 3.2L12 7.8z" fill="#222"/><path d="M19 5v4.2" stroke="#d4a017" stroke-width="1.2"/><circle cx="19" cy="9.6" r=".9" fill="#d4a017"/>' : ''}</svg>`;
+      const stamp = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.4" fill="#c8321e" stroke="#7f1a0e"/><text x="10" y="13.4" font-family="Tahoma,Arial,sans-serif" font-weight="700" font-size="8.6" fill="#fff" text-anchor="middle">R2</text></svg>';
+      const flagSvg = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3v13" stroke="#000" stroke-width="1.6"/><path d="M6.8 3.4l8 3.3-8 3.3z" fill="#e00"/><path d="M3.5 16.5h7" stroke="#000" stroke-width="2"/></svg>';
+      const best = { get(k) { try { return +localStorage.getItem('vg-sweep-' + k) || 0; } catch (e) { return 0; } },
+        set(k, v) { try { localStorage.setItem('vg-sweep-' + k, v); } catch (e) { /* storage unavailable */ } } };
+      const rec = openWin('sweeper', { title: 'Paper Sweeper', icon: 'sweeper', w: 300, h: 420,
+        body: `<div class="ms"><div class="ms-bar">${Object.entries(LV).map(([k, v]) => `<button type="button" class="tbtn" data-lv="${k}">${v[0]}</button>`).join('')}
+            <label class="ms-mode"><input type="checkbox"> Rebuttal mode</label></div>
+          <div class="ms-box"><div class="ms-panel"><span class="ms-led" title="Reviewer 2s left">000</span><button type="button" class="ms-face" aria-label="New submission"></button><span class="ms-led" title="Days under review">000</span></div>
+          <div class="ms-scroll"><div class="ms-grid" role="grid" aria-label="Submissions"></div></div></div>
+          <p class="ms-msg" aria-live="polite"></p></div>`,
+        onClose: r => clearInterval(r.msTimer) });
+      if (rec.ms) return;
+      rec.ms = true;
+      const B = rec.body, grid = B.querySelector('.ms-grid'), [ledLeft, ledTime] = B.querySelectorAll('.ms-led');
+      const faceBtn = B.querySelector('.ms-face'), msg = B.querySelector('.ms-msg'), mode = B.querySelector('.ms-mode input');
+      let lv = 'workshop', W, H, N, cells, live, over, opened, flags, t0, longPress = null;
+      const led = (node, v) => { node.textContent = String(Math.max(-99, Math.min(999, v))).padStart(3, '0'); };
+      const setFace = f => { faceBtn.innerHTML = face(f); };
+      const around = i => { const x = i % W, y = (i - x) / W, out = [];
+        for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) { const nx = x + dx, ny = y + dy;
+          if ((dx || dy) && nx >= 0 && ny >= 0 && nx < W && ny < H) out.push(ny * W + nx); }
+        return out; };
+      const say = t => { msg.textContent = t; };
+      const days = n => n + (n === 1 ? ' day' : ' days');
+      function newGame(k) {
+        if (k) lv = k;
+        [, W, H, N] = LV[lv];
+        clearInterval(rec.msTimer); live = false; over = false; opened = 0; flags = 0;
+        cells = Array.from({ length: W * H }, () => ({ m: false, n: 0, open: false, flag: false }));
+        grid.style.gridTemplateColumns = `repeat(${W}, var(--cs))`;
+        grid.innerHTML = cells.map((_, i) => `<button type="button" class="c" data-i="${i}" aria-label="Paper"></button>`).join('');
+        B.querySelectorAll('[data-lv]').forEach(b => b.classList.toggle('on', b.dataset.lv === lv));
+        led(ledLeft, N); led(ledTime, 0); setFace('ok');
+        const b = best.get(lv);
+        say(`${LV[lv][0]}: ${N} Reviewer 2s are hiding among ${W * H} submissions. Click to submit, right-click or long-press to file a rebuttal.${b ? ' Your best: ' + days(b) + '.' : ''}`);
+        if (!rec.node.classList.contains('max')) {
+          const cs = mobile() ? 26 : 22;
+          rec.node.style.width = Math.min(window.innerWidth - 16, Math.max(330, W * cs + 46)) + 'px';
+          rec.node.style.height = Math.min(window.innerHeight - 46, H * cs + 196) + 'px';
+          const left = parseInt(rec.node.style.left, 10) || 0, wide = rec.node.offsetWidth;
+          if (left + wide > window.innerWidth - 8) rec.node.style.left = Math.max(8, window.innerWidth - wide - 8) + 'px';
+        }
+      }
+      function seed(safe) {
+        const keepOut = new Set([safe, ...around(safe)]);
+        const pool = cells.map((_, i) => i).filter(i => !keepOut.has(i));
+        for (let k = 0; k < N; k++) { const j = k + Math.floor(Math.random() * (pool.length - k)); [pool[k], pool[j]] = [pool[j], pool[k]]; cells[pool[k]].m = true; }
+        cells.forEach((c, i) => { c.n = around(i).filter(j => cells[j].m).length; });
+        live = true; t0 = Date.now();
+        rec.msTimer = setInterval(() => led(ledTime, Math.floor((Date.now() - t0) / 1000)), 250);
+      }
+      const btn = i => grid.children[i];
+      function reveal(i) {
+        const stack = [i];
+        while (stack.length) {
+          const j = stack.pop(), c = cells[j];
+          if (c.open || c.flag) continue;
+          c.open = true; opened++;
+          const b = btn(j); b.classList.add('o'); b.setAttribute('aria-label', c.n ? c.n + ' Reviewer 2s nearby' : 'Accepted');
+          if (c.n) { b.textContent = c.n; b.style.color = COL[c.n]; } else stack.push(...around(j));
+        }
+      }
+      function lose(i) {
+        over = true; live = false; clearInterval(rec.msTimer); setFace('dead');
+        cells.forEach((c, j) => {
+          const b = btn(j);
+          if (c.m && !c.flag) { b.classList.add('o', 'r2'); b.innerHTML = stamp; }
+          if (!c.m && c.flag) b.classList.add('bad');
+        });
+        btn(i).classList.add('boom');
+        say('Rejected. Reviewer 2 writes: “' + SAY[Math.floor(Math.random() * SAY.length)] + '” Click the face to resubmit.');
+      }
+      function win() {
+        over = true; live = false; clearInterval(rec.msTimer); setFace('win');
+        const t = Math.max(1, Math.round((Date.now() - t0) / 1000)); led(ledTime, t); led(ledLeft, 0);
+        cells.forEach((c, j) => { if (c.m && !c.flag) { c.flag = true; btn(j).innerHTML = flagSvg; } });
+        const [, , , , fast, slow] = LV[lv];
+        const verdict = t <= fast ? 'Accepted! Best paper nominee. Camera-ready is due in a week.'
+          : t <= slow ? 'Accepted with minor revisions. Reviewer 2 still wants more citations.'
+          : 'Major revision. Accepted after three rounds and a change of editor.';
+        const b = best.get(lv), rec_ = !b || t < b;
+        if (rec_) best.set(lv, t);
+        say(`${verdict} Review time: ${days(t)}.${rec_ ? ' New personal best!' : ' Your best: ' + days(b) + '.'}`);
+      }
+      function act(i, flagIt) {
+        if (over) return;
+        const c = cells[i];
+        if (flagIt) {
+          if (c.open) return;
+          c.flag = !c.flag; flags += c.flag ? 1 : -1;
+          btn(i).innerHTML = c.flag ? flagSvg : ''; btn(i).setAttribute('aria-label', c.flag ? 'Rebuttal filed' : 'Paper');
+          led(ledLeft, N - flags); return;
+        }
+        if (c.flag) return;
+        if (c.open) { // chord: a number with all its rebuttals filed opens the rest of its neighbours
+          const nb = around(i);
+          if (c.n && nb.filter(j => cells[j].flag).length === c.n) for (const j of nb) { if (!cells[j].flag && !cells[j].open) { if (cells[j].m) return lose(j); reveal(j); } }
+        } else {
+          if (!live) seed(i);
+          if (c.m) return lose(i);
+          reveal(i);
+        }
+        if (opened === W * H - N) win();
+      }
+      grid.addEventListener('click', e => {
+        const b = e.target.closest('.c'); if (!b) return;
+        if (longPress === 'done') { longPress = null; return; }
+        act(+b.dataset.i, mode.checked);
+      });
+      grid.addEventListener('contextmenu', e => { const b = e.target.closest('.c'); if (!b) return; e.preventDefault(); act(+b.dataset.i, true); });
+      grid.addEventListener('pointerdown', e => {
+        const b = e.target.closest('.c'); if (!b || e.button !== 0 || over) return;
+        setFace('oh');
+        if (e.pointerType !== 'mouse') { clearTimeout(longPress); longPress = setTimeout(() => { longPress = 'done'; act(+b.dataset.i, true); }, 450); }
+      });
+      const release = () => { if (!over) setFace('ok'); if (typeof longPress === 'number') { clearTimeout(longPress); longPress = null; } };
+      grid.addEventListener('pointerup', release); grid.addEventListener('pointercancel', release); grid.addEventListener('pointerleave', release);
+      faceBtn.onclick = () => newGame();
+      B.querySelectorAll('[data-lv]').forEach(b => { b.onclick = () => newGame(b.dataset.lv); });
+      newGame();
+    },
     cmd() {
       if (wins.has('cmd')) { restore('cmd'); $('.cmd input', wins.get('cmd').body).focus(); return; }
       const body = el(`<div class="cmd" role="log" aria-live="polite"><div class="out"></div><div class="line"><span class="ps"></span><input type="text" aria-label="Command" autocomplete="off" autocapitalize="off" spellcheck="false"></div></div>`);
@@ -646,7 +788,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
           '               2 File(s)         61,024 bytes',
           '               4 Dir(s)   plenty of curiosity free'].join('\n')),
         start: a => {
-          const map = { documents: 'documents', papers: 'papers', videos: 'videos', talks: 'videos', pictures: 'pictures', downloads: 'downloads', mail: 'mail', browser: 'browser', internet: 'browser', resume: 'resume', computer: 'computer', readme: 'readme' };
+          const map = { documents: 'documents', papers: 'papers', videos: 'videos', talks: 'videos', pictures: 'pictures', downloads: 'downloads', mail: 'mail', browser: 'browser', internet: 'browser', resume: 'resume', sweeper: 'sweeper', minesweeper: 'sweeper', computer: 'computer', readme: 'readme' };
           const k = map[(a || '').toLowerCase()];
           if (k) { APPS[k](); print('Opening ' + a + '...'); } else print('Usage: START documents | videos | pictures | downloads | mail | browser | resume');
         },
@@ -749,7 +891,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
   const DESK = [
     ['My Documents', 'documents', APPS.documents], ['My Computer', 'computer', APPS.computer], ['Recycle Bin', 'recycle', APPS.recycle],
     ['Internet', 'browser', () => APPS.browser()], ['Mail', 'mail', APPS.mail], ['My Videos', 'videos', APPS.videos],
-    ['Downloads', 'downloads', APPS.downloads], ['Command Prompt', 'cmd', APPS.cmd], ['Resume.doc', 'doc', APPS.resume], ['readme.txt', 'notepad', APPS.readme]
+    ['Downloads', 'downloads', APPS.downloads], ['Command Prompt', 'cmd', APPS.cmd], ['Paper Sweeper', 'sweeper', APPS.sweeper], ['Resume.doc', 'doc', APPS.resume], ['readme.txt', 'notepad', APPS.readme]
   ];
   const icons = $('#icons');
   DESK.forEach(([name, icon, open]) => {
@@ -834,7 +976,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
   const smItem = (icon, title, sub, act) => `<button type="button" role="menuitem" class="sm-item" data-act="${act}">${I[icon]()}<div><b>${esc(title)}</b>${sub ? `<small>${esc(sub)}</small>` : ''}</div></button>`;
   sm.innerHTML = `<div class="sm-head"><img src="img/vasilis.jpg" alt="">Vasilis</div><div class="sm-body">
     <div class="sm-left">${smItem('browser', 'Internet', 'My profiles on the web', 'browser')}${smItem('mail', 'E-mail', 'Write to me', 'mail')}<div class="sm-sep"></div>
-      ${smItem('doc', 'Resume', '', 'resume')}${smItem('cmd', 'Command Prompt', '', 'cmd')}${smItem('video', 'Media Player', 'Recorded talks', 'player')}${smItem('pdf', 'Papers', '', 'papers')}${smItem('notepad', 'readme.txt', '', 'readme')}</div>
+      ${smItem('doc', 'Resume', '', 'resume')}${smItem('cmd', 'Command Prompt', '', 'cmd')}${smItem('video', 'Media Player', 'Recorded talks', 'player')}${smItem('pdf', 'Papers', '', 'papers')}${smItem('sweeper', 'Paper Sweeper', 'Get past Reviewer 2', 'sweeper')}${smItem('notepad', 'readme.txt', '', 'readme')}</div>
     <div class="sm-right">${smItem('documents', 'My Documents', '', 'documents')}${smItem('pictures', 'My Pictures', '', 'pictures')}${smItem('videos', 'My Videos', '', 'videos')}${smItem('downloads', 'Downloads', '', 'downloads')}${smItem('computer', 'My Computer', '', 'computer')}<div class="sm-sep"></div>
       ${smItem('info', 'System Properties', '', 'system')}${smItem('help', 'Help and Support', '', 'readme')}${smItem('run', 'Run...', '', 'cmd')}</div></div>
     <div class="sm-foot"><button type="button" data-act="logoff">${I.logoff()}Log Off</button><button type="button" data-act="turnoff">${I.power()}Turn Off Computer</button></div>`;
