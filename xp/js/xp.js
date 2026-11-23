@@ -33,7 +33,7 @@
   }
   function hideAllScreens() { [boot, login, shutdown].forEach(s => { s.hidden = true; }); desktop.hidden = true; taskbar.hidden = true; closeStart(); }
   function logOn() {
-    hideAllScreens(); desktop.hidden = false; taskbar.hidden = false; store.set('vg-on', '1');
+    hideAllScreens(); desktop.hidden = false; taskbar.hidden = false; store.set('vg-on', '1'); restoreIcons();
     const deep = (location.hash || '').slice(1);
     if (deep && APPS[deep]) APPS[deep]();
     setTimeout(() => balloon('AS207135 is now connected', `Welcome, visitor. ${mobile() ? 'Tap' : 'Double-click'} any icon to explore my CV, or open the Start menu.`), 900);
@@ -636,8 +636,78 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
   const icons = $('#icons');
   DESK.forEach(([name, icon, open]) => {
     const b = el(`<button type="button" class="dicon">${I[icon]()}<span>${esc(name)}</span></button>`);
+    b.dataset.k = name;
+    dragIcon(b);
     activatable(b, open, () => { $$('.dicon').forEach(x => x.classList.remove('sel')); b.classList.add('sel'); });
     icons.appendChild(b);
+  });
+
+  /* Dragging. Icons start in the flowing column layout; the first drag pins every icon where it
+     stands. Positions are kept per layout (desktop or phone) in localStorage between visits. */
+  const keep = {
+    get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } },
+    del(k) { try { localStorage.removeItem(k); } catch (e) { /* storage unavailable */ } }
+  };
+  const posKey = () => 'vg-icons-' + (mobile() ? 'phone' : 'desk');
+  function place(b, x, y) {
+    b.style.left = Math.max(0, Math.min(x, icons.clientWidth - b.offsetWidth)) + 'px';
+    b.style.top = Math.max(0, Math.min(y, icons.clientHeight - b.offsetHeight)) + 'px';
+  }
+  function pinIcons(saved) {
+    const box = icons.getBoundingClientRect(), list = $$('.dicon');
+    const rects = list.map(b => b.getBoundingClientRect());
+    icons.classList.add('free');
+    list.forEach((b, i) => {
+      const p = (saved && saved[b.dataset.k]) || { x: rects[i].left - box.left, y: rects[i].top - box.top };
+      if (rects[i].width) b.style.width = rects[i].width + 'px'; // keep the flowing width once pinned
+      place(b, p.x, p.y);
+    });
+  }
+  function unpinIcons() {
+    icons.classList.remove('free');
+    $$('.dicon').forEach(b => { b.style.left = b.style.top = b.style.width = ''; });
+  }
+  function saveIcons() {
+    const pos = {};
+    $$('.dicon').forEach(b => { pos[b.dataset.k] = { x: b.offsetLeft, y: b.offsetTop }; });
+    keep.set(posKey(), pos);
+  }
+  function restoreIcons() {
+    unpinIcons();
+    const saved = keep.get(posKey());
+    if (saved) pinIcons(saved);
+  }
+  function dragIcon(b) {
+    let endedAt = 0;
+    // A drag ends with a click (and maybe a dblclick); swallow those so the drop does not open the icon
+    b.addEventListener('click', e => { if (Date.now() - endedAt < 400) e.stopImmediatePropagation(); });
+    b.addEventListener('dblclick', e => { if (Date.now() - endedAt < 600) e.stopImmediatePropagation(); });
+    b.addEventListener('pointerdown', e => {
+      if (e.button !== 0) return;
+      const sx = e.clientX, sy = e.clientY;
+      let from = null;
+      const move = ev => {
+        if (!from) {
+          if (Math.hypot(ev.clientX - sx, ev.clientY - sy) < 6) return;
+          if (!icons.classList.contains('free')) pinIcons();
+          from = { x: b.offsetLeft, y: b.offsetTop };
+          b.classList.add('dragging');
+        }
+        place(b, from.x + ev.clientX - sx, from.y + ev.clientY - sy);
+      };
+      const up = () => {
+        removeEventListener('pointermove', move); removeEventListener('pointerup', up); removeEventListener('pointercancel', up);
+        if (!from) return;
+        b.classList.remove('dragging'); endedAt = Date.now(); saveIcons();
+      };
+      addEventListener('pointermove', move); addEventListener('pointerup', up); addEventListener('pointercancel', up);
+    });
+  }
+  let wasMobile = mobile();
+  addEventListener('resize', () => {
+    if (mobile() !== wasMobile) { wasMobile = mobile(); restoreIcons(); }
+    else if (icons.classList.contains('free')) $$('.dicon').forEach(b => place(b, b.offsetLeft, b.offsetTop));
   });
   desktop.addEventListener('pointerdown', e => { if (!e.target.closest('.dicon')) $$('.dicon').forEach(x => x.classList.remove('sel')); });
 
@@ -681,14 +751,15 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
   desktop.addEventListener('contextmenu', e => {
     if (e.target.closest('.win')) return;
     e.preventDefault();
-    ctx.innerHTML = `<button type="button" data-c="refresh">Refresh</button><hr><button type="button" data-c="cmd">Open Command Prompt here</button><button type="button" data-c="mail">New Message</button><hr><button type="button" data-c="system">Properties</button>`;
+    ctx.innerHTML = `<button type="button" data-c="arrange">Arrange Icons</button><button type="button" data-c="refresh">Refresh</button><hr><button type="button" data-c="cmd">Open Command Prompt here</button><button type="button" data-c="mail">New Message</button><hr><button type="button" data-c="system">Properties</button>`;
     ctx.style.left = Math.min(e.clientX, innerWidth - 180) + 'px';
     ctx.style.top = Math.min(e.clientY, innerHeight - 140) + 'px';
     ctx.hidden = false;
   });
   ctx.addEventListener('click', e => {
     const c = e.target.closest('[data-c]'); if (!c) return; ctx.hidden = true;
-    if (c.dataset.c === 'refresh') { icons.style.opacity = '0'; setTimeout(() => { icons.style.opacity = ''; }, 120); }
+    if (c.dataset.c === 'arrange') { keep.del(posKey()); unpinIcons(); }
+    else if (c.dataset.c === 'refresh') { icons.style.opacity = '0'; setTimeout(() => { icons.style.opacity = ''; }, 120); }
     else if (c.dataset.c === 'mail') APPS.compose();
     else APPS[c.dataset.c]();
   });

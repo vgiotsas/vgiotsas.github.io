@@ -43,11 +43,15 @@ a{color:#0b4ee0}
 #desktop{position:fixed;inset:0 0 30px 0;overflow:hidden}
 .wallpaper{position:absolute;inset:0;width:100%;height:100%}
 .icons{position:absolute;inset:0;display:flex;flex-direction:column;flex-wrap:wrap;align-content:flex-start;gap:6px;padding:10px 6px}
-.dicon{width:82px;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:1px dotted transparent;padding:4px 2px;color:#fff;cursor:default;border-radius:2px}
-.dicon svg{width:40px;height:40px;filter:drop-shadow(1px 2px 1px rgba(0,0,0,.35))}
-.dicon span{font-size:11px;line-height:1.25;text-align:center;text-shadow:1px 1px 1px #000,0 0 3px #000;padding:1px 2px;word-break:break-word}
+.dicon{width:100px;display:flex;flex-direction:column;align-items:center;gap:5px;background:none;border:1px dotted transparent;padding:4px 2px;color:#fff;cursor:default;border-radius:2px;touch-action:none}
+.dicon svg{width:52px;height:52px;filter:drop-shadow(1px 2px 1px rgba(0,0,0,.35))}
+.dicon span{font-size:13px;line-height:1.25;text-align:center;text-shadow:1px 1px 1px #000,0 0 3px #000;padding:1px 2px;word-break:break-word}
 .dicon:focus{outline:none}
 .dicon.sel span,.dicon:focus-visible span{background:#316ac5;text-shadow:none}
+.icons.free{display:block}
+.icons.free .dicon{position:absolute}
+.dicon.dragging{opacity:.7;z-index:1}
+.dicon.dragging span{background:#316ac5;text-shadow:none}
 .dicon.sel svg{filter:drop-shadow(1px 2px 1px rgba(0,0,0,.35)) brightness(.8) sepia(1) hue-rotate(180deg) saturate(3)}
 
 /* ---------- Taskbar ---------- */
@@ -268,6 +272,8 @@ a{color:#0b4ee0}
 @media (max-width:700px){
   .icons{flex-direction:row;justify-content:flex-start;gap:10px 4px;padding:14px 8px}
   .dicon{width:23%}
+  .dicon svg{width:48px;height:48px}
+  .dicon span{font-size:12px}
   .mp-screen{flex:none}
   .mp-screen .vid{flex:none;aspect-ratio:16/9;min-height:0}
   .mp-list{flex:1;height:auto}
