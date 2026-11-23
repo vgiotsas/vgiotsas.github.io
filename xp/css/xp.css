@@ -280,7 +280,118 @@ a{color:#0b4ee0}
 }
 @media (max-width:700px){.cmd{font-size:11px}}
 .br-shot{display:block;position:relative;cursor:pointer;background:#fff}
-.br-shot img{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto}
 .br-hint{position:sticky;top:0;z-index:1;display:flex;align-items:center;gap:8px;padding:6px 10px;background:#ffffe1;border-bottom:1px solid #aca899;color:#000;font-size:11px}
 .br-hint svg{width:16px;height:16px;flex:0 0 auto}
-.br-shot:hover img{outline:3px solid #316ac5;outline-offset:-3px}
+
+/* ---------- Web previews in the browser (LinkedIn, Scholar, GitHub, X, YouTube, Cloudflare Blog) ---------- */
+.wp{color:inherit;text-decoration:none;font:14px/1.45 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100%}
+.wp h1,.wp h2,.wp p{margin:0}
+.wp img{display:block}
+.wp-bar{display:flex;align-items:baseline;gap:10px;padding:10px 20px;border-bottom:1px solid rgba(127,127,127,.25)}
+.wp-bar b{font-size:18px}
+.wp-bar span{font-size:12px;opacity:.65}
+.wp:hover{outline:3px solid #316ac5;outline-offset:-3px}
+
+.wp-linkedin{background:#f4f2ee;color:#191919;display:block}
+.wp-linkedin .wp-bar{background:#fff}.wp-linkedin .wp-bar b{color:#0a66c2}
+.li-wrap{max-width:760px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.li-card{background:#fff;border:1px solid #e0dfdc;border-radius:8px;padding:20px 24px;position:relative;overflow:hidden}
+.li-top{padding-top:0}
+.li-cover{height:110px;margin:0 -24px;background:linear-gradient(100deg,#a0b1b5 0 62%,#d6e0e2 62% 68%,#c2d2d6 68%)}
+.li-top img{width:132px;height:132px;border-radius:50%;border:4px solid #fff;margin-top:-70px;object-fit:cover}
+.li-top h1{font-size:24px;margin-top:10px}
+.li-head{font-size:16px}
+.li-loc{color:#666;margin-top:4px}
+.li-link{color:#0a66c2;font-weight:600}
+.li-orgs{position:absolute;right:24px;top:136px;display:flex;flex-direction:column;gap:10px;font-weight:600}
+.li-orgs i{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:4px;margin-right:8px;font-style:normal;color:#fff;background:#f38020}
+.li-orgs span+span i{background:#7b3fe4}
+.li-btn{display:inline-block;margin-top:14px;padding:6px 16px;border-radius:999px;background:#0a66c2;color:#fff;font-weight:600}
+.li-card h2{font-size:20px;margin-bottom:8px}
+.li-row{display:flex;gap:12px;padding:10px 0;border-top:1px solid #ebebeb}
+.li-row:first-of-type{border-top:0}
+.li-logo{flex:0 0 44px;height:44px;display:grid;place-items:center;background:#eef3f8;color:#0a66c2;font-weight:700;font-size:18px}
+.li-row small{color:#666}
+@media (max-width:700px){.li-orgs{position:static;margin-top:12px}}
+
+.wp-scholar{background:#fff;color:#222;display:block;font-family:Arial,Helvetica,sans-serif}
+.wp-scholar .wp-bar{background:#f5f5f5}.wp-scholar .wp-bar b{color:#4d90fe;font-weight:400;font-size:20px}
+.gs-wrap{max-width:960px;margin:0 auto;padding:20px}
+.gs-head{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.gs-head img{width:120px;height:120px;border-radius:50%;object-fit:cover}
+.gs-head>div{flex:1;min-width:220px}
+.gs-head h1{font-size:28px;font-weight:400;margin-bottom:6px}
+.gs-u{text-decoration:underline}
+.gs-tags{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:6px;color:#1a0dab}
+.gs-follow{background:#4d90fe;color:#fff;padding:7px 18px;border-radius:2px;text-transform:uppercase;font-size:13px}
+.gs-table{margin-top:24px}
+.gs-th,.gs-tr{display:grid;grid-template-columns:1fr 72px 56px;gap:12px;padding:10px 14px;align-items:start}
+.gs-th{background:#f5f5f5;color:#1a0dab;text-transform:uppercase;font-size:13px}
+.gs-th span:nth-child(2){color:#222}
+.gs-th span+span,.gs-tr>span{text-align:right}
+.gs-tr{border-bottom:1px solid #eee}
+.gs-t{display:block;color:#1a0dab;font-size:16px}
+.gs-tr small{display:block;color:#777;font-size:13px}
+.gs-c{color:#1a0dab}
+.gs-more{text-align:center;padding:14px;color:#777;text-transform:uppercase;font-size:12px}
+
+.wp-github{background:#0d1117;color:#e6edf3;display:block}
+.wp-github .wp-bar{background:#010409;border-color:#30363d}
+.gh-wrap{max-width:1000px;margin:0 auto;padding:24px 20px;display:flex;gap:28px;flex-wrap:wrap}
+.gh-wrap aside{flex:0 0 220px}
+.gh-av{width:200px;height:200px;border-radius:50%;background:#f0f0f0;border:1px solid #30363d;display:grid;grid-template-columns:repeat(5,1fr);padding:30px;box-sizing:border-box}
+.gh-av i.on{background:#b3c66a}
+.gh-wrap h1{font-size:22px;font-weight:300;margin:14px 0 6px}
+.gh-wrap aside p{color:#9198a1}
+.gh-btn{display:block;text-align:center;margin-top:14px;padding:5px;border:1px solid #30363d;border-radius:6px;background:#21262d;font-weight:600;font-size:13px}
+.gh-main{flex:1;min-width:280px}
+.gh-tabs{display:flex;gap:20px;border-bottom:1px solid #30363d;padding-bottom:10px;margin-bottom:18px;color:#9198a1}
+.gh-tabs b{color:#e6edf3;border-bottom:2px solid #f78166;padding-bottom:9px;margin-bottom:-11px}
+.gh-main h2{font-size:16px;font-weight:400;margin-bottom:10px}
+.gh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.gh-repo{border:1px solid #30363d;border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.gh-repo b{color:#4493f8}
+.gh-repo em{font-style:normal;font-size:11px;color:#9198a1;border:1px solid #30363d;border-radius:999px;padding:0 7px;margin-left:8px}
+.gh-repo p{color:#9198a1;font-size:12px;flex:1}
+.gh-repo small{color:#9198a1;font-size:12px;display:flex;align-items:center;gap:6px}
+.gh-repo small i{width:11px;height:11px;border-radius:50%}
+
+.wp-twitter{background:#000;color:#e7e9ea;display:block}
+.wp-twitter .wp-bar{border-color:#2f3336}
+.tw-wrap{max-width:600px;margin:0 auto;border-left:1px solid #2f3336;border-right:1px solid #2f3336;padding-bottom:30px}
+.tw-banner{height:170px;background:radial-gradient(circle at 70% 60%,#7a1d2b,transparent 45%),radial-gradient(circle at 30% 30%,#4a3a10,transparent 40%),#120c14}
+.tw-prof{display:flex;justify-content:space-between;align-items:flex-end;padding:0 16px;margin-top:-66px}
+.tw-prof img{width:132px;height:132px;border-radius:50%;border:4px solid #000;object-fit:cover}
+.tw-btn{background:#eff3f4;color:#0f1419;font-weight:700;padding:8px 18px;border-radius:999px}
+.tw-wrap h1{font-size:20px;padding:12px 16px 0}
+.tw-wrap>p{padding:4px 16px 0}
+.tw-h{color:#71767b}.tw-l{color:#1d9bf0}
+.tw-tabs{display:flex;justify-content:space-around;border-bottom:1px solid #2f3336;margin-top:18px;padding:12px 0;color:#71767b}
+.tw-tabs b{color:#e7e9ea;border-bottom:4px solid #1d9bf0;padding-bottom:9px;margin-bottom:-13px}
+.tw-note{text-align:center;color:#71767b;padding-top:30px!important}
+
+.wp-youtube{background:#0f0f0f;color:#f1f1f1;display:block;font-family:Roboto,Arial,sans-serif}
+.wp-youtube .wp-bar b{color:#fff}
+.yt-wrap{max-width:1100px;margin:0 auto;padding:20px}
+.yt-head{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.yt-head img{width:150px;height:150px;border-radius:50%;object-fit:cover}
+.yt-head h1{font-size:34px}
+.yt-head p{color:#aaa;margin-top:4px}
+.yt-btn{display:inline-block;margin-top:12px;background:#f1f1f1;color:#0f0f0f;font-weight:600;padding:8px 16px;border-radius:999px}
+.yt-tabs{display:flex;gap:26px;border-bottom:1px solid #3f3f3f;margin:22px 0 18px;padding-bottom:10px;color:#aaa;font-weight:600}
+.yt-tabs b{color:#f1f1f1;border-bottom:2px solid #f1f1f1;padding-bottom:9px;margin-bottom:-11px}
+.yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:22px 16px}
+.yt-v img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;background:#272727}
+.yt-v b{display:block;margin-top:8px;font-size:14px;line-height:1.35}
+.yt-v small{color:#aaa}
+
+.wp-cfblog{background:#1d1d1d;color:#f2f0eb;display:block}
+.wp-cfblog .wp-bar b{color:#f6821f}
+.cf-wrap{max-width:900px;margin:0 auto;padding:26px 20px}
+.cf-head{display:flex;gap:18px;align-items:center;padding-bottom:26px;border-bottom:1px dashed #444;margin-bottom:6px}
+.cf-head img{width:90px;height:90px;border-radius:50%;object-fit:cover}
+.cf-head h1{font-size:38px;font-weight:500}
+.cf-head p{font-family:"Courier New",monospace;letter-spacing:.12em;text-transform:uppercase;color:#b9b6ae;margin-top:4px}
+.cf-post{padding:18px 0;border-bottom:1px dashed #444}
+.cf-post small{font-family:"Courier New",monospace;letter-spacing:.12em;color:#b9b6ae}
+.cf-post b{display:block;font-size:22px;font-weight:500;line-height:1.25;margin-top:6px}
