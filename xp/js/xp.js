@@ -1136,7 +1136,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
   const DESK = [
     ['My Documents', 'documents', APPS.documents], ['My Computer', 'computer', APPS.computer], ['Recycle Bin', 'recycle', APPS.recycle],
     ['Internet', 'browser', () => APPS.browser()], ['Mail', 'mail', APPS.mail], ['My Videos', 'videos', APPS.videos],
-    ['Downloads', 'downloads', APPS.downloads], ['Command Prompt', 'cmd', APPS.cmd], ['Paper Sweeper', 'sweeper', APPS.sweeper], ['Paint', 'paint', APPS.paint], ['Resume.doc', 'doc', APPS.resume], ['readme.txt', 'notepad', APPS.readme]
+    ['Downloads', 'downloads', APPS.downloads], ['Command Prompt', 'cmd', APPS.cmd], ['Paint', 'paint', APPS.paint], ['Resume.doc', 'doc', APPS.resume], ['readme.txt', 'notepad', APPS.readme]
   ];
   const icons = $('#icons');
   DESK.forEach(([name, icon, open]) => {
