@@ -404,6 +404,8 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         <div class="dlg" style="background:#fcfcfe;margin:0 8px;border:1px solid #919b9c"></div>
         <div class="dlg" style="flex:0 0 auto;padding:8px"><div class="acts"><button class="btn" type="button" data-close>OK</button></div></div></div>`);
       const pane = body.querySelector('.dlg');
+      const AS = { prefixes: ['2001:678:1284::/48', '2a0c:9a40:8b70::/48'], upstreams: [[35661, 'VIRTUA SYSTEMS SAS'], [209533, 'iFog GmbH']], ixps: ['FogIXP'] };
+      const ext = (href, text) => `<a href="${href}" target="_blank" rel="noopener">${esc(text)}</a>`;
       const tabs = {
         g: `<div class="sysprops"><div class="logo"><img src="img/vasilis.jpg" alt="">${I.mark().replace('<svg', '<svg style="width:40px;height:40px;background:#3a9b38;border-radius:6px"')}</div><div>
           <p><b>System:</b><br>VGOS Professional<br>Version 2026</p>
@@ -411,12 +413,16 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
           <p><b>Computer:</b><br>Senior Research Engineer<br>60 peer-reviewed papers<br>134,000+ dataset downloads<br>13 years uptime measuring the Internet</p></div></div>`,
         n: `<div class="dlg-row">${I.network()}<div><p style="margin:0 0 8px"><b>AS207135</b></p>
           <p style="margin:0 0 8px">An IPv6-only autonomous system that I run with <a href="${D.links.son}" target="_blank" rel="noopener">my son</a>.</p>
-          <p style="margin:0">IPv4 address: none. The free pool ran out a while ago.</p></div></div>`
+          <p style="margin:0 0 10px">IPv4 address: none. The free pool ran out a while ago.</p></div></div>
+          <fieldset class="np-group"><legend>IPv6 prefixes</legend><table>${AS.prefixes.map(p => `<tr><td>${ext('https://bgp.he.net/net/' + p, p)}</td></tr>`).join('')}</table></fieldset>
+          <fieldset class="np-group"><legend>Upstream providers</legend><table>${AS.upstreams.map(([asn, name]) => `<tr><td>${ext('https://bgp.he.net/AS' + asn, 'AS' + asn)}</td><td>${ext('https://bgp.he.net/AS' + asn, name)}</td></tr>`).join('')}</table></fieldset>
+          <fieldset class="np-group"><legend>Internet exchanges</legend><table>${AS.ixps.map(x => `<tr><td>${ext('https://bgp.he.net/exchange/' + x, x)}</td></tr>`).join('')}</table></fieldset>
+          <p class="np-more">${I.network()}${ext('https://bgp.tools/as/207135#asinfo', 'View AS207135 on bgp.tools')}</p>`
       };
       const show = k => { pane.innerHTML = tabs[k]; body.querySelectorAll('[data-tab]').forEach(b => b.classList.toggle('on', b.dataset.tab === k)); };
       body.querySelectorAll('[data-tab]').forEach(b => { b.onclick = () => show(b.dataset.tab); });
       show('g');
-      openWin('sys', { title: 'System Properties', icon: 'computer', w: 460, h: 420, body });
+      openWin('sys', { title: 'System Properties', icon: 'computer', w: 460, h: 500, body });
       body.querySelector('[data-close]').onclick = () => closeWin('sys');
     },
 
@@ -1221,7 +1227,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
   const smItem = (icon, title, sub, act) => `<button type="button" role="menuitem" class="sm-item" data-act="${act}">${I[icon]()}<div><b>${esc(title)}</b>${sub ? `<small>${esc(sub)}</small>` : ''}</div></button>`;
   sm.innerHTML = `<div class="sm-head"><img src="img/vasilis.jpg" alt="">Vasilis</div><div class="sm-body">
     <div class="sm-left">${smItem('browser', 'Internet', 'My profiles on the web', 'browser')}${smItem('mail', 'E-mail', 'Write to me', 'mail')}<div class="sm-sep"></div>
-      ${smItem('doc', 'Resume', '', 'resume')}${smItem('cmd', 'Command Prompt', '', 'cmd')}${smItem('video', 'Media Player', 'Recorded talks', 'player')}${smItem('pdf', 'Papers', '', 'papers')}${smItem('sweeper', 'Paper Sweeper', 'Get past Reviewer 2', 'sweeper')}${smItem('paint', 'Paint', '', 'paint')}${smItem('notepad', 'readme.txt', '', 'readme')}</div>
+      ${smItem('cmd', 'Command Prompt', '', 'cmd')}${smItem('video', 'Media Player', 'Recorded talks', 'player')}${smItem('sweeper', 'Paper Sweeper', 'Get past Reviewer 2', 'sweeper')}${smItem('paint', 'Paint', '', 'paint')}${smItem('notepad', 'readme.txt', '', 'readme')}</div>
     <div class="sm-right">${smItem('documents', 'My Documents', '', 'documents')}${smItem('pictures', 'My Pictures', '', 'pictures')}${smItem('videos', 'My Videos', '', 'videos')}${smItem('downloads', 'Downloads', '', 'downloads')}${smItem('computer', 'My Computer', '', 'computer')}<div class="sm-sep"></div>
       ${smItem('info', 'System Properties', '', 'system')}${smItem('help', 'Help and Support', '', 'readme')}${smItem('run', 'Run...', '', 'cmd')}</div></div>
     <div class="sm-foot"><button type="button" data-act="logoff">${I.logoff()}Log Off</button><button type="button" data-act="turnoff">${I.power()}Turn Off Computer</button></div>`;
