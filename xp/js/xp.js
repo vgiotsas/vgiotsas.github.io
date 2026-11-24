@@ -511,6 +511,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
     browser(tab = 'home') {
       const T = [
         { k: 'home', fav: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23EDEAE3'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%230B0F1A'%3Evg%3C/text%3E%3C/svg%3E", t: 'v.giotsas.com', url: D.links.home, icon: 'home', frame: true },
+        { k: 'giotsastech', fav: 'https://giotsastech.com/favicon.ico', t: 'GiotsasTech', url: 'https://giotsastech.com/', icon: 'network', frame: true },
         { k: 'linkedin', fav: "https://www.linkedin.com/favicon.ico", t: 'LinkedIn', url: D.links.linkedin, icon: 'user', page: true },
         { k: 'scholar', fav: "https://scholar.google.com/favicon.ico", t: 'Google Scholar', url: D.links.scholar, icon: 'search', page: true },
         { k: 'github', fav: "https://github.com/favicon.ico", t: 'GitHub', url: D.links.github, icon: 'zip', page: true },
@@ -527,9 +528,9 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
       /* Pages loaded in the v.giotsas.com frame: our own history, since the frame's may be cross-origin */
       let hist = [], pos = -1, pending = null, stepping = false;
       // Sites known to allow being shown in a frame; links anywhere else open in a real tab
-      const FRAMEOK = /(^|\.)(giotsas\.com|github\.io|localhost)$/;
+      const FRAMEOK = /(^|\.)(giotsas\.com|giotsastech\.com|github\.io|localhost)$/;
       const bare = u => u.replace(/^https?:\/\/(www\.)?/i, '').split(/[?#]/)[0].replace(/\/$/, '').toLowerCase();
-      const tabFor = href => T.find(x => x.page && (bare(x.url) === bare(href) || bare(x.url.replace('twitter.com', 'x.com')) === bare(href)));
+      const tabFor = href => T.find(x => (x.page || (x.frame && x.k !== cur)) && (bare(x.url) === bare(href) || bare(x.url.replace('twitter.com', 'x.com')) === bare(href)));
       const setNav = () => { body.querySelector('[data-a="back"]').disabled = pos <= 0; body.querySelector('[data-a="fwd"]').disabled = pos >= hist.length - 1; };
       function setAddr(href, title) {
         body.querySelector('.field').innerHTML = I.browser() + esc(href);
@@ -579,7 +580,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         const view = body.querySelector('.br-view');
         view.scrollTop = 0;
         hist = []; pos = -1; pending = null; setNav();
-        view.innerHTML = t.frame ? `<iframe title="v.giotsas.com" src="${t.url}"></iframe>` : t.page ?
+        view.innerHTML = t.frame ? `<iframe title="${esc(t.t)}" src="${t.url}"></iframe>` : t.page ?
           `<a class="br-shot wp wp-${t.k}" href="${t.url}" target="_blank" rel="noopener" aria-label="Open my ${esc(t.t)} page in a new tab"><span class="br-hint">${I.info()}A preview of my ${esc(t.t)} page. Click anywhere to open the real one in a new tab.</span>${webPage(t.k)}</a>` :
           `<div class="br-page"><h2>${I[t.icon]()}${esc(t.t)}</h2><div class="url">${esc(t.url)}</div><p>${esc(t.text)}</p>
            <p>This site doesn't allow itself to be shown inside another page, so it opens in a new tab.</p>
@@ -588,7 +589,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         if (t.frame) { pending = t.url; watch(view.querySelector('iframe')); }
         body.querySelector('.st').textContent = t.frame ? 'Done' : t.page ? 'Preview of ' + t.url + '. Click to open the real page.' : 'Opens in a new tab';
       }
-      body.querySelector('[data-a="reload"]').onclick = () => { if (cur === 'home' && hist[pos]) { stepping = true; frameTo(hist[pos]); } else show(cur); };
+      body.querySelector('[data-a="reload"]').onclick = () => { if (T.find(x => x.k === cur).frame && hist[pos]) { stepping = true; frameTo(hist[pos]); } else show(cur); };
       body.querySelector('[data-a="back"]').onclick = () => { if (pos > 0) { pos--; stepping = true; frameTo(hist[pos]); setNav(); } };
       body.querySelector('[data-a="fwd"]').onclick = () => { if (pos < hist.length - 1) { pos++; stepping = true; frameTo(hist[pos]); setNav(); } };
       body.querySelector('[data-a="home"]').onclick = () => show('home');
