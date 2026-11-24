@@ -986,12 +986,45 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
       const print = (t = '', cls) => { const d = document.createElement('div'); if (cls) d.className = cls; d.textContent = t; out.appendChild(d); body.scrollTop = body.scrollHeight; };
       const slow = (lines, ms = 220) => new Promise(res => { busy = true; input.disabled = true; let i = 0; const step = () => { if (i >= lines.length) { busy = false; input.disabled = false; input.focus(); res(); return; } print(lines[i++]); setTimeout(step, ms); }; step(); });
       let pingN = 0;
+      /* WHOIS for real resources: the RIPE database first, then RIPEstat, which also covers the other registries */
+      async function lookup(q) {
+        const asn = /^(as)?(\d{1,10})$/i.exec(q), ip = /^[0-9a-f:.]+(\/\d{1,3})?$/i.test(q) && /[.:]/.test(q);
+        if (!asn && !ip) { print(`WHOIS: ${q} is not an AS number, IP address or prefix. Try WHOIS AS207135.`); return; }
+        const key = asn ? 'AS' + asn[2] : q.toLowerCase();
+        const type = asn ? 'aut-num' : key.includes(':') ? 'inet6num' : 'inetnum';
+        const get = async (url, as) => {
+          const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 8000);
+          try { const r = await fetch(url, { signal: ctl.signal, headers: as === 'json' ? { Accept: 'application/json' } : {} }); if (!r.ok) throw new Error(r.status); return as === 'json' ? r.json() : r.text(); }
+          finally { clearTimeout(t); }
+        };
+        busy = true; input.disabled = true;
+        print(`% Querying the RIPE database for ${key}...`);
+        let lines = null;
+        try {
+          const txt = await get(`https://rest.db.ripe.net/ripe/${type}/${key}.txt`, 'text');
+          lines = txt.replace(/\r/g, '').replace(/\n+$/, '').split('\n');
+        } catch (e) {
+          try {
+            const j = await get('https://stat.ripe.net/data/whois/data.json?resource=' + encodeURIComponent(key) + '&sourceapp=v.giotsas.com', 'json');
+            const recs = (j.data && j.data.records) || [];
+            if (recs.length) {
+              lines = ['% Answer from RIPEstat (' + ((j.data.authorities || []).join(', ') || 'whois') + ')'];
+              recs.forEach(r => { lines.push(''); r.forEach(f => lines.push((f.key + ':').padEnd(16) + f.value)); });
+            }
+          } catch (e2) { /* both sources failed; reported below */ }
+        }
+        busy = false; input.disabled = false; input.focus();
+        if (!lines) { print(`% No answer for ${key}. The registry may be unreachable from this network, or the object may not exist.`); return; }
+        await slow(lines, 12);
+      }
       const pad = (s, n) => (String(s) + ' '.repeat(n)).slice(0, n);
       const C = {
         help: () => print(['Commands:',
           '  TRACERT vasilis   Trace the route of my career',
           '  PING vasilis      Get a few random facts about me',
           '  WHOIS vasilis     Who I am, in one screen',
+          '  WHOIS AS207135    Live RIPE database record of my network',
+          '                    (also takes other ASNs, IPs and prefixes)',
           '  IPCONFIG          Network settings of AS207135',
           '  DIR               List what is on this desktop',
           '  START <name>      Open documents, videos, downloads, mail, browser, resume',
@@ -1016,14 +1049,17 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
           await slow(rows, 650);
           await slow(['', 'Ping statistics for vasilis.as207135.net:', '    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)', 'Run PING again for more.'], 100);
         },
-        whois: () => print(['', 'Name:          Vasilis Giotsas',
+        whois: async a => {
+          if (a && !/^vasilis/i.test(a)) return lookup(a);
+          print(['', 'Name:          Vasilis Giotsas',
           'Role:          Senior Research Engineer, Cloudflare',
           'Previously:    Senior Lecturer (Associate Professor), Lancaster University',
           '               TU Berlin, CAIDA (UC San Diego)',
           'Education:     Ph.D. and M.Sc., University College London',
           'Interests:     Internet measurement, routing security, machine learning',
           'Network:       AS207135 (IPv6-only, run with my son)',
-          'Contact:       ' + D.email, ''].join('\n')),
+          'Contact:       ' + D.email, '', 'Try WHOIS AS207135 for the RIPE database record of my network.', ''].join('\n'));
+        },
         ipconfig: () => print(['', 'VGOS IP Configuration', '', 'Ethernet adapter AS207135:', '',
           '   Connection-specific DNS Suffix  . : as207135.net',
           '   IPv6 Address. . . . . . . . . . . : yes, plenty',
@@ -1061,7 +1097,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         const [cmd, ...rest] = line.trim().split(/\s+/);
         if (!cmd) return;
         const k = cmd.toLowerCase(), arg = rest.join(' ');
-        if ((k === 'ping' || k === 'tracert' || k === 'traceroute' || k === 'whois') && arg && !/^vasilis/i.test(arg)) { print(`Unknown host ${arg}. Try ${k.toUpperCase()} vasilis.`); return; }
+        if ((k === 'ping' || k === 'tracert' || k === 'traceroute') && arg && !/^vasilis/i.test(arg)) { print(`Unknown host ${arg}. Try ${k.toUpperCase()} vasilis.`); return; }
         if (C[k]) await C[k](arg); else print(`'${cmd}' is not recognized as an internal or external command,\noperable program or batch file. Type HELP for a list.`);
       }
       input.addEventListener('keydown', async e => {
