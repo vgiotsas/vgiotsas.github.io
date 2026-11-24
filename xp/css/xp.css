@@ -467,3 +467,13 @@ a{color:#0b4ee0}
 .pt .statusbar .st{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .pt-xy,.pt-sz{min-width:90px;padding-left:8px;border-left:1px solid #aca899}
 @media (max-width:700px){.pt-sw{grid-template-columns:repeat(14,minmax(0,1fr));flex:1}.pt-sw button{width:auto;height:18px}.pt-custom{font-size:0;gap:0}.pt-xy{display:none}}
+
+/* System Properties > Network */
+.np-group{margin:0 0 10px;padding:4px 10px 8px;border:1px solid #d0d0bf;border-radius:3px}
+.np-group legend{color:#0046d5;padding:0 3px}
+.np-group table{border-collapse:collapse;width:100%}
+.np-group td{padding:3px 0;vertical-align:top}
+.np-group td+td{padding-left:14px}
+.np-group a,.np-more a{color:#0b3cc1}
+.np-more{display:flex;align-items:center;gap:6px;margin:4px 0 0}
+.np-more svg{width:18px;height:18px}

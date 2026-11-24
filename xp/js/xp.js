@@ -404,6 +404,8 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         <div class="dlg" style="background:#fcfcfe;margin:0 8px;border:1px solid #919b9c"></div>
         <div class="dlg" style="flex:0 0 auto;padding:8px"><div class="acts"><button class="btn" type="button" data-close>OK</button></div></div></div>`);
       const pane = body.querySelector('.dlg');
+      const AS = { prefixes: ['2001:678:1284::/48', '2a0c:9a40:8b70::/48'], upstreams: [[35661, 'VIRTUA SYSTEMS SAS'], [209533, 'iFog GmbH']], ixps: ['FogIXP'] };
+      const ext = (href, text) => `<a href="${href}" target="_blank" rel="noopener">${esc(text)}</a>`;
       const tabs = {
         g: `<div class="sysprops"><div class="logo"><img src="img/vasilis.jpg" alt="">${I.mark().replace('<svg', '<svg style="width:40px;height:40px;background:#3a9b38;border-radius:6px"')}</div><div>
           <p><b>System:</b><br>VGOS Professional<br>Version 2026</p>
@@ -411,12 +413,16 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
           <p><b>Computer:</b><br>Senior Research Engineer<br>60 peer-reviewed papers<br>134,000+ dataset downloads<br>13 years uptime measuring the Internet</p></div></div>`,
         n: `<div class="dlg-row">${I.network()}<div><p style="margin:0 0 8px"><b>AS207135</b></p>
           <p style="margin:0 0 8px">An IPv6-only autonomous system that I run with <a href="${D.links.son}" target="_blank" rel="noopener">my son</a>.</p>
-          <p style="margin:0">IPv4 address: none. The free pool ran out a while ago.</p></div></div>`
+          <p style="margin:0 0 10px">IPv4 address: none. The free pool ran out a while ago.</p></div></div>
+          <fieldset class="np-group"><legend>IPv6 prefixes</legend><table>${AS.prefixes.map(p => `<tr><td>${ext('https://bgp.he.net/net/' + p, p)}</td></tr>`).join('')}</table></fieldset>
+          <fieldset class="np-group"><legend>Upstream providers</legend><table>${AS.upstreams.map(([asn, name]) => `<tr><td>${ext('https://bgp.he.net/AS' + asn, 'AS' + asn)}</td><td>${ext('https://bgp.he.net/AS' + asn, name)}</td></tr>`).join('')}</table></fieldset>
+          <fieldset class="np-group"><legend>Internet exchanges</legend><table>${AS.ixps.map(x => `<tr><td>${ext('https://bgp.he.net/exchange/' + x, x)}</td></tr>`).join('')}</table></fieldset>
+          <p class="np-more">${I.network()}${ext('https://bgp.tools/as/207135#asinfo', 'View AS207135 on bgp.tools')}</p>`
       };
       const show = k => { pane.innerHTML = tabs[k]; body.querySelectorAll('[data-tab]').forEach(b => b.classList.toggle('on', b.dataset.tab === k)); };
       body.querySelectorAll('[data-tab]').forEach(b => { b.onclick = () => show(b.dataset.tab); });
       show('g');
-      openWin('sys', { title: 'System Properties', icon: 'computer', w: 460, h: 420, body });
+      openWin('sys', { title: 'System Properties', icon: 'computer', w: 460, h: 500, body });
       body.querySelector('[data-close]').onclick = () => closeWin('sys');
     },
 
@@ -980,12 +986,45 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
       const print = (t = '', cls) => { const d = document.createElement('div'); if (cls) d.className = cls; d.textContent = t; out.appendChild(d); body.scrollTop = body.scrollHeight; };
       const slow = (lines, ms = 220) => new Promise(res => { busy = true; input.disabled = true; let i = 0; const step = () => { if (i >= lines.length) { busy = false; input.disabled = false; input.focus(); res(); return; } print(lines[i++]); setTimeout(step, ms); }; step(); });
       let pingN = 0;
+      /* WHOIS for real resources: the RIPE database first, then RIPEstat, which also covers the other registries */
+      async function lookup(q) {
+        const asn = /^(as)?(\d{1,10})$/i.exec(q), ip = /^[0-9a-f:.]+(\/\d{1,3})?$/i.test(q) && /[.:]/.test(q);
+        if (!asn && !ip) { print(`WHOIS: ${q} is not an AS number, IP address or prefix. Try WHOIS AS207135.`); return; }
+        const key = asn ? 'AS' + asn[2] : q.toLowerCase();
+        const type = asn ? 'aut-num' : key.includes(':') ? 'inet6num' : 'inetnum';
+        const get = async (url, as) => {
+          const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 8000);
+          try { const r = await fetch(url, { signal: ctl.signal, headers: as === 'json' ? { Accept: 'application/json' } : {} }); if (!r.ok) throw new Error(r.status); return as === 'json' ? r.json() : r.text(); }
+          finally { clearTimeout(t); }
+        };
+        busy = true; input.disabled = true;
+        print(`% Querying the RIPE database for ${key}...`);
+        let lines = null;
+        try {
+          const txt = await get(`https://rest.db.ripe.net/ripe/${type}/${key}.txt`, 'text');
+          lines = txt.replace(/\r/g, '').replace(/\n+$/, '').split('\n');
+        } catch (e) {
+          try {
+            const j = await get('https://stat.ripe.net/data/whois/data.json?resource=' + encodeURIComponent(key) + '&sourceapp=v.giotsas.com', 'json');
+            const recs = (j.data && j.data.records) || [];
+            if (recs.length) {
+              lines = ['% Answer from RIPEstat (' + ((j.data.authorities || []).join(', ') || 'whois') + ')'];
+              recs.forEach(r => { lines.push(''); r.forEach(f => lines.push((f.key + ':').padEnd(16) + f.value)); });
+            }
+          } catch (e2) { /* both sources failed; reported below */ }
+        }
+        busy = false; input.disabled = false; input.focus();
+        if (!lines) { print(`% No answer for ${key}. The registry may be unreachable from this network, or the object may not exist.`); return; }
+        await slow(lines, 12);
+      }
       const pad = (s, n) => (String(s) + ' '.repeat(n)).slice(0, n);
       const C = {
         help: () => print(['Commands:',
           '  TRACERT vasilis   Trace the route of my career',
           '  PING vasilis      Get a few random facts about me',
           '  WHOIS vasilis     Who I am, in one screen',
+          '  WHOIS AS207135    Live RIPE database record of my network',
+          '                    (also takes other ASNs, IPs and prefixes)',
           '  IPCONFIG          Network settings of AS207135',
           '  DIR               List what is on this desktop',
           '  START <name>      Open documents, videos, downloads, mail, browser, resume',
@@ -1010,14 +1049,17 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
           await slow(rows, 650);
           await slow(['', 'Ping statistics for vasilis.as207135.net:', '    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)', 'Run PING again for more.'], 100);
         },
-        whois: () => print(['', 'Name:          Vasilis Giotsas',
+        whois: async a => {
+          if (a && !/^vasilis/i.test(a)) return lookup(a);
+          print(['', 'Name:          Vasilis Giotsas',
           'Role:          Senior Research Engineer, Cloudflare',
           'Previously:    Senior Lecturer (Associate Professor), Lancaster University',
           '               TU Berlin, CAIDA (UC San Diego)',
           'Education:     Ph.D. and M.Sc., University College London',
           'Interests:     Internet measurement, routing security, machine learning',
           'Network:       AS207135 (IPv6-only, run with my son)',
-          'Contact:       ' + D.email, ''].join('\n')),
+          'Contact:       ' + D.email, '', 'Try WHOIS AS207135 for the RIPE database record of my network.', ''].join('\n'));
+        },
         ipconfig: () => print(['', 'VGOS IP Configuration', '', 'Ethernet adapter AS207135:', '',
           '   Connection-specific DNS Suffix  . : as207135.net',
           '   IPv6 Address. . . . . . . . . . . : yes, plenty',
@@ -1055,7 +1097,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
         const [cmd, ...rest] = line.trim().split(/\s+/);
         if (!cmd) return;
         const k = cmd.toLowerCase(), arg = rest.join(' ');
-        if ((k === 'ping' || k === 'tracert' || k === 'traceroute' || k === 'whois') && arg && !/^vasilis/i.test(arg)) { print(`Unknown host ${arg}. Try ${k.toUpperCase()} vasilis.`); return; }
+        if ((k === 'ping' || k === 'tracert' || k === 'traceroute') && arg && !/^vasilis/i.test(arg)) { print(`Unknown host ${arg}. Try ${k.toUpperCase()} vasilis.`); return; }
         if (C[k]) await C[k](arg); else print(`'${cmd}' is not recognized as an internal or external command,\noperable program or batch file. Type HELP for a list.`);
       }
       input.addEventListener('keydown', async e => {
@@ -1221,7 +1263,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
   const smItem = (icon, title, sub, act) => `<button type="button" role="menuitem" class="sm-item" data-act="${act}">${I[icon]()}<div><b>${esc(title)}</b>${sub ? `<small>${esc(sub)}</small>` : ''}</div></button>`;
   sm.innerHTML = `<div class="sm-head"><img src="img/vasilis.jpg" alt="">Vasilis</div><div class="sm-body">
     <div class="sm-left">${smItem('browser', 'Internet', 'My profiles on the web', 'browser')}${smItem('mail', 'E-mail', 'Write to me', 'mail')}<div class="sm-sep"></div>
-      ${smItem('doc', 'Resume', '', 'resume')}${smItem('cmd', 'Command Prompt', '', 'cmd')}${smItem('video', 'Media Player', 'Recorded talks', 'player')}${smItem('pdf', 'Papers', '', 'papers')}${smItem('sweeper', 'Paper Sweeper', 'Get past Reviewer 2', 'sweeper')}${smItem('paint', 'Paint', '', 'paint')}${smItem('notepad', 'readme.txt', '', 'readme')}</div>
+      ${smItem('cmd', 'Command Prompt', '', 'cmd')}${smItem('video', 'Media Player', 'Recorded talks', 'player')}${smItem('sweeper', 'Paper Sweeper', 'Get past Reviewer 2', 'sweeper')}${smItem('paint', 'Paint', '', 'paint')}${smItem('notepad', 'readme.txt', '', 'readme')}</div>
     <div class="sm-right">${smItem('documents', 'My Documents', '', 'documents')}${smItem('pictures', 'My Pictures', '', 'pictures')}${smItem('videos', 'My Videos', '', 'videos')}${smItem('downloads', 'Downloads', '', 'downloads')}${smItem('computer', 'My Computer', '', 'computer')}<div class="sm-sep"></div>
       ${smItem('info', 'System Properties', '', 'system')}${smItem('help', 'Help and Support', '', 'readme')}${smItem('run', 'Run...', '', 'cmd')}</div></div>
     <div class="sm-foot"><button type="button" data-act="logoff">${I.logoff()}Log Off</button><button type="button" data-act="turnoff">${I.power()}Turn Off Computer</button></div>`;
