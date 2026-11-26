@@ -1055,7 +1055,7 @@ Built from scratch. No real operating systems were harmed.`, 560, 420);
           print(['', 'Name:          Vasilis Giotsas',
           'Role:          Senior Research Engineer, Cloudflare',
           'Previously:    Senior Lecturer (Associate Professor), Lancaster University',
-          '               TU Berlin, CAIDA (UC San Diego)',
+          '               TU Berlin, CAIDA (UC San Diego), BAFTA Research',
           'Education:     Ph.D. and M.Sc., University College London',
           'Interests:     Internet measurement, routing security, machine learning',
           'Network:       AS207135 (IPv6-only, run with my son)',

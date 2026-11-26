@@ -130,6 +130,7 @@ window.VG = {
     ['bsc.unipi.gr', '2003-2007', 4.0, 'University of Piraeus', 'B.Sc. Computer Science'],
     ['msc.ucl.ac.uk', '2007-2008', 1.0, 'University College London', 'M.Sc. Data Communications, Networks and Distributed Systems (Distinction)'],
     ['phd.ucl.ac.uk', '2009-2014', 5.0, 'University College London', 'Ph.D. Computer Science'],
+    ['research.bafta.org', '2011-2015', 4.0, 'BAFTA Research', 'Senior Research Engineer. Built Electron, a cloud video platform that processes over 10 TB of video a month'],
     ['postdoc.caida.org', '2013-2017', 4.0, 'CAIDA, UC San Diego', 'Postdoctoral Researcher. Built Periscope and the AS relationship datasets (134,000+ downloads)'],
     ['research.tu-berlin.de', '2017-2018', 1.0, 'TU Berlin', 'Research Scientist, Internet Measurement and Analysis'],
     ['lecturer.lancaster.ac.uk', '2018-2024', 6.0, 'Lancaster University', 'Senior Lecturer (Associate Professor). Led the network security group'],
