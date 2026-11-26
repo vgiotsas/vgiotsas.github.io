@@ -12,6 +12,10 @@ body{margin:0;background:#0B0F1A}
 .vg-ping:hover{background:#FFFFFF !important}
 .vg-ping:active{transform:scale(.97)}
 @media (prefers-reduced-motion:reduce){.vg-caret{animation:none}.vg-hop{animation:none;opacity:1}.vg-card{transition:none}}
+.vg-trip{scroll-margin-top:24px}
+.vg-trip:target{background:#111727}
+.vg-halo{transition:fill-opacity .2s ease}
+.vg-pin:hover .vg-halo,.vg-pin:focus .vg-halo{fill-opacity:.45}
 body{margin:0;background:#0B0F1A}
 :where(a){color:#EDEAE3}:where(a):hover{color:#FFFFFF}
 @keyframes vgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
@@ -155,6 +159,13 @@ body{margin:0;background:#0B0F1A}
 .sf117d3e{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; text-decoration: none; color: #E8ECF5}
 .s31bddb8{background: #0E1322; border: 1px solid #232B42; border-radius: 20px; padding: 24px; font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8}
 .s05dc471{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42}
+.s87bfeef{max-width: 1200px; margin: 0 auto; padding: 0 28px 64px; display: flex; flex-direction: column; gap: 28px}
+.s94acdb6{font-family: 'Fragment Mono', monospace; font-size: 13px; color: #9AA3B8}
+.s5bbce36{border-top: 2px solid #39435E; padding-top: 20px; overflow-x: auto}
+.sade2b08{display: block; min-width: 1040px; height: auto}
+.s75261ce{max-width: 1200px; margin: 0 auto; padding: 0 28px 96px; display: flex; flex-direction: column; gap: 20px}
+.sb62b40f{margin: 0; font-size: clamp(24px, 3vw, 32px); letter-spacing: -0.01em; font-weight: 700}
+.s03ccbd3{width: 190px; font-size: 17px; color: #E8ECF5}
 .s000df5c{background: #0B0F1A; color: #E8ECF5; font-family: 'Familjen Grotesk', system-ui, sans-serif; min-height: 100vh; background-image: radial-gradient(#1B2338 1px, transparent 1px); background-size: 28px 28px; display: flex; align-items: center; justify-content: center; padding: 28px}
 .s9fe6b1f{max-width: 720px; width: 100%; display: flex; flex-direction: column; gap: 24px}
 .s11a034e{background: #0E1322; border: 1px solid #232B42; border-radius: 24px; padding: 22px; font-family: 'Fragment Mono', monospace; font-size: 13px; overflow-x: auto; white-space: pre; line-height: 1.75; color: #C9D0E0}
