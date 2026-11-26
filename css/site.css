@@ -92,7 +92,7 @@ body{margin:0;background:#0B0F1A}
 .s083ac68{flex: 1 1 380px; min-width: 0; font-size: 17px; line-height: 1.5; color: #C9D0E0}
 .s4655195{color: #E8ECF5}
 .s916d3df{font-family: 'Fragment Mono', monospace; font-size: 13px; color: #EDEAE3}
-.s2715d3f{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0}
+.seaa55e5{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; text-decoration: none}
 .s71de94a{max-width: 1200px; margin: 0 auto; padding: 0 28px 64px}
 .s51aa776{background: #EDEAE3; color: #0B0F1A; border-radius: 0; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between}
 .scd41927{flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px}
@@ -142,6 +142,9 @@ body{margin:0;background:#0B0F1A}
 .se268580{width: 56px; height: 56px; border-radius: 999px; background: #EDEAE3; display: flex; align-items: center; justify-content: center}
 .s6675011{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #EDEAE3}
 .se124ce9{font-size: 18px; font-weight: 600; line-height: 1.3}
+.s89dbb6c{display: flex; flex-direction: column; gap: 16px}
+.s65f4615{margin: 0; font-size: 26px; letter-spacing: -0.01em; font-weight: 700}
+.s1852575{display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #232B42; text-decoration: none; color: #E8ECF5}
 .sde870f1{margin: 0; color: #9AA3B8; font-size: 15px}
 .sa6a17b4{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42; text-decoration: none; color: #E8ECF5}
 .s2938b73{font-family: 'Fragment Mono', monospace; font-size: 12px; color: #EDEAE3; width: 130px}
@@ -151,7 +154,6 @@ body{margin:0;background:#0B0F1A}
 .sf117d3e{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; text-decoration: none; color: #E8ECF5}
 .s31bddb8{background: #0E1322; border: 1px solid #232B42; border-radius: 20px; padding: 24px; font-family: 'Fragment Mono', monospace; font-size: 14px; color: #9AA3B8}
 .s05dc471{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #232B42}
-.seaa55e5{display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; padding: 18px 0; text-decoration: none}
 .s000df5c{background: #0B0F1A; color: #E8ECF5; font-family: 'Familjen Grotesk', system-ui, sans-serif; min-height: 100vh; background-image: radial-gradient(#1B2338 1px, transparent 1px); background-size: 28px 28px; display: flex; align-items: center; justify-content: center; padding: 28px}
 .s9fe6b1f{max-width: 720px; width: 100%; display: flex; flex-direction: column; gap: 24px}
 .s11a034e{background: #0E1322; border: 1px solid #232B42; border-radius: 24px; padding: 22px; font-family: 'Fragment Mono', monospace; font-size: 13px; overflow-x: auto; white-space: pre; line-height: 1.75; color: #C9D0E0}

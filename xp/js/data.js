@@ -14,6 +14,10 @@ window.VG = {
   },
 
   papers: [
+    { file: 'rscope-imc26.pdf', venue: 'ACM IMC', year: 2026,
+      title: 'RScope: Unveiling Global ROV Deployments and Dependencies in the Post-ROV Era',
+      authors: 'with Wei-Tong Li, Yong-Zhe Xu, Ming-Wei Zhang and Taejoong Chung',
+      summary: 'A global measurement of Route Origin Validation deployment, and of how networks depend on the ROV of others, now that ROV is widely deployed.' },
     { file: 'shared-ip-addresses-sigcomm26.pdf', venue: 'ACM SIGCOMM', year: 2026,
       title: 'A Global Inference and Assessment of Large Shared IP Addresses',
       authors: 'with Loqman Salamatian, Antoine Cordelle, Nick Wood and Marwan Fayed',
@@ -96,12 +100,24 @@ window.VG = {
   ],
 
   news: [
+    { date: '2026', subject: 'Paper at ACM IMC 2026: RScope',
+      body: 'Our paper "RScope: Unveiling Global ROV Deployments and Dependencies in the Post-ROV Era" appears at ACM IMC 2026.' },
+    { date: '2026', subject: 'Talk at the BGP Communities workshop, ACM IMC 2026',
+      body: 'I spoke at "Communities in the Wild", the BGP Communities workshop at ACM IMC 2026, about how a CDN uses BGP communities and what we learned operating them.\n\nProgram: https://bgpcommunities.org/#program' },
+    { date: '2026', subject: 'Expert panel at NetNeg, ACM SIGCOMM 2026',
+      body: 'I joined the expert panel "Beyond Negative Results: What Our Network Measurements Reveal" at NetNeg, the workshop on negative results in network measurements.\n\nhttps://conferences.sigcomm.org/sigcomm/2026/netneg/' },
+    { date: '2026', subject: 'PyCon 2026: Python on the Edge',
+      body: 'I spoke about serverless WASM with Pyodide: "Python on the Edge".' },
+    { date: '2026', subject: 'Keynote at the TMA 2026 PhD School',
+      body: 'I gave the keynote "5 Lessons from 5 Years of Internet Measurements at Cloudflare" at the TMA 2026 PhD School, and a TMA talk on assessing large-scale shared IP addresses.\n\nhttps://tma.ifip.org/2026/phd-school-program/' },
     { date: '2026', subject: 'Paper accepted at ACM SIGCOMM 2026',
       body: 'Our paper "A Global Inference and Assessment of Large Shared IP Addresses" will appear at ACM SIGCOMM 2026. It infers which IP addresses hide many users (CGNs, VPNs, proxies) from global CDN logs.' },
     { date: '2025', subject: 'New post on the Cloudflare Blog: detecting CGNAT',
       body: 'I wrote about how we detect CGNAT so that IP-based security rules block fewer legitimate users.\n\nRead it: https://blog.cloudflare.com/detecting-cgn-to-reduce-collateral-damage/' },
-    { date: '2025', subject: 'Internet Society PULSE Fellowship',
-      body: 'I was selected for the Internet Society PULSE Fellowship.' },
+    { date: '2025', subject: 'Keynote at AINTEC 2025',
+      body: 'I gave a keynote at AINTEC 2025, the Asian Internet Engineering Conference.' },
+    { date: '2025', subject: 'Internet Society Pulse Research Fellowship',
+      body: 'I mentored in the Internet Society Pulse Research Fellowship.' },
     { date: '2025', subject: 'Talk at PyCon Greece',
       body: 'I spoke at PyCon Greece 2025.' },
     { date: '2024', subject: 'metAScritic at ACM IMC 2024',
@@ -137,7 +153,8 @@ window.VG = {
   ],
 
   awards: ['ACM CoNEXT Best Paper Award (2015)', 'IETF Applied Networking Research Prize (2017)',
-           'Internet Society PULSE Fellowship (2025)', 'RIPE Academic Collaboration Initiative fellowships (2017, 2018)'],
+           'Mentor, Internet Society Pulse Research Fellowship (2025)', 'RIPE Academic Collaboration Initiative fellowships (2017, 2018)',
+           'Organizer, ACM SIGCOMM 2018 Hackathon'],
 
   skills: [
     ['Languages', 'Python, Go, SQL'],
