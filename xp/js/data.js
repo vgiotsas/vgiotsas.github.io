@@ -111,7 +111,7 @@ window.VG = {
     { date: '2026', subject: 'Expert panel at NetNeg, ACM SIGCOMM 2026',
       body: 'I joined the expert panel "Beyond Negative Results: What Our Network Measurements Reveal" at NetNeg, the workshop on negative results in network measurements.\n\nhttps://conferences.sigcomm.org/sigcomm/2026/netneg/' },
     { date: '2026', subject: 'Talk at IETF 126: IDRNG',
-      body: 'I spoke at the IRTF IDRNG meeting on next-generation inter-domain routing, at IETF 126 in Vienna.\n\nhttps://github.com/IDRNG/126meeting' },
+      body: 'I spoke remotely at the IRTF IDRNG meeting on next-generation inter-domain routing, at IETF 126.\n\nhttps://github.com/IDRNG/126meeting' },
     { date: '2026', subject: 'Keynote at the TMA 2026 PhD School',
       body: 'I gave the keynote "5 Lessons from 5 Years of Internet Measurements at Cloudflare" at the TMA 2026 PhD School, and a TMA talk on assessing large-scale shared IP addresses.\n\nhttps://tma.ifip.org/2026/phd-school-program/' },
     { date: '2026', subject: 'Paper accepted at ACM SIGCOMM 2026',
