@@ -100,14 +100,18 @@ window.VG = {
   ],
 
   news: [
+    { date: '2026', subject: 'Keynote at the ACM CoNEXT 2026 PhD School',
+      body: 'I gave a keynote at the ACM CoNEXT 2026 PhD School in The Hague.' },
     { date: '2026', subject: 'Paper at ACM IMC 2026: RScope',
       body: 'Our paper "RScope: Unveiling Global ROV Deployments and Dependencies in the Post-ROV Era" appears at ACM IMC 2026.' },
     { date: '2026', subject: 'Talk at the BGP Communities workshop, ACM IMC 2026',
       body: 'I spoke at "Communities in the Wild", the BGP Communities workshop at ACM IMC 2026, about how a CDN uses BGP communities and what we learned operating them.\n\nProgram: https://bgpcommunities.org/#program' },
+    { date: '2026', subject: 'PyCon Greece 2026: Python on the Edge',
+      body: 'I spoke about serverless WASM with Pyodide at PyCon Greece 2026: "Python on the Edge".\n\nhttps://pretalx.com/pycongr26/talk/WDSCUU/' },
     { date: '2026', subject: 'Expert panel at NetNeg, ACM SIGCOMM 2026',
       body: 'I joined the expert panel "Beyond Negative Results: What Our Network Measurements Reveal" at NetNeg, the workshop on negative results in network measurements.\n\nhttps://conferences.sigcomm.org/sigcomm/2026/netneg/' },
-    { date: '2026', subject: 'PyCon 2026: Python on the Edge',
-      body: 'I spoke about serverless WASM with Pyodide: "Python on the Edge".' },
+    { date: '2026', subject: 'Talk at IETF 126: IDRNG',
+      body: 'I spoke remotely at the IRTF IDRNG meeting on next-generation inter-domain routing, at IETF 126: "Opportunities and Challenges in AI-driven BGP Engineering for Anycast Routing".\n\nhttps://github.com/IDRNG/126meeting' },
     { date: '2026', subject: 'Keynote at the TMA 2026 PhD School',
       body: 'I gave the keynote "5 Lessons from 5 Years of Internet Measurements at Cloudflare" at the TMA 2026 PhD School, and a TMA talk on assessing large-scale shared IP addresses.\n\nhttps://tma.ifip.org/2026/phd-school-program/' },
     { date: '2026', subject: 'Paper accepted at ACM SIGCOMM 2026',
@@ -115,11 +119,15 @@ window.VG = {
     { date: '2025', subject: 'New post on the Cloudflare Blog: detecting CGNAT',
       body: 'I wrote about how we detect CGNAT so that IP-based security rules block fewer legitimate users.\n\nRead it: https://blog.cloudflare.com/detecting-cgn-to-reduce-collateral-damage/' },
     { date: '2025', subject: 'Keynote at AINTEC 2025',
-      body: 'I gave a keynote at AINTEC 2025, the Asian Internet Engineering Conference.' },
+      body: 'I gave the keynote "Measuring the Internet to Protect its People" at AINTEC 2025, the Asian Internet Engineering Conference, and joined the expert panel "LLM for Networking or Networking for LLM?".' },
+    { date: '2025', subject: 'Expert panel at Pulse Research Week',
+      body: 'I joined an expert panel at the Internet Society Pulse Research Week in Barcelona.' },
     { date: '2025', subject: 'Internet Society Pulse Research Fellowship',
       body: 'I mentored in the Internet Society Pulse Research Fellowship.' },
     { date: '2025', subject: 'Talk at PyCon Greece',
       body: 'I spoke at PyCon Greece 2025.' },
+    { date: '2025', subject: 'Talk at Coseners 2025',
+      body: 'I spoke at Coseners, the UK academic meeting on systems and networks, in Abingdon: "An Internet-wide view of large-scale IP sharing".' },
     { date: '2024', subject: 'metAScritic at ACM IMC 2024',
       body: 'We presented metAScritic, which treats AS-level topology discovery as a recommendation problem, at ACM IMC 2024.' },
     { date: '2023', subject: 'Talk at Black Hat EU 2023',
@@ -130,10 +138,10 @@ window.VG = {
     ['bsc.unipi.gr', '2003-2007', 4.0, 'University of Piraeus', 'B.Sc. Computer Science'],
     ['msc.ucl.ac.uk', '2007-2008', 1.0, 'University College London', 'M.Sc. Data Communications, Networks and Distributed Systems (Distinction)'],
     ['phd.ucl.ac.uk', '2009-2014', 5.0, 'University College London', 'Ph.D. Computer Science'],
-    ['research.bafta.org', '2011-2015', 4.0, 'BAFTA Research', 'Senior Research Engineer. Built Electron, a cloud video platform that processes over 10 TB of video a month'],
-    ['postdoc.caida.org', '2013-2017', 4.0, 'CAIDA, UC San Diego', 'Postdoctoral Researcher. Built Periscope and the AS relationship datasets (134,000+ downloads)'],
+    ['research.bafta.org', '2011-2015', 4.0, 'BAFTA Research', 'Senior Research Engineer (part-time). Built the first version of Electron, a cloud video platform that processes over 10 TB of video a month'],
+    ['postdoc.caida.org', '2013-2017', 4.0, 'CAIDA, UC San Diego', 'Postdoctoral Researcher. Led, as co-investigator, a DHS and SPAWAR project mapping interconnection facilities. Built Periscope and the AS relationship datasets (134,000+ downloads)'],
     ['research.tu-berlin.de', '2017-2018', 1.0, 'TU Berlin', 'Research Scientist, Internet Measurement and Analysis'],
-    ['lecturer.lancaster.ac.uk', '2018-2024', 6.0, 'Lancaster University', 'Senior Lecturer (Associate Professor). Led the network security group'],
+    ['lecturer.lancaster.ac.uk', '2018-2024', 6.0, 'Lancaster University', 'Senior Lecturer (Associate Professor). Led the network security group in the Academic Centre of Excellence in Cyber Security Research'],
     ['research.cloudflare.com', '2021-now', 5.0, 'Cloudflare', 'Senior Research Engineer']
   ],
 
@@ -155,14 +163,17 @@ window.VG = {
 
   awards: ['ACM CoNEXT Best Paper Award (2015)', 'IETF Applied Networking Research Prize (2017)',
            'Mentor, Internet Society Pulse Research Fellowship (2025)', 'RIPE Academic Collaboration Initiative fellowships (2017, 2018)',
-           'Organizer, ACM SIGCOMM 2018 Hackathon'],
+           'Organizer, ACM SIGCOMM 2018 Hackathon',
+           'Program committees: ACM IMC (2022 to now), ACM CoNEXT (2024, 2025, 2027), TMA (2022 to 2026), PAM (2021 to 2023), NetNeg 2026',
+           'Reviewer, IEEE/ACM Transactions on Networking and other IEEE journals',
+           'Committee member, Brendan Murphy Prize (Coseners)'],
 
   skills: [
-    ['Languages', 'Python, Go, SQL'],
+    ['Languages', 'Python, Go, R, SQL'],
     ['Data', 'BigQuery, ClickHouse, Spark, Kafka, Airflow, Jupyter'],
     ['Machine learning', 'PyTorch, TensorFlow, scikit-learn, XGBoost, pandas, NumPy'],
     ['NLP', 'Hugging Face, spaCy, NLTK'],
     ['Infrastructure', 'Docker, Kubernetes, Terraform, Salt, AWS, GCP, Cloudflare'],
-    ['Observability', 'Prometheus, Grafana, Git, Scapy']
+    ['Observability', 'Prometheus, Grafana, Git, Scapy, A/B testing']
   ]
 };
